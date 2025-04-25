@@ -1,0 +1,21 @@
+<div class="d-flex min-vh-100">
+    <!-- Sidebar -->
+    <div class="bg-dark text-white p-3" style="width: 250px;">
+      <h4 class="mb-4">🏋 GymPro</h4>
+      <ul class="nav flex-column">
+        <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/dashboard">Panel Principal</a></li>
+        <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/clientes">Clientes</a></li>
+        <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/ejercicios">Ejercicios</a></li>
+        <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/medidas">Medidas Corporales</a></li>
+        <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/empleados">Empleados</a></li>
+        <li class="nav-item mb-2"><a class="nav-link text-white" routerLink="/configuracion">Configuración</a></li>
+        <li class="nav-item"><a class="nav-link text-danger" routerLink="/logout">Cerrar Sesión</a></li>
+      </ul>
+    </div>
+  
+    <!-- Main content -->
+    <div class="flex-grow-1 bg-light p-4">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

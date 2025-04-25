@@ -1,0 +1,23 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <label>Nombre:</label>
+    <input formControlName="nombre" /><br />
+    <label>Apellidos:</label>
+    <input formControlName="apellidos" /><br />
+    <label>Fecha de Nacimiento:</label>
+    <input type="date" formControlName="fechaNacimiento" /><br />
+    <label>Sexo:</label>
+    <select formControlName="sexo">
+      <option value="M">Masculino</option>
+      <option value="F">Femenino</option>
+    </select><br />
+    <label>Teléfono:</label>
+    <input formControlName="telefono" /><br />
+    <label>Correo electrónico:</label>
+    <input formControlName="correoElectronico" /><br />
+    <label>Imagen:</label>
+    <input formControlName="imagenRuta" /><br />
+    <label>Activo:</label>
+    <input type="checkbox" formControlName="activo" /><br />
+    <button type="submit">Registrar Cliente</button>
+  </form>
+  
