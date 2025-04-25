@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\domain",
+    "\\src\\app\\environments",
+    "\\src\\app\\features",
+    "\\src\\app\\features\\instructores",
+    "\\src\\app\\features\\instructores\\instructor-list",
+    "\\src\\app\\services\\instructor",
+    "\\src\\environments"
+  ],
+  "SelectedNode": "\\src\\app\\features\\instructores\\instructor-list\\instructor-list.component.ts",
+  "PreviewInSolutionExplorer": false
+}

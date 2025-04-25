@@ -1,0 +1,25 @@
+<h2>Lista de Instructores</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>Teléfono</th>
+      <th>Fecha Ingreso</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let instructor of instructores">
+      <td>{{ instructor.nombre }}</td>
+      <td>{{ instructor.apellidos }}</td>
+      <td>{{ instructor.telefono }}</td>
+      <td>{{ instructor.fechaIngreso | date: 'yyyy-MM-dd' }}</td>
+      <td>
+        <button (click)="eliminar(instructor)">Eliminar</button>
+        <!-- Aquí podrías agregar luego un botón de editar -->
+      </td>
+    </tr>
+  </tbody>
+</table>
