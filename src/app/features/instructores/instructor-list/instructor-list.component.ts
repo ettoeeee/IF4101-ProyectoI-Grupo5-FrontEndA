@@ -20,20 +20,24 @@ export class InstructorListComponent implements OnInit {
   constructor(private instructorService: InstructorService) { }
 
   ngOnInit(): void {
-    console.log('InstructorListComponent cargado');
+    console.log('✅ ngOnInit() ejecutado');
     this.cargarInstructores();
   }
 
   cargarInstructores(): void {
-    console.log('Solicitando instructores desde:', this.instructorService['apiUrl']);
+    console.log('✅ cargarInstructores() ejecutado');
+
+    console.log('🌐 URL solicitada:', this.instructorService['apiUrl']);
+
     this.instructorService.getAll().subscribe({
       next: (data: Instructor[]) => {
-        console.log('Instructores recibidos:', data);
+        console.log('✅ Instructores recibidos:', data);
         this.instructores = data;
       },
-      error: (err: any) => console.error('Error cargando instructores:', err)
+      error: (err: any) => console.error('❌ Error cargando instructores:', err)
     });
   }
+
 
   eliminarInstructor(instructor: Instructor): void {
     if (confirm(`¿Seguro que deseas eliminar a ${instructor.nombre} ${instructor.apellidos}?`)) {

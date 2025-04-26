@@ -1,17 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.angular",
-    "\\.angular\\cache",
-    "\\.angular\\cache\\19.2.9",
-    "\\.angular\\cache\\19.2.9\\bulk-gym-frontend",
-    "\\.angular\\cache\\19.2.9\\bulk-gym-frontend\\vite",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\features",
-    "\\src\\app\\features\\instructores",
-    "\\src\\app\\features\\instructores\\instructor-list"
+    "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\features\\instructores\\instructor-list\\instructor-list.component.html",
   "PreviewInSolutionExplorer": false
 }
