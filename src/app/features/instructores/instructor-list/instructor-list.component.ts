@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { InstructorService } from '@app/services/instructor.service';
-import { Instructor } from '@app/domain/instructor';
+import { InstructorService } from '../../../services/instructor/instructor.service';
+import { Instructor } from '../../../domain/instructor.model';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-instructor-list',
   standalone: true,
   templateUrl: './instructor-list.component.html',
   styleUrls: ['./instructor-list.component.css'],
-  imports: []
+  imports: [CommonModule,
+    HttpClientModule]
 })
+
 export class InstructorListComponent implements OnInit {
 
   instructores: Instructor[] = [];
@@ -16,12 +20,17 @@ export class InstructorListComponent implements OnInit {
   constructor(private instructorService: InstructorService) { }
 
   ngOnInit(): void {
+    console.log('InstructorListComponent cargado');
     this.cargarInstructores();
   }
 
   cargarInstructores(): void {
+    console.log('Solicitando instructores desde:', this.instructorService['apiUrl']);
     this.instructorService.getAll().subscribe({
-      next: (data: Instructor[]) => this.instructores = data,
+      next: (data: Instructor[]) => {
+        console.log('Instructores recibidos:', data);
+        this.instructores = data;
+      },
       error: (err: any) => console.error('Error cargando instructores:', err)
     });
   }
