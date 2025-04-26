@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { ClienteListComponent } from './features/clientes/cliente-list/cliente-list.component';
+import { MedidasCorporalesComponent } from './features/medidas-corporales/medidas-corporales.component';
 
 export const routes: Routes = [
   {
@@ -8,7 +9,7 @@ export const routes: Routes = [
     component: LayoutComponent,
     children: [
       { path: '', redirectTo: 'clientes', pathMatch: 'full' },
-      { path: 'clientes', component: ClienteListComponent },
+      //{ path: 'clientes', component: ClienteListComponent },
       {
         path: 'instructores',
         loadComponent: () => import('./features/instructores/instructor-list/instructor-list.component')
@@ -18,7 +19,18 @@ export const routes: Routes = [
         path: 'instructores/nuevo',
         loadComponent: () => import('./features/instructores/instructor-form/instructor-form.component')
           .then(m => m.InstructorFormComponent)
+      },
+
+      { 
+        path: 'medidas-corporales', 
+        loadComponent: () => import('./features/medidas-corporales/medidas-corporales.component').then(m => m.MedidasCorporalesComponent) 
+      },
+      { 
+        path: '', 
+        redirectTo: 'medidas-corporales', 
+        pathMatch: 'full' 
       }
     ]
   }
+
 ];
