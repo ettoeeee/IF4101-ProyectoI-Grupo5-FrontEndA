@@ -1,14 +1,15 @@
 import { Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout/layout.component';
-import { ClienteInsertReactiveComponent } from './clientes/cliente-insert-reactive/cliente-insert-reactive.component';
+import { ClienteListComponent } from './clientes/cliente-list/cliente-list.component';
 
 export const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
     children: [
-      { path: '', redirectTo: 'clientes/insertar', pathMatch: 'full' },
-      { path: 'clientes/insertar', component: ClienteInsertReactiveComponent }
+      { path: '', redirectTo: 'clientes', pathMatch: 'full' },
+      { path: 'clientes', component: ClienteListComponent }
+      // NO agregues la ruta 'clientes/insertar'
     ]
   }
 ];

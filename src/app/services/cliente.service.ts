@@ -8,11 +8,24 @@ import { environment } from '../environments/environment';
   providedIn: 'root'
 })
 export class ClienteService {
-  private apiUrl = `${environment.apiUrl}/clientes`;
+  private apiUrl = `${environment.apiUrl}`; // ✅ quitamos "/clientes"
 
   constructor(private http: HttpClient) {}
 
-  registrarCliente(cliente: Cliente): Observable<any> {
-    return this.http.post(this.apiUrl, cliente);
+  registrarCliente(cliente: Cliente): Observable<{ mensaje: string }> {
+    return this.http.post<{ mensaje: string }>(`${this.apiUrl}/clientes`, cliente); // ✅ agregamos aquí
+  }
+
+  obtenerClientes(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(`${this.apiUrl}/clientes`);
+  }
+
+  eliminarCliente(id: number): Observable<{ mensaje: string }> {
+    return this.http.delete<{ mensaje: string }>(`${this.apiUrl}/clientes/${id}`);
+  }
+
+  actualizarCliente(cliente: Cliente): Observable<any> {
+    const id = String(cliente.idPersona).trim();
+    return this.http.put(`${this.apiUrl}/clientes/${id}`, cliente);
   }
 }

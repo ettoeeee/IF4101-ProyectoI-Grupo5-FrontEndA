@@ -1,23 +1,84 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
-    <label>Nombre:</label>
-    <input formControlName="nombre" /><br />
-    <label>Apellidos:</label>
-    <input formControlName="apellidos" /><br />
-    <label>Fecha de Nacimiento:</label>
-    <input type="date" formControlName="fechaNacimiento" /><br />
-    <label>Sexo:</label>
-    <select formControlName="sexo">
+  
+  <!-- ID Persona -->
+  <div class="mb-3">
+    <label for="idPersona" class="form-label">Cédula / ID Persona</label>
+    <input id="idPersona" type="number" class="form-control" formControlName="idPersona" placeholder="Digite el número de cédula" />
+  </div>
+
+  <!-- Nombre -->
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre:</label>
+    <input id="nombre" class="form-control" formControlName="nombre" />
+  </div>
+
+  <!-- Apellidos -->
+  <div class="mb-3">
+    <label for="apellidos" class="form-label">Apellidos:</label>
+    <input id="apellidos" class="form-control" formControlName="apellidos" />
+  </div>
+
+  <!-- Fecha de Nacimiento -->
+  <div class="mb-3">
+    <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
+    <input id="fechaNacimiento" type="date" class="form-control" formControlName="fechaNacimiento" />
+  </div>
+
+  <!-- Sexo -->
+  <div class="mb-3">
+    <label for="sexo" class="form-label">Sexo:</label>
+    <select id="sexo" class="form-select" formControlName="sexo">
+      <option value="">Seleccione</option>
       <option value="M">Masculino</option>
       <option value="F">Femenino</option>
-    </select><br />
-    <label>Teléfono:</label>
-    <input formControlName="telefono" /><br />
-    <label>Correo electrónico:</label>
-    <input formControlName="correoElectronico" /><br />
-    <label>Imagen:</label>
-    <input formControlName="imagenRuta" /><br />
-    <label>Activo:</label>
-    <input type="checkbox" formControlName="activo" /><br />
-    <button type="submit">Registrar Cliente</button>
-  </form>
-  
+    </select>
+  </div>
+
+  <!-- Teléfono -->
+  <div class="mb-3">
+    <label for="telefono" class="form-label">Teléfono:</label>
+    <input id="telefono" class="form-control" formControlName="telefono" />
+  </div>
+
+  <!-- Correo electrónico -->
+  <div class="mb-3">
+    <label for="correoElectronico" class="form-label">Correo electrónico:</label>
+    <input id="correoElectronico" class="form-control" formControlName="correoElectronico" />
+  </div>
+
+  <!-- Imagen -->
+  <div class="mb-3">
+    <label for="imagenRuta" class="form-label">Imagen (ruta):</label>
+    <input id="imagenRuta" class="form-control" formControlName="imagenRuta" />
+  </div>
+
+  <!-- 🔥 NUEVO: Dirección -->
+  <div class="mb-3">
+    <label for="direccion" class="form-label">Dirección:</label>
+    <input id="direccion" class="form-control" formControlName="direccion" />
+  </div>
+
+  <!-- 🔥 NUEVO: Nombre del contacto de emergencia -->
+  <div class="mb-3">
+    <label for="nombreContactoEmergencia" class="form-label">Nombre Contacto Emergencia:</label>
+    <input id="nombreContactoEmergencia" class="form-control" formControlName="nombreContactoEmergencia" />
+  </div>
+
+  <!-- 🔥 NUEVO: Teléfono del contacto de emergencia -->
+  <div class="mb-3">
+    <label for="telContactoEmergencia" class="form-label">Teléfono Contacto Emergencia:</label>
+    <input id="telContactoEmergencia" class="form-control" formControlName="telContactoEmergencia" />
+  </div>
+
+  <!-- Activo -->
+  <div class="form-check mb-3">
+    <input id="activo" type="checkbox" class="form-check-input" formControlName="activo" />
+    <label for="activo" class="form-check-label">Activo</label>
+  </div>
+
+  <!-- Botón -->
+  <button type="submit" class="btn btn-primary w-100">
+    {{ clienteAEditar ? 'Actualizar Cliente' : 'Registrar Cliente' }}
+  </button>
+
+</form>

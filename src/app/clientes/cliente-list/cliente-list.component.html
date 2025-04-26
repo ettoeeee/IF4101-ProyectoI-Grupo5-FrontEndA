@@ -1,0 +1,80 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Gestión de Clientes</h2>
+  <button class="btn btn-primary" (click)="abrirModal()">
+    <i class="bi bi-plus-lg"></i> Nuevo Cliente
+  </button>      
+</div>
+
+<!-- 🔍 Buscador -->
+<input
+  class="form-control mb-4"
+  placeholder="Buscar por nombre o teléfono"
+  [(ngModel)]="filtro"
+/>
+
+<!-- 📋 Tabla de Clientes -->
+<table class="table table-hover table-bordered align-middle">
+    <thead class="table-light">
+      <tr class="text-center">
+        <th>ID</th> <!-- 🆕 ID Cliente -->
+        <th>Nombre</th>
+        <th>Fecha de Nacimiento</th>
+        <th>Teléfono</th>
+        <th>Correo Electrónico</th> 
+        <th>Dirección</th> 
+        <th>Contacto Emergencia</th> 
+        <th>Activo</th> <!-- 🆕 Estado Activo -->
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cliente of filtrarClientes()" class="text-center">
+        <td>{{ cliente.idCliente }}</td> <!-- Mostrar ID -->
+        <td>{{ cliente.nombre }} {{ cliente.apellidos }}</td>
+        <td>{{ cliente.fechaNacimiento | date:'dd/MM/yyyy' }}</td>
+        <td>{{ cliente.telefono }}</td>
+        <td>{{ cliente.correoElectronico }}</td>
+        <td>{{ cliente.direccion || '-' }}</td>
+        <td>
+          {{ cliente.nombreContactoEmergencia || '-' }}<br/>
+          <small>{{ cliente.telContactoEmergencia || '-' }}</small>
+        </td>
+        <td>
+          <span class="badge bg-success" *ngIf="cliente.activo">Sí</span>
+          <span class="badge bg-secondary" *ngIf="!cliente.activo">No</span>
+        </td>
+        <td>
+          <button 
+            class="btn btn-sm btn-outline-primary me-2"
+            (click)="abrirModal(cliente)">✏️ Editar</button>
+  
+          <button 
+            class="btn btn-sm btn-outline-danger"
+            (click)="cliente.idCliente && eliminarCliente(cliente.idCliente)">🗑 Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  
+<!-- 🛑 Fondo oscuro cuando modal está activo -->
+<div *ngIf="mostrarModal" class="modal-backdrop show fade d-block"></div>
+
+<!-- 🧱 Modal Agregar / Editar Cliente -->
+<div *ngIf="mostrarModal" class="modal fade show d-block" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content p-4 rounded-4 shadow-sm">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">
+          {{ clienteSeleccionado ? 'Editar Cliente' : 'Nuevo Cliente' }}
+        </h5>
+        <button type="button" class="btn-close" (click)="cerrarModal()"></button>
+      </div>
+      <div class="modal-body">
+        <app-cliente-insert-reactive 
+          [clienteAEditar]="clienteSeleccionado"
+          (guardado)="cerrarModal()">
+        </app-cliente-insert-reactive>
+      </div>
+    </div>
+  </div>
+</div>
