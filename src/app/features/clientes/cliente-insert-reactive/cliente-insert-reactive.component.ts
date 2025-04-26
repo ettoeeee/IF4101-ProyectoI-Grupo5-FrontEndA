@@ -1,8 +1,8 @@
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ClienteService } from '../../services/cliente.service';
+import { ClienteService } from '@app/services/cliente/cliente.service';
 import { Component, EventEmitter, Output, Input, OnInit } from '@angular/core';
-import { Cliente } from '../../domain/cliente.model';
+import { Cliente } from '@app/domain/cliente.model';
 
 @Component({
   selector: 'app-cliente-insert-reactive',

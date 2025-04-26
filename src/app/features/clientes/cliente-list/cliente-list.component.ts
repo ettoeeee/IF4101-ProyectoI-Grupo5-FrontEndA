@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Cliente } from '../../domain/cliente.model';
-import { ClienteService } from '../../services/cliente.service';
+import { Cliente } from '../../../domain/cliente.model';
+import { ClienteService } from '@app/services/cliente/cliente.service';  '../../services/cliente.service';
 import { ClienteInsertReactiveComponent } from '../cliente-insert-reactive/cliente-insert-reactive.component';
 import { FormsModule } from '@angular/forms';
 
