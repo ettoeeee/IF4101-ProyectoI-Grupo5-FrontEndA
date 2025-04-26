@@ -1,0 +1,41 @@
+<h2>Nuevo Instructor</h2>
+
+<div *ngIf="mensaje" [ngClass]="mensajeTipo">
+  {{ mensaje }}
+</div>
+
+<form (ngSubmit)="guardar()" #form="ngForm">
+
+  <label>Nombre:</label>
+  <input type="text" name="nombre" [(ngModel)]="instructor.nombre" required>
+
+  <label>Apellidos:</label>
+  <input type="text" name="apellidos" [(ngModel)]="instructor.apellidos" required>
+
+  <label>Teléfono:</label>
+  <input type="text" name="telefono" [(ngModel)]="instructor.telefono" required>
+
+  <label>Fecha de Nacimiento:</label>
+  <input type="date" name="fechaNacimiento" [(ngModel)]="instructor.fechaNacimiento" required>
+
+  <label>Sexo:</label>
+  <select name="sexo" [(ngModel)]="instructor.sexo" required>
+    <option value="M">Masculino</option>
+    <option value="F">Femenino</option>
+  </select>
+
+  <label>Correo Electrónico:</label>
+  <input type="email" name="correoElectronico" [(ngModel)]="instructor.correoElectronico" required>
+
+  <label>Imagen (URL o nombre de archivo):</label>
+  <input type="text" name="imagen" [(ngModel)]="instructor.imagenRuta">
+
+  <label>Fecha de Ingreso:</label>
+  <input type="date" name="fechaIngreso" [(ngModel)]="instructor.fechaIngreso" required>
+
+  <br><br>
+
+  <button type="submit">Guardar</button>
+  <button type="button" (click)="cancelar()">Cancelar</button>
+
+</form>
