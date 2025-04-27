@@ -1,0 +1,46 @@
+<div class="container">
+
+    <div class="header">
+      <h2>Gestión de Medidas Corporales</h2>
+      <button (click)="abrirModalNueva()" class="btn btn-primary">+ Nueva Medida</button>
+    </div>
+  
+    <input type="text" placeholder="Buscar medidas..." [(ngModel)]="filtro" (input)="filtrarMedidas()" class="search-bar" />
+  
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Unidad</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let medida of medidasFiltradas">
+          <td>{{ medida.tipoMedida }}</td>
+          <td>{{ medida.unidad }}</td>
+          <td>
+            <button (click)="abrirModalEditar(medida)" class="btn btn-sm btn-warning">✏️</button>
+            <button (click)="eliminarMedida(medida.idMedidaCorporal)" class="btn btn-sm btn-danger">🗑️</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- Modal -->
+    <div class="modal" *ngIf="mostrarModal">
+      <div class="modal-content">
+        <h3>{{ editando ? 'Editar Medida' : 'Nueva Medida' }}</h3>
+        <form [formGroup]="medidaForm" (ngSubmit)="guardarMedida()">
+          <input type="text" formControlName="tipoMedida" placeholder="Tipo de Medida" />
+          <input type="text" formControlName="unidad" placeholder="Unidad" />
+          <div class="buttons">
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="button" (click)="cerrarModal()" class="btn btn-secondary">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  
+  </div>
+  
