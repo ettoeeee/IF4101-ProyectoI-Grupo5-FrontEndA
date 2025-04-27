@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, ActivatedRoute, RouterModule } from '@angular/router';
@@ -13,6 +13,8 @@ import { EmpleadoService } from '../../../services/empleado/empleado.service';
   styleUrls: ['./empleado-form.component.css']
 })
 export class EmpleadoFormComponent {
+  @Input() empleadoAEditar?: Empleado;
+  @Output() guardado = new EventEmitter<void>();
   empleado: Empleado = {
     idEmpleado: 0,
     idPersona: 0,

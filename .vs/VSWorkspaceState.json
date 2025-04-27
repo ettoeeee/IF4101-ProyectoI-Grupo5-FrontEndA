@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\domain",
+    "\\src\\app\\app",
+    "\\src\\app\\app\\features",
     "\\src\\app\\features",
-    "\\src\\app\\features\\clientes",
-    "\\src\\app\\features\\clientes\\cliente-list",
     "\\src\\app\\features\\empleados",
     "\\src\\app\\features\\empleados\\empleado-form",
-    "\\src\\app\\features\\empleados\\empleado-list"
+    "\\src\\app\\features\\empleados\\empleado-list",
+    "\\src\\app\\services\\ejercicio"
   ],
-  "SelectedNode": "\\src\\app\\features\\empleados\\empleado-form\\empleado-form.component.ts",
+  "SelectedNode": "\\angular.json",
   "PreviewInSolutionExplorer": false
 }

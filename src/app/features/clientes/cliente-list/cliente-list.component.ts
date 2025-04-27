@@ -4,7 +4,7 @@ import { Cliente } from '../../../domain/cliente.model';
 import { ClienteService } from '@app/services/cliente/cliente.service';  '../../services/cliente.service';
 import { ClienteInsertReactiveComponent } from '../cliente-insert-reactive/cliente-insert-reactive.component';
 import { FormsModule } from '@angular/forms';
-import Swal from 'sweetalert2';
+import Swal from 'sweetalert2/dist/sweetalert2.js';
 
 @Component({
   selector: 'app-cliente-list',
@@ -70,7 +70,7 @@ eliminarCliente(idCliente: number): void {
     cancelButtonColor: '#6c757d',
     confirmButtonText: 'Sí, eliminar',
     cancelButtonText: 'Cancelar'
-  }).then((result) => {
+  }).then((result: { isConfirmed: boolean }) => {
     if (result.isConfirmed) {
       // Si confirma, entonces sí se elimina
       this.clienteService.eliminarCliente(idCliente).subscribe({
