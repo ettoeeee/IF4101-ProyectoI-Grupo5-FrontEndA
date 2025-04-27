@@ -1,7 +1,7 @@
 <div class="d-flex min-vh-100">
   <!-- Sidebar -->
   <div class="bg-dark text-white p-3" style="width: 250px;">
-    <h4 class="mb-4 text-center fw-bold">GymPro</h4> <!-- Sin emoji, centrado bonito -->
+    <h4 class="mb-4 text-center fw-bold">Bulk Gym</h4>
 
     <div class="d-flex flex-column gap-2">
       <button 
@@ -30,6 +30,13 @@
         [class.active]="esRutaActiva('/medidas-corporales')" 
         (click)="navegar('/medidas-corporales')">
         Medidas Corporales
+      </button>
+
+      <button
+        class="btn btn-sidebar"
+        [class.active]="esRutaActiva('/empleados')"
+        (click)="navegar('/empleados')">
+        Empleados
       </button>
 
      <button 
