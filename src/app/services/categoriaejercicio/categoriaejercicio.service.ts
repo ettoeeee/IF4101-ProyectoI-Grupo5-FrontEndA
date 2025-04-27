@@ -18,4 +18,17 @@ export class CategoriaEjercicioService {
   obtenerCategoriaPorId(id: number): Observable<CategoriaEjercicio> {
     return this.http.get<CategoriaEjercicio>(`${this.apiUrl}/${id}`);
   }
+
+  crearCategoria(categoria: CategoriaEjercicio): Observable<CategoriaEjercicio> {
+    return this.http.post<CategoriaEjercicio>(this.apiUrl, categoria);
+  }
+  
+  actualizarCategoria(id: number, categoria: CategoriaEjercicio): Observable<CategoriaEjercicio> {
+    return this.http.put<CategoriaEjercicio>(`${this.apiUrl}/${id}`, categoria);
+  }
+  
+  eliminarCategoria(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+  
 }
