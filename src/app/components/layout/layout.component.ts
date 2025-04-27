@@ -16,4 +16,9 @@ export class LayoutComponent {
   navegar(ruta: string) {
     this.router.navigate([ruta]);
   }
+
+    // 🔥 Saber si una ruta está activa
+    esRutaActiva(ruta: string): boolean {
+      return this.router.url.startsWith(ruta);
+    }
 }

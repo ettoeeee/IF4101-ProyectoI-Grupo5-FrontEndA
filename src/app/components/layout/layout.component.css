@@ -1,38 +1,34 @@
-/* 🔵 Estilo para el enlace activo en el sidebar */
-.nav-link.active {
-  background-color: #0d6efd; /* Azul Bootstrap */
-  color: white !important;   /* Forzar que el texto sea blanco */
-  border-radius: 8px;         /* Bordecito redondeado */
-  font-weight: bold;          /* Texto más grueso */
-  padding-left: 15px;         /* Espacio interno a la izquierda */
-  transition: background-color 0.3s ease;
+/* 🔵 Sidebar */
+.bg-dark {
+  background-color: #343a40 !important;
 }
 
-/* 🔵 También, opcional: */
-.nav-link {
-  transition: background-color 0.2s, color 0.2s;
-}
-
-/* 🔵 Hover para todos los botones del sidebar */
-.nav-link:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Fondo blanco semi-transparente */
-  color: #ffffff; /* Asegurarse que el texto sigue blanco */
-  border-radius: 8px; /* Misma forma redondeada */
-  padding-left: 15px; /* Consistencia */
-  transition: background-color 0.3s, color 0.3s;
-}
-.btn-dark {
-  background-color: #343a40;
-  border: none;
-  color: white;
-  padding: 10px 15px;
+/* 🔵 Botones de sidebar */
+.btn-sidebar {
+  background-color: transparent;
+  color: #dee2e6;
   text-align: left;
-  width: 100%;
+  border: none;
+  font-weight: 500;
+  padding: 10px 15px;
   border-radius: 8px;
-  font-size: 16px;
-  transition: background-color 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
-.btn-dark:hover {
+.btn-sidebar:hover {
   background-color: #495057;
+  color: #ffffff;
+  transform: translateX(5px);
+}
+
+/* 🔵 Título GymPro */
+h4 {
+  font-size: 1.5rem;
+  color: #f8f9fa;
+  letter-spacing: 1px;
+}
+
+/* 🔵 Main content */
+.flex-grow-1 {
+  background-color: #f1f3f5;
 }
