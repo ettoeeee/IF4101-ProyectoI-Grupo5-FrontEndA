@@ -26,14 +26,18 @@ export const routes: Routes = [
         path: 'medidas-corporales', 
         loadComponent: () => import('./features/medidas-corporales/medidas-corporales.component')
           .then(m => m.MedidasCorporalesComponent) 
-      }
-      //,
-      //{
-      //  path: 'ejercicios',
-      //  loadComponent: () => import('./features/ejercicios/ejercicio.component').then(m => m.EjercicioComponent)
-      //}
-      
+      },
+      {
+        path: 'ejercicios',
+        loadComponent: () => import('./features/ejercicios/ejercicios/ejercicios.component')
+        .then(e => e.EjerciciosComponent)
+      },
+      {
+        path: 'categorias',
+        loadComponent: () =>
+          import('./features/categoriaejercicio/categoriaejercicio/categoriaejercicio.component')
+            .then(ce => ce.CategoriaEjercicioComponent)
+      },      
     ]
   }
 ];
-
