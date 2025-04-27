@@ -37,7 +37,7 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./features/categoriaejercicio/categoriaejercicio/categoriaejercicio.component')
             .then(ce => ce.CategoriaEjercicioComponent)
-      },      
-    ]
-  }
-];
+          },
+        ], // <-- ESTA COMA AQUÍ
+      }
+    ];
