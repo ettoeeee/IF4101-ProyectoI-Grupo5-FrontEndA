@@ -63,12 +63,12 @@ export class CategoriaEjercicioComponent implements OnInit {
 
   guardarCategoria() {
     if (this.categoriaForm.invalid) return;
-
+  
     const categoria: CategoriaEjercicio = {
-      idCategoriaEjercicio: 0,
+      idCategoriaEjercicio: this.idEditando !== null ? this.idEditando : 0, // Aquí se asegura de que el ID no sea undefined
       nombreCategoria: this.categoriaForm.value.nombreCategoria
     };
-
+  
     if (this.editando && this.idEditando !== null) {
       this.categoriaService.actualizarCategoria(this.idEditando, categoria).subscribe(() => {
         this.obtenerCategorias();
@@ -80,16 +80,16 @@ export class CategoriaEjercicioComponent implements OnInit {
         this.cerrarModal();
       });
     }
-  }
+  }  
 
   eliminarCategoria(id: number) {
-    if (confirm('¿Está seguro de eliminar esta categoría?')) {
+    if (confirm('¿Está seguro de eliminar esta categoria?')) {
       this.categoriaService.eliminarCategoria(id).subscribe(() => {
         this.obtenerCategorias();
       });
     }
   }
-
+  
   cerrarModal() {
     this.mostrarModal = false;
     this.idEditando = null;
