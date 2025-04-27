@@ -29,6 +29,15 @@ export const routes: Routes = [
         path: '', 
         redirectTo: 'medidas-corporales', 
         pathMatch: 'full' 
+      },
+      {
+        path: 'ejercicios',
+        loadComponent: () => import('./features/ejercicios/ejercicios/ejercicios.component').then(e => e.EjerciciosComponent)
+      },
+      {
+        path: '',
+        redirectTo: 'ejercicios',
+        pathMatch: 'full'
       }
     ]
   }
