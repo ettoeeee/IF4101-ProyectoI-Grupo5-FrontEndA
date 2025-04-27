@@ -1,18 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { PanelPrincipalService } from '../../services/panel-principal/panel-principal.service';  // 🔥 Importa el servicio
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-panel-principal',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, HttpClientModule],
   templateUrl: './panel-principal.component.html',
   styleUrls: ['./panel-principal.component.css']
 })
-export class PanelPrincipalComponent {
-  cantidadClientes = 156;
-  nuevosClientesMes = 12;
-
+export class PanelPrincipalComponent implements OnInit {
+  
+  cantidadClientes = 0;      // 🔥 Inicializado en 0 para que cargue después
+  nuevosClientesMes = 0;     // 🔥 (opcional, puedes ponerlo luego real)
+  
   cantidadEmpleados = 24;
   cantidadEntrenadores = 3;
   cantidadStaff = 21;
@@ -23,10 +26,34 @@ export class PanelPrincipalComponent {
   cantidadRutinasActivas = 132;
   rutinasSemana = 18;
 
-  actividadesRecientes = [
-    { descripcion: 'Juan Pérez creó una nueva rutina para María García', fecha: new Date() },
-    { descripcion: 'Admin registró un nuevo cliente: Roberto Sánchez', fecha: new Date(new Date().setHours(new Date().getHours() - 5)) },
-    { descripcion: 'Admin agregó ejercicios a Piernas', fecha: new Date(new Date().setDate(new Date().getDate() - 1)) },
-    { descripcion: 'Admin actualizó info de Pedro Martínez', fecha: new Date(new Date().setDate(new Date().getDate() - 2)) }
-  ];
+  actividadesRecientes: { descripcion: string, fecha: Date }[] = [];
+
+  constructor(private panelService: PanelPrincipalService) {}
+
+  ngOnInit(): void {
+    this.cargarEstadisticas();
+  }
+
+  cargarEstadisticas() {
+    this.panelService.obtenerCantidadClientes().subscribe({
+      next: (respuesta) => {
+        this.cantidadClientes = respuesta.cantidadClientes;
+      },
+      error: (err) => {
+        console.error('Error cargando cantidad de clientes:', err);
+      }
+    });
+
+    this.panelService.obtenerClientesRecientes().subscribe({
+      next: (clientes) => {
+        this.actividadesRecientes = clientes.map(c => ({
+          descripcion: `Nuevo cliente registrado: ${c.nombre} ${c.apellidos}`,
+          fecha: new Date()   // Aquí podrías mapear a fecha real si tuvieras en el objeto
+        }));
+      },
+      error: (err) => {
+        console.error('Error cargando clientes recientes:', err);
+      }
+    });
+  }
 }
