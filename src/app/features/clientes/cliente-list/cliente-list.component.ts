@@ -4,6 +4,7 @@ import { Cliente } from '../../../domain/cliente.model';
 import { ClienteService } from '@app/services/cliente/cliente.service';  '../../services/cliente.service';
 import { ClienteInsertReactiveComponent } from '../cliente-insert-reactive/cliente-insert-reactive.component';
 import { FormsModule } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cliente-list',
@@ -59,18 +60,31 @@ filtrarClientes(): Cliente[] {
 }
 
 
-  eliminarCliente(id: number): void {
-    if (confirm('¿Estás seguro de eliminar este cliente?')) {
-      this.clienteService.eliminarCliente(id).subscribe({
+eliminarCliente(idCliente: number): void {
+  Swal.fire({
+    title: '¿Está seguro?',
+    text: 'Esta acción eliminará al cliente de forma permanente.',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#d33',
+    cancelButtonColor: '#6c757d',
+    confirmButtonText: 'Sí, eliminar',
+    cancelButtonText: 'Cancelar'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Si confirma, entonces sí se elimina
+      this.clienteService.eliminarCliente(idCliente).subscribe({
         next: () => {
-          alert('✅ Cliente eliminado exitosamente');
-          this.cargarClientes(); // 🔄 Recargar la lista después de eliminar
+          Swal.fire('Eliminado', 'El cliente ha sido eliminado exitosamente.', 'success');
+          this.cargarClientes(); // 🔥 Refresca la tabla si tienes un método para recargar
         },
-        error: err => {
-          alert('❌ Error al eliminar: ' + err.message);
+        error: (err) => {
+          Swal.fire('Error', 'No se pudo eliminar el cliente.', 'error');
         }
       });
     }
-  }
+  });
+}
+
   
 }

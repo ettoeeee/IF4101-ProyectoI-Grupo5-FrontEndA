@@ -1,0 +1,57 @@
+<div class="d-flex min-vh-100">
+  <!-- Sidebar -->
+  <div class="bg-dark text-white p-3" style="width: 250px;">
+    <h4 class="mb-4 text-center fw-bold">GymPro</h4> <!-- Sin emoji, centrado bonito -->
+
+    <div class="d-flex flex-column gap-2">
+      <button 
+        class="btn btn-sidebar" 
+        [class.active]="esRutaActiva('/dashboard')" 
+        (click)="navegar('/dashboard')">
+        Panel Principal
+      </button>
+    
+      <button 
+        class="btn btn-sidebar" 
+        [class.active]="esRutaActiva('/clientes')" 
+        (click)="navegar('/clientes')">
+        Clientes
+      </button>
+    
+      <button 
+        class="btn btn-sidebar" 
+        [class.active]="esRutaActiva('/instructores')" 
+        (click)="navegar('/instructores')">
+        Instructores
+      </button>
+    
+      <button 
+        class="btn btn-sidebar" 
+        [class.active]="esRutaActiva('/medidas-corporales')" 
+        (click)="navegar('/medidas-corporales')">
+        Medidas Corporales
+      </button>
+
+     <button 
+        class="btn btn-sidebar" 
+        [class.active]="esRutaActiva('/ejercicios')" 
+        (click)="navegar('/ejercicios')">
+        Ejercicios
+      </button>
+   
+      <button 
+      class="btn btn-sidebar" 
+      [class.active]="esRutaActiva('/cerrar')" 
+      (click)="navegar('/ejercicios')">
+      Cerrar Sesión 
+    </button>
+
+    </div>
+    
+  </div>
+
+  <!-- Main content hola -->
+  <div class="flex-grow-1 bg-light p-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+/* 🔵 Sidebar */
+.bg-dark {
+  background-color: #343a40 !important;
+}
+
+/* 🔵 Botones de sidebar */
+.btn-sidebar {
+  background-color: transparent;
+  color: #dee2e6;
+  text-align: left;
+  border: none;
+  font-weight: 500;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-sidebar:hover {
+  background-color: #495057;
+  color: #ffffff;
+  transform: translateX(5px);
+}
+
+/* 🔵 Título GymPro */
+h4 {
+  font-size: 1.5rem;
+  color: #f8f9fa;
+  letter-spacing: 1px;
+}
+
+/* 🔵 Main content */
+.flex-grow-1 {
+  background-color: #f1f3f5;
+}

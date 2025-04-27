@@ -1,33 +1,92 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+<!-- 🖼 Imagen de perfil con efecto de carga -->
+<div class="d-flex flex-column align-items-center mb-4 position-relative">
   
+<!-- 🌀 Spinner de carga -->
+<div *ngIf="cargandoImagen" class="d-flex justify-content-center my-3">
+  <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+    <span class="visually-hidden">Cargando...</span>
+  </div>
+</div>
+
+<!-- Barra de progreso mientras carga -->
+<div *ngIf="cargandoImagen" class="w-100 mb-2">
+  <progress [value]="porcentajeCarga" max="100" class="w-100"></progress>
+  <small class="d-block text-center">{{ porcentajeCarga }}%</small>
+</div>
+
+
+  <!-- Imagen o Spinner -->
+  <div class="position-relative" style="width: 120px; height: 120px;">
+    <!-- Spinner cuando está cargando -->
+    <div *ngIf="cargandoImagen" 
+         class="spinner-border text-primary position-absolute top-50 start-50 translate-middle" 
+         style="width: 3rem; height: 3rem;" role="status">
+    </div>
+
+    <!-- Imagen (cuando no está cargando) -->
+    <img 
+    *ngIf="!cargandoImagen"
+    [src]="imagenPreview || 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png'"
+    class="rounded-circle shadow-sm w-100 h-100 fade-in"
+    style="object-fit: cover; border: 2px solid #dee2e6;"
+    alt="Foto de perfil"
+  />
+  
+  </div>
+
+  <!-- Input oculto de imagen -->
+  <input 
+    type="file" 
+    #fileInput 
+    accept="image/*"
+    (change)="onFileSelected($event)" 
+    hidden
+  />
+
+  <!-- Botón de cargar imagen -->
+  <button 
+    type="button" 
+    class="btn btn-sm btn-light shadow-sm border position-absolute d-flex justify-content-center align-items-center"
+    style="bottom: 0; right: 0; width: 35px; height: 35px; border-radius: 50%;" 
+    (click)="fileInput.click()"
+  >
+    <i class="bi bi-camera-fill"></i>
+  </button>
+
+</div>
+
+
+  <!-- 🔥 AHORA campos normales -->
+
   <!-- ID Persona -->
   <div class="mb-3">
     <label for="idPersona" class="form-label">Cédula / ID Persona</label>
-    <input id="idPersona" type="number" class="form-control" formControlName="idPersona" placeholder="Digite el número de cédula" 
-    />
+    <input id="idPersona" type="number" class="form-control" formControlName="idPersona" placeholder="Digite el número de cédula" />
   </div>
 
   <!-- Nombre -->
   <div class="mb-3">
-    <label for="nombre" class="form-label">Nombre:</label>
+    <label for="nombre" class="form-label">Nombre</label>
     <input id="nombre" class="form-control" formControlName="nombre" />
   </div>
 
   <!-- Apellidos -->
   <div class="mb-3">
-    <label for="apellidos" class="form-label">Apellidos:</label>
+    <label for="apellidos" class="form-label">Apellidos</label>
     <input id="apellidos" class="form-control" formControlName="apellidos" />
   </div>
 
-  <!-- Fecha de Nacimiento -->
+  <!-- Fecha de nacimiento -->
   <div class="mb-3">
-    <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
+    <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
     <input id="fechaNacimiento" type="date" class="form-control" formControlName="fechaNacimiento" />
   </div>
 
   <!-- Sexo -->
   <div class="mb-3">
-    <label for="sexo" class="form-label">Sexo:</label>
+    <label for="sexo" class="form-label">Sexo</label>
     <select id="sexo" class="form-select" formControlName="sexo">
       <option value="">Seleccione</option>
       <option value="M">Masculino</option>
@@ -37,42 +96,35 @@
 
   <!-- Teléfono -->
   <div class="mb-3">
-    <label for="telefono" class="form-label">Teléfono:</label>
+    <label for="telefono" class="form-label">Teléfono</label>
     <input id="telefono" class="form-control" formControlName="telefono" />
   </div>
 
   <!-- Correo electrónico -->
   <div class="mb-3">
-    <label for="correoElectronico" class="form-label">Correo electrónico:</label>
+    <label for="correoElectronico" class="form-label">Correo electrónico</label>
     <input id="correoElectronico" class="form-control" formControlName="correoElectronico" />
   </div>
 
-  <!-- Imagen -->
+  <!-- Dirección -->
   <div class="mb-3">
-    <label for="imagenRuta" class="form-label">Imagen (ruta):</label>
-    <input id="imagenRuta" class="form-control" formControlName="imagenRuta" />
-  </div>
-
-  <!-- 🔥 NUEVO: Dirección -->
-  <div class="mb-3">
-    <label for="direccion" class="form-label">Dirección:</label>
+    <label for="direccion" class="form-label">Dirección</label>
     <input id="direccion" class="form-control" formControlName="direccion" />
   </div>
 
-  <!-- 🔥 NUEVO: Nombre del contacto de emergencia -->
+  <!-- Contacto Emergencia -->
   <div class="mb-3">
-    <label for="nombreContactoEmergencia" class="form-label">Nombre Contacto Emergencia:</label>
+    <label for="nombreContactoEmergencia" class="form-label">Nombre Contacto Emergencia</label>
     <input id="nombreContactoEmergencia" class="form-control" formControlName="nombreContactoEmergencia" />
   </div>
 
-  <!-- 🔥 NUEVO: Teléfono del contacto de emergencia -->
   <div class="mb-3">
-    <label for="telContactoEmergencia" class="form-label">Teléfono Contacto Emergencia:</label>
+    <label for="telContactoEmergencia" class="form-label">Teléfono Contacto Emergencia</label>
     <input id="telContactoEmergencia" class="form-control" formControlName="telContactoEmergencia" />
   </div>
 
   <!-- Activo -->
-  <div class="form-check mb-3">
+  <div class="form-check mb-4">
     <input id="activo" type="checkbox" class="form-check-input" formControlName="activo" />
     <label for="activo" class="form-check-label">Activo</label>
   </div>
