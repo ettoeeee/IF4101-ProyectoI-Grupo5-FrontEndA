@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { RouterOutlet, Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -9,4 +9,11 @@ import { CommonModule } from '@angular/common';
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css']
 })
-export class LayoutComponent {}
+export class LayoutComponent {
+
+  constructor(private router: Router) {}
+
+  navegar(ruta: string) {
+    this.router.navigate([ruta]);
+  }
+}

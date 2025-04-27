@@ -28,4 +28,8 @@ export class ClienteService {
     const id = String(cliente.idPersona).trim();
     return this.http.put(`${this.apiUrl}/clientes/${id}`, cliente);
   }
+
+  listarClientes(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(this.apiUrl);
+  }
 }

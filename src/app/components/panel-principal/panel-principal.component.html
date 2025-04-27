@@ -1,0 +1,83 @@
+<div class="container mt-4">
+
+    <h2 class="mb-4">Panel Principal</h2>
+  
+    <!-- 🔵 Tarjetas principales -->
+    <div class="row g-4 mb-4">
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-people-fill fs-1 text-primary mb-2"></i>
+            <h5 class="card-title">Clientes</h5>
+            <p class="display-6">{{ cantidadClientes }}</p>
+            <small>{{ nuevosClientesMes }} nuevos este mes</small>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-person-workspace fs-1 text-success mb-2"></i>
+            <h5 class="card-title">Empleados</h5>
+            <p class="display-6">{{ cantidadEmpleados }}</p>
+            <small>{{ cantidadEntrenadores }} entrenadores, {{ cantidadStaff }} staff</small>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-barbell fs-1 text-warning mb-2"></i>
+            <h5 class="card-title">Ejercicios</h5>
+            <p class="display-6">{{ cantidadEjercicios }}</p>
+            <small>En {{ cantidadCategorias }} categorías</small>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-3">
+        <div class="card text-center shadow-sm">
+          <div class="card-body">
+            <i class="bi bi-graph-up-arrow fs-1 text-danger mb-2"></i>
+            <h5 class="card-title">Rutinas Activas</h5>
+            <p class="display-6">{{ cantidadRutinasActivas }}</p>
+            <small>{{ rutinasSemana }} creadas esta semana</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- 🛠️ Acceso rápido -->
+    <div class="row g-4 mb-4">
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-lightning-fill me-2"></i>Acceso Rápido</h5>
+            <div class="d-flex flex-column gap-2">
+              <button class="btn btn-outline-primary" routerLink="/clientes"><i class="bi bi-people-fill me-2"></i>Gestión de Clientes</button>
+              <button class="btn btn-outline-success" routerLink="/ejercicios"><i class="bi bi-barbell me-2"></i>Gestión de Ejercicios</button>
+              <button class="btn btn-outline-warning" routerLink="/configuracion"><i class="bi bi-gear-fill me-2"></i>Configuración</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- 🕑 Actividad reciente -->
+      <div class="col-md-6">
+        <div class="card shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-clock-history me-2"></i>Actividad Reciente</h5>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item" *ngFor="let actividad of actividadesRecientes">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>{{ actividad.descripcion }} - <small>{{ actividad.fecha | date:'short' }}</small>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+  

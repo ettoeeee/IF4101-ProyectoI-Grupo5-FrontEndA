@@ -1,0 +1,97 @@
+/* 🔵 Formulario principal */
+form {
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+  
+  /* 🔵 Imagen de perfil */
+  img.rounded-circle {
+    border: 3px solid #0d6efd; /* Azul Bootstrap */
+    transition: transform 0.3s ease;
+  }
+  
+  img.rounded-circle:hover {
+    transform: scale(1.05); /* Pequeño zoom al pasar mouse */
+  }
+  
+  /* 🔵 Botón de cargar imagen */
+  button.btn-light {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+  }
+  
+  button.btn-light:hover {
+    background-color: #e2e6ea;
+  }
+  
+  /* 🔵 Inputs y selects */
+  input.form-control,
+  select.form-select {
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+  }
+  
+  /* 🔵 Labels */
+  label.form-label {
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  /* 🔵 Checkbox */
+  .form-check-input {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* 🔵 Botón de Submit */
+  button[type="submit"] {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 12px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #0b5ed7;
+  }
+  
+  /* 🔵 Spinner de carga */
+  .spinner-border {
+    width: 3rem;
+    height: 3rem;
+  }
+  
+  /* 🔵 Barra de progreso */
+  progress {
+    height: 8px;
+    border-radius: 10px;
+    overflow: hidden;
+    appearance: none;
+  }
+  
+  progress::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 10px;
+  }
+  
+  progress::-webkit-progress-value {
+    background-color: #0d6efd;
+    border-radius: 10px;
+  }
+  
+  /* 🔵 Fade-in suave para la imagen después de cargar */
+  .fade-in {
+    animation: fadeIn 0.8s ease-in forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  

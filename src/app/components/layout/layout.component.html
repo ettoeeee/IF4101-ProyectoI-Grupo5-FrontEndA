@@ -1,0 +1,17 @@
+<div class="d-flex min-vh-100">
+  <!-- Sidebar -->
+  <div class="bg-dark text-white p-3" style="width: 250px;">
+    <h4 class="mb-4">🏋 GymPro</h4>
+    <div class="d-flex flex-column gap-2">
+      <button class="btn btn-dark text-start" (click)="navegar('/dashboard')">Panel Principal</button>
+      <button class="btn btn-dark text-start" (click)="navegar('/clientes')">Clientes</button>
+      <button class="btn btn-dark text-start" (click)="navegar('/instructores')">Instructores</button>
+      <!-- Cuando tengas las otras rutas listas puedes agregar más botones -->
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <div class="flex-grow-1 bg-light p-4">
+    <router-outlet></router-outlet>
+  </div>
+</div>

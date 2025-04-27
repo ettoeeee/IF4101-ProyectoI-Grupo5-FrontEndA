@@ -14,46 +14,85 @@
 
 <!-- 📋 Tabla de Clientes -->
 <table class="table table-hover table-bordered align-middle">
-    <thead class="table-light">
-      <tr class="text-center">
-        <th>ID</th> <!-- 🆕 ID Cliente -->
-        <th>Nombre</th>
-        <th>Fecha de Nacimiento</th>
-        <th>Teléfono</th>
-        <th>Correo Electrónico</th> 
-        <th>Dirección</th> 
-        <th>Contacto Emergencia</th> 
-        <th>Activo</th> <!-- 🆕 Estado Activo -->
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let cliente of filtrarClientes()" class="text-center">
-        <td>{{ cliente.idCliente }}</td> <!-- Mostrar ID -->
-        <td>{{ cliente.nombre }} {{ cliente.apellidos }}</td>
-        <td>{{ cliente.fechaNacimiento | date:'dd/MM/yyyy' }}</td>
-        <td>{{ cliente.telefono }}</td>
-        <td>{{ cliente.correoElectronico }}</td>
-        <td>{{ cliente.direccion || '-' }}</td>
-        <td>
-          {{ cliente.nombreContactoEmergencia || '-' }}<br/>
-          <small>{{ cliente.telContactoEmergencia || '-' }}</small>
-        </td>
-        <td>
-          <span class="badge bg-success" *ngIf="cliente.activo">Sí</span>
-          <span class="badge bg-secondary" *ngIf="!cliente.activo">No</span>
-        </td>
-        <td>
-          <button 
-            class="btn btn-sm btn-outline-primary me-2"
-            (click)="abrirModal(cliente)">✏️ Editar</button>
+  <thead class="table-light">
+    <tr class="text-center">
+      <th>Cliente</th>   <!-- 🔥 Nuevo: imagen + nombre -->
+      <th>Cédula</th>       
+      <th>Fecha de Nacimiento</th>
+      <th>Teléfono</th>
+      <th>Correo Electrónico</th>
+      <th>Dirección</th>
+      <th>Contacto Emergencia</th>
+      <th>Activo</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
   
-          <button 
-            class="btn btn-sm btn-outline-danger"
-            (click)="cliente.idCliente && eliminarCliente(cliente.idCliente)">🗑 Eliminar</button>
-        </td>
-      </tr>
-    </tbody>
+  <tbody>
+    <tr *ngFor="let cliente of filtrarClientes()" class="align-middle">
+  
+      <!-- Cliente: Imagen + Nombre juntos -->
+      <td class="d-flex align-items-center gap-2">
+        <img 
+  [src]="cliente.imagenRuta || 'https://cdn-icons-png.flaticon.com/512/847/847969.png'" 
+  (error)="cliente.imagenRuta = 'https://cdn-icons-png.flaticon.com/512/847/847969.png'"
+  class="rounded-circle"
+  alt="Foto Cliente"
+  style="width: 50px; height: 50px; object-fit: cover; border: 1px solid #ccc;"
+>
+
+      
+        <span class="fw-bold">{{ cliente.nombre }} {{ cliente.apellidos }}</span>
+      </td>
+  
+      <!-- Cédula -->
+      <td class="text-center">{{ cliente.idPersona }}</td>
+  
+      <!-- Fecha de Nacimiento -->
+      <td class="text-center">{{ cliente.fechaNacimiento | date:'dd/MM/yyyy' }}</td>
+  
+      <!-- Teléfono -->
+      <td class="text-center">{{ cliente.telefono }}</td>
+  
+      <!-- Correo Electrónico -->
+      <td class="text-center">{{ cliente.correoElectronico }}</td>
+  
+      <!-- Dirección -->
+      <td class="text-center">{{ cliente.direccion || '-' }}</td>
+  
+      <!-- Contacto Emergencia -->
+      <td class="text-center">
+        {{ cliente.nombreContactoEmergencia || '-' }}<br/>
+        <small>{{ cliente.telContactoEmergencia || '-' }}</small>
+      </td>
+  
+      <!-- Activo -->
+      <td class="text-center">
+        <span class="badge bg-success" *ngIf="cliente.activo">Sí</span>
+        <span class="badge bg-secondary" *ngIf="!cliente.activo">No</span>
+      </td>
+  
+     <!-- Acciones -->
+<td class="text-center">
+  <button 
+    class="btn btn-sm btn-outline-primary me-2 d-flex align-items-center justify-content-center gap-1"
+    (click)="abrirModal(cliente)">
+    <i class="bi bi-pencil-square"></i> Editar
+  </button>
+
+  <button 
+    class="btn btn-sm btn-outline-danger d-flex align-items-center justify-content-center gap-1"
+    (click)="cliente.idCliente && eliminarCliente(cliente.idCliente)">
+    <i class="bi bi-trash3"></i> Eliminar
+  </button>
+</td>
+
+  
+    </tr>
+  </tbody>
+  
+    
+    
   </table>
   
 <!-- 🛑 Fondo oscuro cuando modal está activo -->
