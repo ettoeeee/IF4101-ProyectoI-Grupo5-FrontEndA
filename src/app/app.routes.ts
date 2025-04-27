@@ -26,6 +26,21 @@ export const routes: Routes = [
         path: 'medidas-corporales', 
         loadComponent: () => import('./features/medidas-corporales/medidas-corporales.component')
           .then(m => m.MedidasCorporalesComponent) 
+      },
+      {
+        path: 'empleados',
+        loadComponent: () => import('./features/empleados/empleado-list/empleado-list.component')
+          .then(m => m.EmpleadoListComponent)
+      },
+      {
+        path: 'empleados/nuevo',
+        loadComponent: () => import('./features/empleados/empleado-form/empleado-form.component')
+          .then(m => m.EmpleadoFormComponent)
+      },
+      {
+        path: 'empleados/edit/:id',
+        loadComponent: () => import('./features/empleados/empleado-form/empleado-form.component')
+          .then(m => m.EmpleadoFormComponent)
       }
       //,
       //{

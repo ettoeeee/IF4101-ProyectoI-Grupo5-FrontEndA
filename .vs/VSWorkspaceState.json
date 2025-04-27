@@ -3,7 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\environments"
+    "\\src\\app\\domain",
+    "\\src\\app\\features",
+    "\\src\\app\\features\\clientes",
+    "\\src\\app\\features\\clientes\\cliente-list",
+    "\\src\\app\\features\\empleados",
+    "\\src\\app\\features\\empleados\\empleado-form",
+    "\\src\\app\\features\\empleados\\empleado-list"
   ],
+  "SelectedNode": "\\src\\app\\features\\empleados\\empleado-form\\empleado-form.component.ts",
   "PreviewInSolutionExplorer": false
 }
