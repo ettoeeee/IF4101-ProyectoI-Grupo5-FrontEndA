@@ -5,6 +5,13 @@ import { ClienteListComponent } from './features/clientes/cliente-list/cliente-l
 import { MedidasCorporalesComponent } from './features/medidas-corporales/medidas-corporales.component';
 
 export const routes: Routes = [
+  
+  {
+    path: 'login',
+    loadComponent: () => import('./features/login/login.component')
+      .then(m => m.LoginComponent)
+  },
+
   {
     path: '',
     component: LayoutComponent,
