@@ -3,7 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\environments"
+    "\\src\\app\\app",
+    "\\src\\app\\app\\features",
+    "\\src\\app\\features",
+    "\\src\\app\\features\\empleados",
+    "\\src\\app\\features\\empleados\\empleado-form",
+    "\\src\\app\\features\\empleados\\empleado-list",
+    "\\src\\app\\services\\ejercicio"
   ],
+  "SelectedNode": "\\angular.json",
   "PreviewInSolutionExplorer": false
 }

@@ -1,0 +1,94 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Gestión de Empleados</h2>
+  <button class="btn btn-primary" (click)="abrirModal()">
+    <i class="bi bi-plus-lg"></i> Nuevo Empleado
+  </button>
+</div>
+
+<input class="form-control mb-4"
+       placeholder="Buscar por nombre, rol o teléfono"
+       [(ngModel)]="filtro" />
+
+<table class="table table-hover table-bordered align-middle">
+  <thead class="table-light">
+    <tr class="text-center">
+      <th>Empleado</th>               
+      <th>Cédula</th>
+      <th>Fecha de Nacimiento</th>
+      <th>Teléfono</th>
+      <th>Correo Electrónico</th>
+      <th>Dirección</th>
+      <th>Contacto Emergencia</th>
+      <th>Rol</th>                    
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let empleado of filtrarEmpleados()" class="align-middle">
+      <td class="d-flex align-items-center gap-2">
+        <img [src]="empleado.imagenRuta || 'https://cdn-icons-png.flaticon.com/512/847/847969.png'"
+             (error)="empleado.imagenRuta = 'https://cdn-icons-png.flaticon.com/512/847/847969.png'"
+             class="rounded-circle"
+             alt="Foto Empleado"
+             style="width: 50px; height: 50px; object-fit: cover; border: 1px solid #ccc;">
+        <span class="fw-bold">{{ empleado.nombre }} {{ empleado.apellidos }}</span>
+      </td>
+
+      <!-- Cédula -->
+      <td class="text-center">{{ empleado.idPersona }}</td>
+
+      <!-- Fecha de Nacimiento -->
+      <td class="text-center">{{ empleado.fechaNacimiento | date:'dd/MM/yyyy' }}</td>
+
+      <!-- Teléfono -->
+      <td class="text-center">{{ empleado.telefono }}</td>
+
+      <!-- Correo Electrónico -->
+      <td class="text-center">{{ empleado.correoElectronico }}</td>
+
+      <!-- Dirección -->
+      <td class="text-center">{{ empleado.direccion || '-' }}</td>
+
+      <!-- Contacto Emergencia -->
+      <td class="text-center">
+        {{ empleado.nombreContactoEmergencia || '-' }}<br />
+        <small>{{ empleado.telContactoEmergencia || '-' }}</small>
+      </td>
+
+      <!-- Rol del Empleado -->
+      <td class="text-center">{{ empleado.rolEmpleado }}</td>
+
+      <!-- Acciones -->
+      <td class="text-center">
+        <button class="btn btn-sm btn-outline-primary me-2 d-flex align-items-center justify-content-center gap-1"
+                (click)="abrirModal(empleado)">
+          <i class="bi bi-pencil-square"></i> Editar
+        </button>
+        <button class="btn btn-sm btn-outline-danger d-flex align-items-center justify-content-center gap-1"
+                (click)="empleado.idEmpleado && eliminarEmpleado(empleado.idEmpleado)">
+          <i class="bi bi-trash3"></i> Eliminar
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div *ngIf="mostrarModal" class="modal-backdrop show fade d-block"></div>
+
+<div *ngIf="mostrarModal" class="modal fade show d-block" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content p-4 rounded-4 shadow-sm">
+      <div class="modal-header border-0">
+        <h5 class="modal-title">
+          {{ empleadoSeleccionado ? 'Editar Empleado' : 'Nuevo Empleado' }}
+        </h5>
+        <button type="button" class="btn-close" (click)="cerrarModal()"></button>
+      </div>
+      <div class="modal-body">
+        <app-empleado-form [empleadoAEditar]="empleadoSeleccionado"
+                           (guardado)="cerrarModal()">
+        </app-empleado-form>
+      </div>
+    </div>
+  </div>
+</div>
