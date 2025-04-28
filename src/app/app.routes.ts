@@ -6,7 +6,7 @@ import { MedidasCorporalesComponent } from './features/medidas-corporales/medida
 
 export const routes: Routes = [
 
-  /*
+  
   { path: '', redirectTo: 'login', pathMatch: 'full' },
 
 
@@ -16,7 +16,7 @@ export const routes: Routes = [
       .then(m => m.LoginComponent)
   },
 
-  */
+  
   {
     path: '',
     component: LayoutComponent,
