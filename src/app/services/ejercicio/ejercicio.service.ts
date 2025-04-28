@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Ejercicio } from '../../domain/ejercicio.model';
 import { FotografiaEjercicio } from '../../domain/fotografiaejercicio.model'; // Si no la tienes, importa el modelo de la fotografía.
 import { CategoriaEjercicio } from '@app/domain/categoriaejercicio.model';
+import { Ejercicio, EjercicioCrearDTO } from '@app/domain/ejercicio.model';
 
 @Injectable({
   providedIn: 'root'
@@ -26,8 +26,8 @@ export class EjercicioService {
   }
 
   // Crear un ejercicio nuevo (sin fotos)
-  crearEjercicio(ejercicio: Ejercicio): Observable<Ejercicio> {
-    return this.http.post<Ejercicio>(this.apiUrl, ejercicio);
+  crearEjercicio(ejercicio: EjercicioCrearDTO): Observable<any> {
+    return this.http.post<any>(this.apiUrl, ejercicio);
   }
 
   // Crear un ejercicio con fotos
@@ -36,9 +36,11 @@ export class EjercicioService {
   }
 
   // Subir una foto para un ejercicio
-  subirFoto(foto: FormData): Observable<FotografiaEjercicio> {
-    return this.http.post<FotografiaEjercicio>(this.apiUrlFotos, foto);
+
+  subirFoto(idEjercicio: number, formData: FormData): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/${idEjercicio}/fotografias`, formData);
   }
+  
 
   // Actualizar un ejercicio existente (sin fotos)
   actualizarEjercicio(id: number, ejercicio: Ejercicio): Observable<Ejercicio> {

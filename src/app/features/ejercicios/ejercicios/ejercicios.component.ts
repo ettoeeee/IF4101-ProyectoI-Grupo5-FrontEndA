@@ -5,7 +5,7 @@ import { Ejercicio } from '@app/domain/ejercicio.model';
 import { CategoriaEjercicio } from '@app/domain/categoriaejercicio.model';
 import { FotografiaEjercicio } from '@app/domain/fotografiaejercicio.model';
 import { EjercicioService } from '@app/services/ejercicio/ejercicio.service';
-
+import { EjercicioCrearDTO } from '@app/domain/ejercicio.model';
 @Component({
   selector: 'app-ejercicio',
   standalone: true,
@@ -96,35 +96,43 @@ export class EjercicioComponent implements OnInit {
   guardarEjercicio(): void {
     if (this.ejercicioForm.invalid) return;
   
-    const ejercicioNuevo: Ejercicio = {
-      idEjercicio: this.idEditando || 0,
+    const ejercicioNuevo: EjercicioCrearDTO = {
       nombreEjercicio: this.ejercicioForm.value.nombreEjercicio,
-      categoriaEjercicio: this.categorias.filter(c => c.idCategoriaEjercicio === this.ejercicioForm.value.idCategoria),
-      fotografiasEjercicio: []  // Asegurarnos de que si hay foto, se añade
+      equipo: '', // Puedes poner campos reales luego
+      series: 0,
+      repeticiones: 0,
+      idCategoria: this.ejercicioForm.value.idCategoria
     };
   
-    if (this.archivoFoto) {
-      const formData = new FormData();
-      formData.append('foto', this.archivoFoto, this.archivoFoto.name);
-      formData.append('ejercicio', JSON.stringify(ejercicioNuevo));
+    // Primero: crear el ejercicio
+    this.ejercicioService.crearEjercicio(ejercicioNuevo).subscribe(response => {
+      console.log('Ejercicio creado:', response);
   
-      // Llamamos al servicio para crear el ejercicio con foto
-      this.ejercicioService.crearEjercicioConFotos(ejercicioNuevo, formData).subscribe(response => {
-        console.log('Ejercicio guardado con foto', response);
+      // Luego: si hay una imagen seleccionada, subirla
+      if (this.archivoFoto) {
+        const formData = new FormData();
+        formData.append('file', this.archivoFoto, this.archivoFoto.name);
+  
+        // Llamar al servicio para subir la imagen
+        this.ejercicioService.subirFoto(response.idEjercicio, formData).subscribe(res => {
+          console.log('Foto subida correctamente');
+          this.obtenerEjercicios();
+          this.cerrarModal();
+        }, error => {
+          console.error('Error subiendo foto', error);
+        });
+  
+      } else {
+        // Si no hay imagen, simplemente recargar la lista
         this.obtenerEjercicios();
         this.cerrarModal();
-      }, error => {
-        console.error('Error al guardar ejercicio con foto', error);
-      });
-    } else {
-      // Si no hay foto, llamamos al servicio sin fotos
-      this.ejercicioService.crearEjercicio(ejercicioNuevo).subscribe(response => {
-        console.log('Ejercicio guardado', response);
-        this.obtenerEjercicios();
-        this.cerrarModal();
-      });
-    }
+      }
+    }, error => {
+      console.error('Error al guardar ejercicio', error);
+    });
   }
+  
+  
   
 
   eliminarEjercicio(id: number): void {

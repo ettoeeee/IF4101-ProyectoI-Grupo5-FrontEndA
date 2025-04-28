@@ -21,9 +21,14 @@
       <tr *ngFor="let ejercicio of ejerciciosFiltrados">
         <td>{{ ejercicio.nombreEjercicio }}</td>
         <td>{{ ejercicio.categoriaEjercicio[0].nombreCategoria }}</td>
+ 
         <td>
-          <img *ngIf="ejercicio.fotografiasEjercicio.length" [src]="ejercicio.fotografiasEjercicio[0].rutaImagen" alt="Foto ejercicio" width="50" />
+          <img *ngIf="ejercicio.fotografiasEjercicio.length"
+     [src]="'http://localhost:8080' + '/uploads/ejercicios/' + ejercicio.fotografiasEjercicio[0].rutaImagen"
+     alt="Foto ejercicio" width="50">
         </td>
+        
+        
         <td>
           <button (click)="abrirModalEditar(ejercicio)" class="btn btn-sm btn-warning">✏️</button>
           <button (click)="eliminarEjercicio(ejercicio.idEjercicio)" class="btn btn-sm btn-danger">🗑️</button>
