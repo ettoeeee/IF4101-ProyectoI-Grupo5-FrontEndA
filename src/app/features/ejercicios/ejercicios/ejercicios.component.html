@@ -17,7 +17,7 @@
       <tbody>
         <tr *ngFor="let ejercicio of ejerciciosFiltrados">
           <td>{{ ejercicio.nombreEjercicio }}</td>
-          <td>{{ ejercicio.categoriaEjercicio[0]?.nombreCategoria }}</td>
+          <td>{{ ejercicio.categoriaEjercicio[0].nombreCategoria }}</td>
           <td>
             <button (click)="abrirModalEditar(ejercicio)" class="btn btn-sm btn-warning">✏️</button>
             <button (click)="eliminarEjercicio(ejercicio.idEjercicio)" class="btn btn-sm btn-danger">🗑️</button>
@@ -46,4 +46,3 @@
       </div>
     </div>
   </div>
-  

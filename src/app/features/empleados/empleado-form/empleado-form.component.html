@@ -1,0 +1,198 @@
+<!-- empleado-form.component.html -->
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <!--<h2>{{ isEdit ? 'Editar Empleado' : 'Nuevo Empleado' }}</h2>
+  <button class="btn btn-secondary"
+          type="button"
+          (click)="cancelar()">
+    <i class="bi bi-x-lg"></i> Cancelar
+  </button>-->
+</div>
+
+<!-- Mensaje de error/éxito -->
+<div *ngIf="mensaje"
+     class="alert"
+     [ngClass]="mensaje.startsWith('Error') ? 'alert-danger' : 'alert-success'">
+  {{ mensaje }}
+</div>
+
+<form class="row g-3 position-relative" (ngSubmit)="guardar()">
+  <!-- Bloque de subida de imagen -->
+  <div class="col-12 text-center position-relative mb-4" style="width: 120px; margin: 0 auto;">
+    <!-- Progreso -->
+    <div *ngIf="cargandoImagen" class="w-100 mb-2">
+      <progress [value]="porcentajeCarga" max="100" class="w-100"></progress>
+      <small class="d-block text-center">{{ porcentajeCarga }}%</small>
+    </div>
+    
+    <!-- Imagen o spinner -->
+    <div class="position-relative" style="width: 120px; height: 120px; margin: 0 auto;">
+      <div *ngIf="cargandoImagen" 
+           class="spinner-border text-primary position-absolute top-50 start-50 translate-middle" 
+           style="width: 3rem; height: 3rem;" role="status"></div>
+      <img 
+        *ngIf="!cargandoImagen"
+        [src]="imagenPreview || empleado.imagenRuta || 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png'"
+        class="rounded-circle shadow-sm w-100 h-100 fade-in"
+        style="object-fit: cover; border: 2px solid #dee2e6;"
+        alt="Foto de perfil">
+    </div>
+
+    <!-- Input oculto y botón -->
+    <input 
+      type="file" 
+      #fileInput 
+      accept="image/*"
+      (change)="onFileSelected($event)" 
+      hidden>
+    <button 
+      type="button" 
+      class="btn btn-sm btn-light shadow-sm border position-absolute"
+      style="bottom: -10px; right: -10px; width: 35px; height: 35px; border-radius: 50%;" 
+      (click)="fileInput.click()">
+      <i class="bi bi-camera-fill"></i>
+    </button>
+  </div>
+
+<div class="row g-3" (ngSubmit)="guardar()">
+  <!-- Foto (opcional) -->
+  <!--<div class="col-12 d-flex justify-content-center my-3">
+    <img [src]="empleado.imagenRuta || 'https://cdn-icons-png.flaticon.com/512/847/847969.png'"
+         class="rounded-circle"
+         alt="Foto"
+         style="width: 100px; height: 100px; object-fit: cover; border:1px solid #ccc;">
+  </div>-->
+
+  <!-- Nombre -->
+  <div class="col-md-6">
+    <label for="nombre" class="form-label">Nombre</label>
+    <input id="nombre"
+           class="form-control"
+           [(ngModel)]="empleado.nombre"
+           name="nombre"
+           required>
+  </div>
+
+  <!-- Apellidos -->
+  <div class="col-md-6">
+    <label for="apellidos" class="form-label">Apellidos</label>
+    <input id="apellidos"
+           class="form-control"
+           [(ngModel)]="empleado.apellidos"
+           name="apellidos"
+           required>
+  </div>
+
+  <!-- Cédula / ID Persona -->
+  <div class="col-md-6">
+    <label for="idPersona" class="form-label">Cédula</label>
+    <input id="idPersona"
+           type="number"
+           class="form-control"
+           [(ngModel)]="empleado.idPersona"
+           name="idPersona"
+           [readonly]="isEdit"
+           required>
+  </div>
+
+  <!-- Rol -->
+  <div class="col-md-6">
+    <label for="rolEmpleado" class="form-label">Rol</label>
+    <select id="rolEmpleado"
+            class="form-select"
+            [(ngModel)]="empleado.rolEmpleado"
+            name="rolEmpleado"
+            required>
+      <option value="" disabled>Seleccione un rol</option>
+      <option value="Instructor">Instructor</option>
+      <option value="Conserje">Conserje</option>
+      <option value="Técnico">Técnico</option>
+      <option value="Auxiliar">Auxiliar</option>
+      <!-- …más opciones según tu negocio -->
+    </select>
+  </div>
+
+  <!-- Correo Electrónico -->
+  <div class="col-md-6">
+    <label for="correoElectronico" class="form-label">Email</label>
+    <input id="correoElectronico"
+           type="email"
+           class="form-control"
+           [(ngModel)]="empleado.correoElectronico"
+           name="correoElectronico"
+           required>
+  </div>
+
+  <!-- Teléfono -->
+  <div class="col-md-6">
+    <label for="telefono" class="form-label">Teléfono</label>
+    <input id="telefono"
+           class="form-control"
+           [(ngModel)]="empleado.telefono"
+           name="telefono"
+           required>
+  </div>
+
+  <!-- Fecha de Nacimiento -->
+  <div class="col-md-6">
+    <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+    <input id="fechaNacimiento"
+           type="date"
+           class="form-control"
+           [(ngModel)]="empleado.fechaNacimiento"
+           name="fechaNacimiento"
+           required>
+  </div>
+
+  <!-- Sexo -->
+  <div class="col-md-6">
+    <label for="sexo" class="form-label">Sexo</label>
+    <select id="sexo"
+            class="form-select"
+            [(ngModel)]="empleado.sexo"
+            name="sexo"
+            required>
+      <option value="M">Masculino</option>
+      <option value="F">Femenino</option>
+      <option value="O">Otro</option>
+    </select>
+  </div>
+
+  <!-- Dirección -->
+  <div class="col-12">
+    <label for="direccion" class="form-label">Dirección</label>
+    <input id="direccion"
+           class="form-control"
+           [(ngModel)]="empleado.direccion"
+           name="direccion">
+  </div>
+
+  <!-- Contacto de Emergencia -->
+  <div class="col-md-6">
+    <label for="nombreContactoEmergencia" class="form-label">Contacto Emergencia</label>
+    <input id="nombreContactoEmergencia"
+           class="form-control"
+           [(ngModel)]="empleado.nombreContactoEmergencia"
+           name="nombreContactoEmergencia">
+  </div>
+  <div class="col-md-6">
+    <label for="telContactoEmergencia" class="form-label">Teléfono Emergencia</label>
+    <input id="telContactoEmergencia"
+           class="form-control"
+           [(ngModel)]="empleado.telContactoEmergencia"
+           name="telContactoEmergencia">
+  </div>
+
+  <!-- Botones -->
+  <div class="col-12 d-flex justify-content-end gap-2">
+    <!--<button type="button"
+            class="btn btn-outline-secondary"
+            (click)="cancelar()">
+      Cancelar
+    </button>-->
+    <button type="submit"
+            class="btn btn-primary">
+      {{ isEdit ? 'Actualizar' : 'Registrar' }}
+    </button>
+  </div>
+</div>
+</form>

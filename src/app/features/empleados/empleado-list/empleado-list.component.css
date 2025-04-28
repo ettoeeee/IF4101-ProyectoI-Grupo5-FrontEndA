@@ -1,0 +1,123 @@
+/* 🔵 Fondo general de tabla */
+table.table {
+  background-color: #ffffff;
+  border-collapse: separate;
+  border-spacing: 0 8px; /* Separación entre filas */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* 🔵 Encabezado */
+thead.table-light {
+  background-color: #f1f3f5;
+  font-weight: bold;
+  color: #495057;
+}
+
+/* 🔵 Filas de datos */
+tbody tr {
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+  tbody tr:hover {
+    background-color: #e9ecef;
+  }
+
+/* 🔵 Celdas generales */
+td {
+  vertical-align: middle !important;
+}
+
+  /* 🔵 Imagen de Cliente */
+  td.d-flex.align-items-center img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid #ced4da;
+    transition: transform 0.3s;
+  }
+
+    td.d-flex.align-items-center img:hover {
+      transform: scale(1.1);
+    }
+
+  /* 🔵 Nombre del cliente */
+  td span.fw-bold {
+    font-size: 1rem;
+  }
+
+/* 🔵 Botones */
+button.btn-outline-primary,
+button.btn-outline-danger {
+  border-radius: 6px;
+  font-size: 0.85rem;
+  padding: 5px 12px;
+  font-weight: 500;
+  border-width: 1px;
+}
+
+button.btn-outline-primary {
+  color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+  button.btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: #ffffff;
+  }
+
+button.btn-outline-danger {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+  button.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #ffffff;
+  }
+
+/* 🔵 Badges de Activo */
+.badge {
+  font-size: 0.75rem;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+
+  .badge.bg-success {
+    background-color: #28a745;
+  }
+
+  .badge.bg-secondary {
+    background-color: #6c757d;
+  }
+
+/* 🔵 Input buscador */
+input.form-control.mb-4 {
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 10px;
+}
+
+/* 🔵 Título de Gestión de Clientes */
+h2 {
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: #212529;
+}
+
+/* 🔵 Botón "Nuevo Cliente" */
+button.btn-primary {
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 8px 20px;
+}
+
+/* 🔵 Estilo de Modal */
+.modal-content {
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
