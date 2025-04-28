@@ -60,7 +60,7 @@ export const routes: Routes = [
         path: 'ejercicios',
         loadComponent: () =>
           import('./features/ejercicios/ejercicios/ejercicios.component')
-            .then(e => e.EjerciciosComponent)
+            .then(e => e.EjercicioComponent)
       },
 
       // Categorías de Ejercicio

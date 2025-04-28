@@ -1,48 +1,63 @@
 <div class="container">
-    <div class="header">
-      <h2>Gestión de Ejercicios</h2>
-      <button (click)="abrirModalNueva()" class="btn btn-primary">+ Nuevo Ejercicio</button>
-    </div>
-  
-    <input type="text" placeholder="Buscar ejercicios..." [(ngModel)]="filtro" (input)="filtrarEjercicios()" class="search-bar" />
-  
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Categoría</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let ejercicio of ejerciciosFiltrados">
-          <td>{{ ejercicio.nombreEjercicio }}</td>
-          <td>{{ ejercicio.categoriaEjercicio[0].nombreCategoria }}</td>
-          <td>
-            <button (click)="abrirModalEditar(ejercicio)" class="btn btn-sm btn-warning">✏️</button>
-            <button (click)="eliminarEjercicio(ejercicio.idEjercicio)" class="btn btn-sm btn-danger">🗑️</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  
-    <!-- Modal -->
-    <div class="modal" *ngIf="mostrarModal">
-      <div class="modal-content">
-        <h3>{{ editando ? 'Editar Ejercicio' : 'Nuevo Ejercicio' }}</h3>
-        <form [formGroup]="ejercicioForm" (ngSubmit)="guardarEjercicio()">
-          <input type="text" formControlName="nombreEjercicio" placeholder="Nombre del Ejercicio" />
-          <select formControlName="idCategoria">
-            <option value="">Seleccione una categoría</option>
-            <option *ngFor="let categoria of categorias" [value]="categoria.idCategoriaEjercicio">
-              {{ categoria.nombreCategoria }}
-            </option>
-          </select>
-          <div class="buttons">
-            <button type="submit" class="btn btn-success">Guardar</button>
-            <button type="button" (click)="cerrarModal()" class="btn btn-secondary">Cancelar</button>
-          </div>
-        </form>
-      </div>
+  <div class="header">
+    <h2>Gestión de Ejercicios</h2>
+    <button (click)="abrirModalNueva()" class="btn btn-primary">+ Nuevo Ejercicio</button>
+  </div>
+
+  <!-- Barra de búsqueda -->
+  <input type="text" placeholder="Buscar ejercicios..." [(ngModel)]="filtro" (input)="filtrarEjercicios()" class="search-bar" />
+
+  <!-- Tabla de ejercicios -->
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Categoría</th>
+        <th>Fotografía</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ejercicio of ejerciciosFiltrados">
+        <td>{{ ejercicio.nombreEjercicio }}</td>
+        <td>{{ ejercicio.categoriaEjercicio[0].nombreCategoria }}</td>
+        <td>
+          <img *ngIf="ejercicio.fotografiasEjercicio.length" [src]="ejercicio.fotografiasEjercicio[0].rutaImagen" alt="Foto ejercicio" width="50" />
+        </td>
+        <td>
+          <button (click)="abrirModalEditar(ejercicio)" class="btn btn-sm btn-warning">✏️</button>
+          <button (click)="eliminarEjercicio(ejercicio.idEjercicio)" class="btn btn-sm btn-danger">🗑️</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal -->
+  <div class="modal" *ngIf="mostrarModal">
+    <div class="modal-content">
+      <h3>{{ editando ? 'Editar Ejercicio' : 'Nuevo Ejercicio' }}</h3>
+      <form [formGroup]="ejercicioForm" (ngSubmit)="guardarEjercicio()">
+        <input type="text" formControlName="nombreEjercicio" placeholder="Nombre del Ejercicio" />
+        
+        <select formControlName="idCategoria">
+          <option value="">Seleccione una categoría</option>
+          <option *ngFor="let categoria of categorias" [value]="categoria.idCategoriaEjercicio">
+            {{ categoria.nombreCategoria }}
+          </option>
+        </select>
+
+        <!-- Input para subir la imagen -->
+        <input type="file" (change)="agregarFoto($event)" />
+
+        <div *ngIf="archivoFoto">
+          <p>Foto seleccionada: {{ archivoFoto.name }}</p>
+        </div>
+
+        <div class="buttons">
+          <button type="submit" class="btn btn-success">Guardar</button>
+          <button type="button" (click)="cerrarModal()" class="btn btn-secondary">Cancelar</button>
+        </div>
+      </form>
     </div>
   </div>
+</div>

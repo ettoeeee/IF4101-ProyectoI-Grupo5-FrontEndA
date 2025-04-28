@@ -2,32 +2,59 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Ejercicio } from '../../domain/ejercicio.model';
+import { FotografiaEjercicio } from '../../domain/fotografiaejercicio.model'; // Si no la tienes, importa el modelo de la fotografía.
+import { CategoriaEjercicio } from '@app/domain/categoriaejercicio.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EjercicioService {
-  private apiUrl = 'http://localhost:8080/bulk-gym/api/ejercicios'; // Ajusta si cambias el puerto/backend
+  private apiUrl = 'http://localhost:8080/bulk-gym/api/ejercicios'; // Endpoint para ejercicios
+  private apiUrlCategorias = 'http://localhost:8080/bulk-gym/api/categorias'; // Endpoint para categorías
+  private apiUrlFotos = 'http://localhost:8080/bulk-gym/api/fotografias'; // Endpoint para fotos de los ejercicios.
 
   constructor(private http: HttpClient) {}
 
+  // Obtener todas las categorías
+  obtenerCategorias(): Observable<CategoriaEjercicio[]> {
+    return this.http.get<CategoriaEjercicio[]>(this.apiUrlCategorias);
+  }
+
+  // Obtener todos los ejercicios
   obtenerEjercicios(): Observable<Ejercicio[]> {
     return this.http.get<Ejercicio[]>(this.apiUrl);
   }
 
-  crearEjercicio(ejercicio: Ejercicio): Observable<any> {
-    return this.http.post<any>(this.apiUrl, ejercicio);
+  // Crear un ejercicio nuevo (sin fotos)
+  crearEjercicio(ejercicio: Ejercicio): Observable<Ejercicio> {
+    return this.http.post<Ejercicio>(this.apiUrl, ejercicio);
   }
 
-  actualizarEjercicio(id: number, ejercicio: Ejercicio): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/${id}`, ejercicio);
+  // Crear un ejercicio con fotos
+  crearEjercicioConFotos(ejercicio: Ejercicio, formData: FormData): Observable<Ejercicio> {
+    return this.http.post<Ejercicio>(this.apiUrl, formData);
   }
 
-  eliminarEjercicio(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/${id}`);
+  // Subir una foto para un ejercicio
+  subirFoto(foto: FormData): Observable<FotografiaEjercicio> {
+    return this.http.post<FotografiaEjercicio>(this.apiUrlFotos, foto);
   }
 
-  obtenerEjercicioPorId(id: number): Observable<Ejercicio> {
-    return this.http.get<Ejercicio>(`${this.apiUrl}/${id}`);
+  // Actualizar un ejercicio existente (sin fotos)
+  actualizarEjercicio(id: number, ejercicio: Ejercicio): Observable<Ejercicio> {
+    return this.http.put<Ejercicio>(`${this.apiUrl}/${id}`, ejercicio);
+  }
+
+  // Actualizar un ejercicio con fotos
+  actualizarEjercicioConFotos(id: number, ejercicio: Ejercicio, archivoFoto: File): Observable<Ejercicio> {
+    const formData = new FormData();
+    formData.append('ejercicio', JSON.stringify(ejercicio)); // Convertimos el objeto Ejercicio en string para enviarlo.
+    formData.append('foto', archivoFoto, archivoFoto.name); // Adjuntamos la foto seleccionada.
+    return this.http.put<Ejercicio>(`${this.apiUrl}/${id}`, formData);
+  }
+
+  // Eliminar un ejercicio
+  eliminarEjercicio(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
