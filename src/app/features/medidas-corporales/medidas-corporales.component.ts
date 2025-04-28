@@ -62,34 +62,33 @@ export class MedidasCorporalesComponent implements OnInit {
   }
 
   eliminarMedida(id: number): void {
-
-     Swal.fire({
-        title: '¿Está seguro?',
-        text: 'Esta acción eliminará al cliente de forma permanente.',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#d33',
-        cancelButtonColor: '#6c757d',
-        confirmButtonText: 'Sí, eliminar',
-        cancelButtonText: 'Cancelar'
-      }).then((result: { isConfirmed: boolean }) => {
-        if (result.isConfirmed) {
-      this.medidasService.eliminarMedida(id).subscribe({
-                     next: () => {
-                 Swal.fire('Eliminado', 'El cliente ha sido eliminado exitosamente.', 'success');
-                 this.filtrarMedidas; // 🔥 Refresca la tabla si tienes un método para recargar
-               },
-               error: (err) => {
-                 Swal.fire('Error', 'No se pudo eliminar el cliente.', 'error');
-               }
-             });
+    Swal.fire({
+      title: '¿Está seguro?',
+      text: 'Esta acción eliminará la medida de forma permanente.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#d33',
+      cancelButtonColor: '#6c757d',
+      confirmButtonText: 'Sí, eliminar',
+      cancelButtonText: 'Cancelar'
+    }).then((result: { isConfirmed: boolean }) => {
+      if (result.isConfirmed) {
+        this.medidasService.eliminarMedida(id).subscribe({
+          next: () => {
+            // 🔥 Eliminar directamente de las listas medidas y medidasFiltradas
+            this.medidas = this.medidas.filter(m => m.codMedida !== id);
+            this.filtrarMedidas(); // refresca la lista filtrada
             
+            Swal.fire('Eliminado', 'La medida ha sido eliminada exitosamente.', 'success');
+          },
+          error: (err) => {
+            Swal.fire('Error', 'No se pudo eliminar la medida.', 'error');
+          }
+        });
       }
-      
-    }
-
-  )}
-
+    });
+  }
+  
   
 }
 
