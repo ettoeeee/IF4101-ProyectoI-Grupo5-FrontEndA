@@ -15,6 +15,7 @@ import { EmpleadoService } from '../../../services/empleado/empleado.service';
 export class EmpleadoFormComponent {
   @Input() empleadoAEditar?: Empleado;
   @Output() guardado = new EventEmitter<void>();
+
   empleado: Empleado = {
     idEmpleado: 0,
     idPersona: 0,
@@ -33,6 +34,11 @@ export class EmpleadoFormComponent {
   isEdit = false;
   mensaje = '';
 
+  // Propiedades para la carga de imagen
+  cargandoImagen = false;
+  porcentajeCarga = 0;
+  imagenPreview: string | ArrayBuffer | null = null;
+
   constructor(
     private service: EmpleadoService,
     private router: Router,
@@ -41,7 +47,11 @@ export class EmpleadoFormComponent {
     const id = this.route.snapshot.params['id'];
     if (id) {
       this.isEdit = true;
-      this.service.getById(+id).subscribe(e => this.empleado = e);
+      this.service.getById(+id).subscribe(e => {
+        this.empleado = e;
+        // Asignar preview manejando undefined
+        this.imagenPreview = e.imagenRuta ?? null;
+      });
     }
   }
 
@@ -61,5 +71,39 @@ export class EmpleadoFormComponent {
         error: e => this.mensaje = 'Error al crear: ' + e.message
       });
     }
+  }
+
+  /**
+   * Maneja la selección de archivo, muestra preview y simula progreso
+   */
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (!input.files?.length) return;
+
+    const file = input.files[0];
+    const maxSize = 5 * 1024 * 1024; // 5MB
+    if (file.size > maxSize) {
+      alert('La imagen es demasiado grande (>5MB).');
+      return;
+    }
+
+    this.cargandoImagen = true;
+    this.porcentajeCarga = 0;
+
+    const reader = new FileReader();
+    reader.onload = () => {
+      this.imagenPreview = reader.result;
+      // Simular progreso de carga
+      const interval = setInterval(() => {
+        this.porcentajeCarga += 20;
+        if (this.porcentajeCarga >= 100) {
+          clearInterval(interval);
+          this.cargandoImagen = false;
+          // Actualizar la ruta en el modelo
+          this.empleado.imagenRuta = this.imagenPreview as string;
+        }
+      }, 100);
+    };
+    reader.readAsDataURL(file);
   }
 }

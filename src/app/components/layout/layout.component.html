@@ -1,7 +1,7 @@
 <div class="d-flex min-vh-100">
   <!-- Sidebar -->
   <div class="bg-dark text-white p-3" style="width: 250px;">
-    <h4 class="mb-4 text-center fw-bold">GymPro</h4> <!-- Sin emoji, centrado bonito -->
+    <h4 class="mb-4 text-center fw-bold">Bulk Gym</h4>
 
     <div class="d-flex flex-column gap-2">
       <button 
@@ -32,6 +32,13 @@
         Medidas Corporales
       </button>
 
+      <button
+        class="btn btn-sidebar"
+        [class.active]="esRutaActiva('/empleados')"
+        (click)="navegar('/empleados')">
+        Empleados
+      </button>
+
      <button 
         class="btn btn-sidebar" 
         [class.active]="esRutaActiva('/ejercicios')" 
@@ -39,13 +46,19 @@
         Ejercicios
       </button>
    
-      <button 
-      class="btn btn-sidebar" 
-      [class.active]="esRutaActiva('/cerrar')" 
-      (click)="navegar('/ejercicios')">
-      Cerrar Sesión 
+      
+    <button 
+    class="btn btn-sidebar" 
+    [class.active]="esRutaActiva('/categorias')" 
+    (click)="navegar('/categorias')">
+    Categorías de Ejercicio
+  </button>
+  
+  <button 
+    class="btn btn-sidebar" 
+    (click)="cerrarSesion()">
+    Cerrar Sesión 
     </button>
-
     </div>
     
   </div>
