@@ -1,0 +1,83 @@
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f3f6fb;
+    margin: 0;
+  }
+  
+  .login-container {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Ajuste: de 380px a 400px */
+    text-align: center;
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 28px;
+    font-weight: bold;
+    color: #000;
+  }
+  
+  h2 {
+    margin-top: 5px; /* Ajuste: menos espacio arriba */
+    margin-bottom: 30px;
+    font-size: 18px; /* Ajuste: tamaño más compacto */
+    font-weight: normal;
+    color: #333;
+  }
+  
+  .form-group {
+    text-align: left;
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    font-size: 14px;
+    margin-bottom: 5px;
+    display: block;
+    color: #666;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9fafb; /* Nuevo: color más clarito como en el prototipo */
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2563eb;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold; /* Botón más sólido */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #1e40af; /* Azul más fuerte al pasar mouse */
+    transform: scale(1.02); /* Pequeño efecto de agrandamiento */
+  }
+  
+  button:disabled {
+    background-color: #a5b4fc;
+    cursor: not-allowed;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet, Router } from '@angular/router';
+import { SesionService } from '../../services/sesion/sesion.service';
 
 @Component({
   selector: 'app-layout',
@@ -11,7 +12,9 @@ import { RouterOutlet, Router } from '@angular/router';
 })
 export class LayoutComponent {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,
+    private sesionService: SesionService
+  ) {}
 
   navegar(ruta: string) {
     this.router.navigate([ruta]);
@@ -21,4 +24,10 @@ export class LayoutComponent {
     esRutaActiva(ruta: string): boolean {
       return this.router.url.startsWith(ruta);
     }
+
+  // Método para cerrar sesión directamente
+  cerrarSesion() {
+      this.sesionService.logout();
+  }
+
 }

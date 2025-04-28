@@ -1,1 +1,35 @@
-<p>login works!</p>
+<div class="container d-flex align-items-center justify-content-center min-vh-100">
+    <div class="card p-4 shadow" style="width: 400px;">
+  
+      <div class="text-center mb-4">
+        <h1 class="mb-2">BulkGym</h1>
+        <h4 class="text-muted">Iniciar Sesión</h4>
+      </div>
+  
+      <form [formGroup]="formularioLogin" (ngSubmit)="iniciarSesion()">
+  
+        <div class="form-group mb-3">
+          <label for="usuario" class="form-label">Usuario</label>
+          <input id="usuario" type="text" class="form-control" placeholder="" formControlName="usuario">
+        </div>
+  
+        <div class="form-group mb-4">
+          <label for="contrasenia" class="form-label">Contraseña</label>
+          <input id="contrasenia" type="password" class="form-control" placeholder="" formControlName="contrasenia">
+        </div>
+  
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary" [disabled]="formularioLogin.invalid">
+            Ingresar
+          </button>
+        </div>
+  
+        <div *ngIf="error" class="alert alert-danger mt-3">
+          {{ error }}
+        </div>
+  
+      </form>
+  
+    </div>
+  </div>
+  
