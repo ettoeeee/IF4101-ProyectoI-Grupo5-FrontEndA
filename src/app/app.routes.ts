@@ -3,6 +3,7 @@ import { LayoutComponent } from './components/layout/layout.component';//'./layo
 import { PanelPrincipalComponent } from './components/panel-principal/panel-principal.component';
 import { ClienteListComponent } from './features/clientes/cliente-list/cliente-list.component';
 import { MedidasCorporalesComponent } from './features/medidas-corporales/medidas-corporales.component';
+import { GuardGuard } from './services/sesion/guard/guard.guard';
 
 export const routes: Routes = [
 
@@ -20,6 +21,7 @@ export const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    canActivate: [GuardGuard], //Protección de rutas
     children: [
       { path: 'dashboard', component: PanelPrincipalComponent },
       { path: 'clientes', component: ClienteListComponent },
