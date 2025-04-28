@@ -5,18 +5,22 @@ import { ClienteListComponent } from './features/clientes/cliente-list/cliente-l
 import { MedidasCorporalesComponent } from './features/medidas-corporales/medidas-corporales.component';
 
 export const routes: Routes = [
+
   
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+
+
   {
     path: 'login',
     loadComponent: () => import('./features/login/login.component')
       .then(m => m.LoginComponent)
   },
 
+  
   {
     path: '',
     component: LayoutComponent,
     children: [
-      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: PanelPrincipalComponent },
       { path: 'clientes', component: ClienteListComponent },
 
