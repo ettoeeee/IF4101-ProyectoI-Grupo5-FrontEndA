@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Empleado } from '@app/domain/empleado.model';
 import { Observable } from 'rxjs';
-import { Empleado } from '../../domain/empleado.model';
-import { environment } from '../../../environments/environment';
+import { environment } from '@environments/environment';
 
-@Injectable({
-  providedIn: 'root'
-})
+interface RespuestaMensaje { mensaje: string; }
+
+@Injectable({ providedIn: 'root' })
 export class EmpleadoService {
   private apiUrl = `${environment.apiBaseUrl}/empleados`;
 
@@ -32,3 +32,4 @@ export class EmpleadoService {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
+

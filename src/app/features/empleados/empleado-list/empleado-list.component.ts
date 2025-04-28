@@ -31,7 +31,7 @@ export class EmpleadoListComponent implements OnInit {
     });
   }
 
-  // 🔍 Filtrado según el input [(ngModel)]="filtro"
+  // Filtrado según el input [(ngModel)]="filtro"
   filtrarEmpleados(): Empleado[] {
     const txt = this.filtro.toLowerCase();
     return this.empleados.filter(e =>
@@ -42,20 +42,20 @@ export class EmpleadoListComponent implements OnInit {
     );
   }
 
-  // ✏️/➕ Abrir modal de crear o editar
+  // Abrir modal de crear o editar
   abrirModal(e?: Empleado): void {
     this.empleadoSeleccionado = e;
     this.mostrarModal = true;
   }
 
-  // ❌ Cerrar modal y recargar lista
+  // Cerrar modal y recargar lista
   cerrarModal(): void {
     this.mostrarModal = false;
     this.empleadoSeleccionado = undefined;
     this.loadEmpleados();
   }
 
-  // 🗑️ Eliminar empleado
+  // Eliminar empleado
   eliminarEmpleado(id: number): void {
     if (!confirm('¿Desea eliminar este empleado?')) return;
     this.service.delete(id).subscribe({

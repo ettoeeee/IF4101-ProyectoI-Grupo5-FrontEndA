@@ -1,7 +1,9 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, ActivatedRoute, RouterModule } from '@angular/router';
+import Swal from 'sweetalert2';
+
 import { Empleado } from '../../../domain/empleado.model';
 import { EmpleadoService } from '../../../services/empleado/empleado.service';
 
@@ -12,7 +14,7 @@ import { EmpleadoService } from '../../../services/empleado/empleado.service';
   templateUrl: './empleado-form.component.html',
   styleUrls: ['./empleado-form.component.css']
 })
-export class EmpleadoFormComponent {
+export class EmpleadoFormComponent implements OnInit {
   @Input() empleadoAEditar?: Empleado;
   @Output() guardado = new EventEmitter<void>();
 
@@ -32,9 +34,8 @@ export class EmpleadoFormComponent {
     rolEmpleado: ''
   };
   isEdit = false;
-  mensaje = '';
-
-  // Propiedades para la carga de imagen
+  mensaje: string = '';
+  // Para la carga de imagen
   cargandoImagen = false;
   porcentajeCarga = 0;
   imagenPreview: string | ArrayBuffer | null = null;
@@ -43,14 +44,29 @@ export class EmpleadoFormComponent {
     private service: EmpleadoService,
     private router: Router,
     private route: ActivatedRoute
-  ) {
-    const id = this.route.snapshot.params['id'];
-    if (id) {
+  ) { }
+
+  ngOnInit(): void {
+    // si viene por Input (modal), precargo
+    if (this.empleadoAEditar) {
       this.isEdit = true;
-      this.service.getById(+id).subscribe(e => {
-        this.empleado = e;
-        // Asignar preview manejando undefined
-        this.imagenPreview = e.imagenRuta ?? null;
+      this.empleado = { ...this.empleadoAEditar };
+      this.imagenPreview = this.empleado.imagenRuta || null;
+      return;
+    }
+    // si vengo de /empleados/edit/:id
+    const idParam = this.route.snapshot.paramMap.get('id');
+    if (idParam) {
+      this.isEdit = true;
+      const id = +idParam;
+      this.service.getById(id).subscribe({
+        next: emp => {
+          this.empleado = { ...emp };
+          this.imagenPreview = this.empleado.imagenRuta || null;
+        },
+        error: err => {
+          Swal.fire('❌ Error al cargar', err.error?.mensaje || err.message, 'error');
+        }
       });
     }
   }
@@ -60,22 +76,39 @@ export class EmpleadoFormComponent {
   }
 
   guardar(): void {
-    if (this.isEdit) {
-      this.service.update(this.empleado.idEmpleado, this.empleado).subscribe({
-        next: () => this.router.navigate(['/empleados']),
-        error: e => this.mensaje = 'Error al actualizar: ' + e.message
-      });
-    } else {
-      this.service.create(this.empleado).subscribe({
-        next: () => this.router.navigate(['/empleados']),
-        error: e => this.mensaje = 'Error al crear: ' + e.message
-      });
-    }
+    const peticion$ = this.isEdit
+      ? this.service.update(this.empleado.idEmpleado, this.empleado)
+      : this.service.create(this.empleado);
+
+    peticion$.subscribe({
+      next: () => {
+        Swal.fire(
+          this.isEdit ? '¡Actualizado!' : '¡Creado!',
+          this.isEdit
+            ? 'El empleado se actualizó correctamente.'
+            : 'El empleado se creó correctamente.',
+          'success'
+        ).then(() => {
+          // si vienes de un modal:
+          this.guardado.emit();
+          // o si es página suelta:
+          if (!this.empleadoAEditar) {
+            this.router.navigate(['/empleados']);
+          }
+        });
+      },
+      error: err => {
+        Swal.fire(
+          '❌ Error',
+          err.error?.mensaje ||
+          err.error ||
+          'Ocurrió un problema al ' + (this.isEdit ? 'actualizar' : 'crear') + ' empleado.',
+          'error'
+        );
+      }
+    });
   }
 
-  /**
-   * Maneja la selección de archivo, muestra preview y simula progreso
-   */
   onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
     if (!input.files?.length) return;
@@ -83,7 +116,7 @@ export class EmpleadoFormComponent {
     const file = input.files[0];
     const maxSize = 5 * 1024 * 1024; // 5MB
     if (file.size > maxSize) {
-      alert('La imagen es demasiado grande (>5MB).');
+      Swal.fire('❌ Imagen muy grande', 'El tamaño máximo es 5 MB.', 'error');
       return;
     }
 
@@ -93,13 +126,11 @@ export class EmpleadoFormComponent {
     const reader = new FileReader();
     reader.onload = () => {
       this.imagenPreview = reader.result;
-      // Simular progreso de carga
       const interval = setInterval(() => {
         this.porcentajeCarga += 20;
         if (this.porcentajeCarga >= 100) {
           clearInterval(interval);
           this.cargandoImagen = false;
-          // Actualizar la ruta en el modelo
           this.empleado.imagenRuta = this.imagenPreview as string;
         }
       }, 100);
