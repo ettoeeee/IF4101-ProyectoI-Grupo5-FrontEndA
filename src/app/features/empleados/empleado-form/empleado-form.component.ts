@@ -77,7 +77,7 @@ export class EmpleadoFormComponent implements OnInit {
 
   guardar(): void {
     const peticion$ = this.isEdit
-      ? this.service.update(this.empleado.idEmpleado, this.empleado)
+      ? this.service.update(this.empleado.idPersona, this.empleado)
       : this.service.create(this.empleado);
 
     peticion$.subscribe({
