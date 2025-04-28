@@ -1,151 +1,183 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { Ejercicio } from '@app/domain/ejercicio.model';
-import { CategoriaEjercicio } from '@app/domain/categoriaejercicio.model';
-import { FotografiaEjercicio } from '@app/domain/fotografiaejercicio.model';
 import { EjercicioService } from '@app/services/ejercicio/ejercicio.service';
-import { EjercicioCrearDTO } from '@app/domain/ejercicio.model';
+import { CategoriaEjercicioService } from '@app/services/categoriaejercicio/categoriaejercicio.service';
+import { Ejercicio } from '@app/domain/ejercicio.model';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-ejercicio',
   standalone: true,
-  imports: [CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './ejercicios.component.html',
   styleUrls: ['./ejercicios.component.css']
 })
 export class EjercicioComponent implements OnInit {
-  ejercicio: Ejercicio = {
-    idEjercicio: 0,
-    nombreEjercicio: '',
-    categoriaEjercicio: [],
-    fotografiasEjercicio: []
-  };
 
   ejercicios: Ejercicio[] = [];
-  ejerciciosFiltrados: Ejercicio[] = [];
-  categorias: CategoriaEjercicio[] = [];
-  categoriasSeleccionadas: CategoriaEjercicio[] = [];
-  archivoFoto: File | null = null;
-  filtro: string = '';
-  mostrarModal: boolean = false;
-  editando: boolean = false;
-  idEditando: number | null = null;
-  ejercicioForm: any;
+  categorias: any[] = [];
+  formulario: FormGroup;
+  modoEditar = false;
+  idEditar: number | null = null;
+  mostrarModal = false;
 
-  constructor(private ejercicioService: EjercicioService, private fb: FormBuilder) {}
+  cargandoImagen = false;
+  porcentajeCarga = 0;
+  imagenPreview: string | ArrayBuffer | null = null;
+
+  constructor(
+    private fb: FormBuilder,
+    private ejercicioService: EjercicioService,
+    private categoriaService: CategoriaEjercicioService
+  ) {
+    this.formulario = this.fb.group({
+      nombreEjercicio: ['', Validators.required],
+      idCategoria: ['', Validators.required],
+      imagen: ['']
+    });
+  }
 
   ngOnInit(): void {
-    this.cargarCategorias();
-    this.obtenerEjercicios();
-    this.inicializarFormulario();
+    this.listarEjercicios();
+    this.listarCategorias();
   }
 
-  inicializarFormulario(): void {
-    this.ejercicioForm = this.fb.group({
-      nombreEjercicio: ['', Validators.required],
-      idCategoria: ['', Validators.required]
-    });
-  }
-
-  obtenerEjercicios(): void {
-    this.ejercicioService.obtenerEjercicios().subscribe((data: Ejercicio[]) => {
+  listarEjercicios(): void {
+    this.ejercicioService.listarEjercicios().subscribe(data => {
       this.ejercicios = data;
-      this.filtrarEjercicios();
     });
   }
 
-  filtrarEjercicios(): void {
-    this.ejerciciosFiltrados = this.ejercicios.filter(ejercicio =>
-      ejercicio.nombreEjercicio.toLowerCase().includes(this.filtro.toLowerCase())
-    );
-  }
-
-  cargarCategorias(): void {
-    this.ejercicioService.obtenerCategorias().subscribe((categorias: CategoriaEjercicio[]) => {
-      this.categorias = categorias;
-    }, (error) => {
-      console.error('Error al cargar categorías', error);
+  listarCategorias(): void {
+    this.categoriaService.listarCategorias().subscribe(data => {
+      this.categorias = data;
     });
   }
 
-  agregarFoto(event: any): void {
-    const archivo = event.target.files[0];
-    if (archivo) {
-      this.archivoFoto = archivo;
-    }
-  }
-
-  abrirModalNueva(): void {
-    this.editando = false;
-    this.idEditando = null;
-    this.ejercicioForm.reset();
+  abrirModal(): void {
     this.mostrarModal = true;
-  }
-
-  abrirModalEditar(ejercicio: Ejercicio): void {
-    this.editando = true;
-    this.idEditando = ejercicio.idEjercicio;
-    this.ejercicioForm.setValue({
-      nombreEjercicio: ejercicio.nombreEjercicio,
-      idCategoria: ejercicio.categoriaEjercicio[0].idCategoriaEjercicio
-    });
-    this.archivoFoto = null;  // Si hay una imagen asociada, puedes cargarla aquí
-    this.mostrarModal = true;
-  }
-
-  guardarEjercicio(): void {
-    if (this.ejercicioForm.invalid) return;
-  
-    const ejercicioNuevo: EjercicioCrearDTO = {
-      nombreEjercicio: this.ejercicioForm.value.nombreEjercicio,
-      equipo: '', // Puedes poner campos reales luego
-      series: 0,
-      repeticiones: 0,
-      idCategoria: this.ejercicioForm.value.idCategoria
-    };
-  
-    // Primero: crear el ejercicio
-    this.ejercicioService.crearEjercicio(ejercicioNuevo).subscribe(response => {
-      console.log('Ejercicio creado:', response);
-  
-      // Luego: si hay una imagen seleccionada, subirla
-      if (this.archivoFoto) {
-        const formData = new FormData();
-        formData.append('file', this.archivoFoto, this.archivoFoto.name);
-  
-        // Llamar al servicio para subir la imagen
-        this.ejercicioService.subirFoto(response.idEjercicio, formData).subscribe(res => {
-          console.log('Foto subida correctamente');
-          this.obtenerEjercicios();
-          this.cerrarModal();
-        }, error => {
-          console.error('Error subiendo foto', error);
-        });
-  
-      } else {
-        // Si no hay imagen, simplemente recargar la lista
-        this.obtenerEjercicios();
-        this.cerrarModal();
-      }
-    }, error => {
-      console.error('Error al guardar ejercicio', error);
-    });
-  }
-  
-  
-  
-
-  eliminarEjercicio(id: number): void {
-    if (confirm('¿Está seguro de eliminar este ejercicio?')) {
-      this.ejercicioService.eliminarEjercicio(id).subscribe(() => {
-        this.obtenerEjercicios();
-      });
-    }
+    this.formulario.reset();
+    this.imagenPreview = null;
+    this.modoEditar = false;
+    this.idEditar = null;
   }
 
   cerrarModal(): void {
     this.mostrarModal = false;
-    this.idEditando = null;
-    this.ejercicioForm.reset();
   }
+
+  guardarEjercicio(): void {
+    if (this.formulario.invalid) return;
+
+    const ejercicio = {
+      nombreEjercicio: this.formulario.value.nombreEjercicio,
+      idCategoria: this.formulario.value.idCategoria,
+      imagen: this.formulario.value.imagen
+    };
+
+    if (this.modoEditar && this.idEditar != null) {
+      this.ejercicioService.actualizarEjercicio(this.idEditar, ejercicio).subscribe(() => {
+        Swal.fire('✅', 'Ejercicio actualizado', 'success');
+        this.listarEjercicios();
+        this.cerrarModal();
+      });
+    } else {
+      this.ejercicioService.insertarEjercicio(ejercicio).subscribe(() => {
+        Swal.fire('✅', 'Ejercicio creado', 'success');
+        this.listarEjercicios();
+        this.cerrarModal();
+      });
+    }
+  }
+
+  editarEjercicio(ejercicio: Ejercicio): void {
+    this.mostrarModal = true;
+    this.modoEditar = true;
+    this.idEditar = ejercicio.idEjercicio ?? null;
+    this.imagenPreview = ejercicio.imagen || null;
+
+    this.formulario.patchValue({
+      nombreEjercicio: ejercicio.nombreEjercicio,
+      idCategoria: ejercicio.categoriaEjercicio?.[0]?.idCategoriaEjercicio || '',
+      imagen: ejercicio.imagen
+    });
+  }
+
+  eliminarEjercicio(id: number): void {
+    if (confirm('¿Está seguro de eliminar este ejercicio?')) {
+      this.ejercicioService.eliminarEjercicio(id).subscribe(() => {
+        Swal.fire('✅', 'Ejercicio eliminado', 'success');
+        this.listarEjercicios();
+      });
+    }
+  }
+
+  onFileSelected(event: any): void {
+    const file = event.target.files[0];
+    if (file) {
+      const allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
+      const maxSizeInBytes = 5 * 1024 * 1024;
+
+      if (!allowedTypes.includes(file.type)) {
+        alert('❌ Solo se permiten imágenes JPG o PNG.');
+        return;
+      }
+
+      if (file.size > maxSizeInBytes) {
+        alert('❌ Imagen muy grande (máximo 5MB).');
+        return;
+      }
+
+      this.cargandoImagen = true;
+      this.porcentajeCarga = 0;
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const img = new Image();
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+
+          const maxWidth = 400;
+          const maxHeight = 400;
+          let width = img.width;
+          let height = img.height;
+
+          if (width > height) {
+            if (width > maxWidth) {
+              height *= maxWidth / width;
+              width = maxWidth;
+            }
+          } else {
+            if (height > maxHeight) {
+              width *= maxHeight / height;
+              height = maxHeight;
+            }
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+          ctx?.drawImage(img, 0, 0, width, height);
+
+          const interval = setInterval(() => {
+            this.porcentajeCarga += 20;
+            if (this.porcentajeCarga >= 100) {
+              clearInterval(interval);
+
+              const dataUrl = canvas.toDataURL('image/jpeg', 0.7);
+              this.imagenPreview = dataUrl;
+              this.formulario.patchValue({ imagen: this.imagenPreview });
+              this.cargandoImagen = false;
+            }
+          }, 50);
+        };
+
+        img.src = e.target?.result as string;
+      };
+
+      reader.readAsDataURL(file);
+    }
+  }
+
 }

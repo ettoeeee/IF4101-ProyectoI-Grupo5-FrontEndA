@@ -1,68 +1,111 @@
-<div class="container">
-  <div class="header">
-    <h2>Gestión de Ejercicios</h2>
-    <button (click)="abrirModalNueva()" class="btn btn-primary">+ Nuevo Ejercicio</button>
+
+<!-- Botón para abrir el modal -->
+<div class="d-flex justify-content-end mb-4">
+  <button class="btn btn-primary" (click)="abrirModal()">➕ Nuevo Ejercicio</button>
+</div>
+
+<!-- Tabla de ejercicios -->
+<div class="card shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title mb-4">Gestión de Ejercicios</h5>
+
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+
+        <tbody>
+          <tr *ngFor="let ejercicio of ejercicios">
+            <td>
+              <img [src]="ejercicio.imagen || 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png'" 
+                   class="rounded" width="60" height="60" style="object-fit: cover;">
+            </td>
+            <td>{{ ejercicio.nombreEjercicio }}</td>
+            <td>
+              <span class="badge bg-success">{{ ejercicio.categoriaEjercicio?.[0]?.nombreCategoria || 'Sin Categoría' }}</span>
+            </td>
+            <td>
+              <button class="btn btn-sm btn-outline-primary me-2" (click)="editarEjercicio(ejercicio)">
+                ✏️
+              </button>
+              <button class="btn btn-sm btn-outline-danger" (click)="eliminarEjercicio(ejercicio.idEjercicio!)">
+                🗑️
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
+</div>
 
-  <!-- Barra de búsqueda -->
-  <input type="text" placeholder="Buscar ejercicios..." [(ngModel)]="filtro" (input)="filtrarEjercicios()" class="search-bar" />
+<!-- Modal de agregar/editar ejercicio -->
+<div class="modal-backdrop fade show" *ngIf="mostrarModal" style="z-index: 1040;"></div>
+<div class="modal fade show d-block" *ngIf="mostrarModal" style="z-index: 1050;">
+  <div class="modal-dialog">
+    <div class="modal-content shadow-lg">
+      <div class="modal-header">
+        <h5 class="modal-title">{{ modoEditar ? 'Editar Ejercicio' : 'Nuevo Ejercicio' }}</h5>
+        <button type="button" class="btn-close" (click)="cerrarModal()"></button>
+      </div>
 
-  <!-- Tabla de ejercicios -->
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Nombre</th>
-        <th>Categoría</th>
-        <th>Fotografía</th>
-        <th>Acciones</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let ejercicio of ejerciciosFiltrados">
-        <td>{{ ejercicio.nombreEjercicio }}</td>
-        <td>{{ ejercicio.categoriaEjercicio[0].nombreCategoria }}</td>
- 
-        <td>
-          <img *ngIf="ejercicio.fotografiasEjercicio.length"
-     [src]="'http://localhost:8080' + '/uploads/ejercicios/' + ejercicio.fotografiasEjercicio[0].rutaImagen"
-     alt="Foto ejercicio" width="50">
-        </td>
-        
-        
-        <td>
-          <button (click)="abrirModalEditar(ejercicio)" class="btn btn-sm btn-warning">✏️</button>
-          <button (click)="eliminarEjercicio(ejercicio.idEjercicio)" class="btn btn-sm btn-danger">🗑️</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+      <div class="modal-body">
+        <form [formGroup]="formulario" (ngSubmit)="guardarEjercicio()">
 
-  <!-- Modal -->
-  <div class="modal" *ngIf="mostrarModal">
-    <div class="modal-content">
-      <h3>{{ editando ? 'Editar Ejercicio' : 'Nuevo Ejercicio' }}</h3>
-      <form [formGroup]="ejercicioForm" (ngSubmit)="guardarEjercicio()">
-        <input type="text" formControlName="nombreEjercicio" placeholder="Nombre del Ejercicio" />
-        
-        <select formControlName="idCategoria">
-          <option value="">Seleccione una categoría</option>
-          <option *ngFor="let categoria of categorias" [value]="categoria.idCategoriaEjercicio">
-            {{ categoria.nombreCategoria }}
-          </option>
-        </select>
+          <!-- Imagen de ejercicio -->
+          <div class="mb-3 text-center position-relative">
 
-        <!-- Input para subir la imagen -->
-        <input type="file" (change)="agregarFoto($event)" />
+            <div *ngIf="cargandoImagen" class="d-flex justify-content-center my-3">
+              <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+            </div>
 
-        <div *ngIf="archivoFoto">
-          <p>Foto seleccionada: {{ archivoFoto.name }}</p>
-        </div>
+            <div *ngIf="cargandoImagen" class="w-100 mb-2">
+              <progress [value]="porcentajeCarga" max="100" class="w-100"></progress>
+              <small class="text-center d-block">{{ porcentajeCarga }}%</small>
+            </div>
 
-        <div class="buttons">
-          <button type="submit" class="btn btn-success">Guardar</button>
-          <button type="button" (click)="cerrarModal()" class="btn btn-secondary">Cancelar</button>
-        </div>
-      </form>
+            <img 
+              *ngIf="!cargandoImagen"
+              [src]="imagenPreview || 'https://cdn-icons-png.flaticon.com/512/3177/3177440.png'" 
+              class="rounded-circle shadow-sm mb-2" 
+              width="120" height="120"
+              style="object-fit: cover;"
+              alt="Imagen del ejercicio">
+
+            <input type="file" #fileInput hidden (change)="onFileSelected($event)" accept="image/*">
+            <button 
+              type="button" 
+              class="btn btn-sm btn-outline-secondary mt-2" 
+              (click)="fileInput.click()">
+              Cargar Imagen
+            </button>
+          </div>
+
+          <!-- Nombre -->
+          <div class="mb-3">
+            <label class="form-label">Nombre del Ejercicio</label>
+            <input type="text" class="form-control" formControlName="nombreEjercicio" placeholder="Ej: Sentadillas" required>
+          </div>
+
+          <!-- Categoría -->
+          <div class="mb-3">
+            <label class="form-label">Categoría</label>
+            <select class="form-select" formControlName="idCategoria" required>
+              <option value="">Seleccione una categoría</option>
+              <option *ngFor="let categoria of categorias" [value]="categoria.idCategoriaEjercicio">
+                {{ categoria.nombreCategoria }}
+              </option>
+            </select>
+          </div>
+
+          <!-- Botones -->
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn btn-secondary me-2" (click)="cerrarModal()">Cancelar</button>
+            <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid">
+              {{ modoEditar ? 'Actualizar' : 'Guardar' }}
+            </button>
+          </div>
+
+        </form>
+      </div>
     </div>
   </div>
 </div>

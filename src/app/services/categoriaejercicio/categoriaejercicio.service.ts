@@ -18,6 +18,9 @@ export class CategoriaEjercicioService {
   obtenerCategoriaPorId(id: number): Observable<CategoriaEjercicio> {
     return this.http.get<CategoriaEjercicio>(`${this.apiUrl}/${id}`);
   }
+  listarCategorias(): Observable<any[]> {
+    return this.http.get<any[]>(this.apiUrl);
+  }
 
   crearCategoria(categoria: CategoriaEjercicio): Observable<CategoriaEjercicio> {
     return this.http.post<CategoriaEjercicio>(this.apiUrl, categoria);
