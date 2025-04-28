@@ -2,51 +2,61 @@
 
   <!-- 🔵 Título del panel -->
   <div class="text-center mb-5">
-    <h1 class="fw-bold">🏋️‍♂️ Dashboard Principal</h1>
-    <p class="text-muted">Bienvenido a GymPro, consulta tu información al instante</p>
+    <h1 class="fw-bold">Panel de Control - GymPro</h1>
+    <p class="text-muted">Bienvenido, consulta y administra tu información de forma rápida y sencilla</p>
   </div>
 
   <!-- 🔵 Estadísticas principales -->
   <div class="row g-4 mb-5">
 
-    <!-- Clientes -->
-    <div class="col-md-3">
+    <!-- Clientes Totales -->
+    <div class="col-md-4">
       <div class="card border-0 shadow-sm h-100">
         <div class="card-body text-center">
           <i class="bi bi-people-fill text-primary fs-1 mb-3"></i>
-          <h5 class="card-title fw-bold">Clientes</h5>
+          <h5 class="card-title fw-bold">Clientes Totales</h5>
           <p class="display-6">{{ cantidadClientes }}</p>
           <small class="text-muted">{{ nuevosClientesMes }} nuevos este mes</small>
         </div>
       </div>
     </div>
 
-    <!-- Empleados -->
-    <div class="col-md-3">
+    <!-- Clientes Activos -->
+    <div class="col-md-4">
       <div class="card border-0 shadow-sm h-100">
         <div class="card-body text-center">
-          <i class="bi bi-person-workspace text-success fs-1 mb-3"></i>
-          <h5 class="card-title fw-bold">Empleados</h5>
-          <p class="display-6">{{ cantidadEmpleados }}</p>
-          <small class="text-muted">{{ cantidadEntrenadores }} entrenadores, {{ cantidadStaff }} staff</small>
+          <i class="bi bi-person-check-fill text-success fs-1 mb-3"></i>
+          <h5 class="card-title fw-bold">Clientes Activos</h5>
+          <p class="display-6">{{ cantidadClientesActivos }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clientes Inactivos -->
+    <div class="col-md-4">
+      <div class="card border-0 shadow-sm h-100">
+        <div class="card-body text-center">
+          <i class="bi bi-person-x-fill text-danger fs-1 mb-3"></i>
+          <h5 class="card-title fw-bold">Clientes Inactivos</h5>
+          <p class="display-6">{{ cantidadClientesInactivos }}</p>
         </div>
       </div>
     </div>
 
     <!-- Ejercicios -->
-    <div class="col-md-3">
+    <div class="col-md-6">
       <div class="card border-0 shadow-sm h-100">
         <div class="card-body text-center">
           <i class="bi bi-barbell text-warning fs-1 mb-3"></i>
-          <h5 class="card-title fw-bold">Ejercicios</h5>
+          <h5 class="card-title fw-bold">Ejercicios Registrados</h5>
           <p class="display-6">{{ cantidadEjercicios }}</p>
-          <small class="text-muted">En {{ cantidadCategorias }} categorías</small>
+          <small class="text-muted">Distribuidos en {{ cantidadCategorias }} categorías</small>
         </div>
       </div>
     </div>
 
     <!-- Rutinas Activas -->
-    <div class="col-md-3">
+    <div class="col-md-6">
       <div class="card border-0 shadow-sm h-100">
         <div class="card-body text-center">
           <i class="bi bi-graph-up-arrow text-danger fs-1 mb-3"></i>
@@ -59,28 +69,32 @@
 
   </div>
 
-  <!-- 🔵 Sección de Acceso Rápido -->
-  <div class="row justify-content-center">
-    <div class="col-md-6">
-      <div class="card border-0 shadow-sm">
-        <div class="card-body text-center">
-          <h5 class="card-title fw-bold mb-4">
-            <i class="bi bi-lightning-fill text-warning me-2"></i>Acceso Rápido
-          </h5>
-          <div class="d-grid gap-3">
-            <button class="btn btn-outline-primary py-2" routerLink="/clientes">
-              <i class="bi bi-people-fill me-2"></i> Gestión de Clientes
-            </button>
-            <button class="btn btn-outline-success py-2" routerLink="/ejercicios">
-              <i class="bi bi-barbell me-2"></i> Gestión de Ejercicios
-            </button>
-            <button class="btn btn-outline-warning py-2" routerLink="/configuracion">
-              <i class="bi bi-gear-fill me-2"></i> Configuración
-            </button>
-          </div>
+  <!-- 🔵 Acceso Rápido -->
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <div class="card border-0 shadow-sm">
+      <div class="card-body text-center">
+        <h5 class="card-title fw-bold mb-4">
+          <i class="bi bi-lightning-fill text-warning me-2"></i>Acceso Rápido
+        </h5>
+        <div class="d-grid gap-3">
+          <button class="btn btn-outline-primary py-2" routerLink="/clientes">
+            <i class="bi bi-people-fill me-2"></i> Gestión de Clientes
+          </button>
+          <button class="btn btn-outline-success py-2" routerLink="/ejercicios">
+            <i class="bi bi-barbell me-2"></i> Gestión de Ejercicios
+          </button>
+          <button class="btn btn-outline-info py-2" routerLink="/empleados">
+            <i class="bi bi-person-workspace me-2"></i> Gestión de Empleados
+          </button>
+          <button class="btn btn-outline-warning py-2" routerLink="/medidas-corporales">
+            <i class="bi bi-rulers me-2"></i> Gestión de Medidas Corporales
+          </button>
         </div>
       </div>
     </div>
   </div>
+</div>
+
 
 </div>
