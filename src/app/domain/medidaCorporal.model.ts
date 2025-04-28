@@ -1,6 +1,6 @@
 export interface MedidaCorporal {
- 
-    idMedidaCorporal: number;
-    tipoMedida: string;
-    unidad: string;
-  }
+  codMedida?: number;
+  nombreMedida: string;
+  unidadMedida: string;
+  imagen: string;
+}

@@ -1,46 +1,75 @@
 <div class="container">
+  <div class="header">
+    <h2>Gestión de Medidas Corporales</h2>
+    <button (click)="abrirModalNueva()" class="btn btn-primary">
+      <i class="bi bi-plus-lg"></i> Nueva Medida
+    </button>
+  </div>
 
-    <div class="header">
-      <h2>Gestión de Medidas Corporales</h2>
-      <button (click)="abrirModalNueva()" class="btn btn-primary">+ Nueva Medida</button>
-    </div>
-  
-    <input type="text" placeholder="Buscar medidas..." [(ngModel)]="filtro" (input)="filtrarMedidas()" class="search-bar" />
-  
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Nombre</th>
-          <th>Unidad</th>
-          <th>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let medida of medidasFiltradas">
-          <td>{{ medida.tipoMedida }}</td>
-          <td>{{ medida.unidad }}</td>
-          <td>
-            <button (click)="abrirModalEditar(medida)" class="btn btn-sm btn-warning">✏️</button>
-            <button (click)="eliminarMedida(medida.idMedidaCorporal)" class="btn btn-sm btn-danger">🗑️</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  
-    <!-- Modal -->
-    <div class="modal" *ngIf="mostrarModal">
-      <div class="modal-content">
-        <h3>{{ editando ? 'Editar Medida' : 'Nueva Medida' }}</h3>
-        <form [formGroup]="medidaForm" (ngSubmit)="guardarMedida()">
-          <input type="text" formControlName="tipoMedida" placeholder="Tipo de Medida" />
-          <input type="text" formControlName="unidad" placeholder="Unidad" />
-          <div class="buttons">
-            <button type="submit" class="btn btn-success">Guardar</button>
-            <button type="button" (click)="cerrarModal()" class="btn btn-secondary">Cancelar</button>
-          </div>
-        </form>
+  <!-- Buscador -->
+  <input
+    type="text"
+    placeholder="Buscar medidas..."
+    [(ngModel)]="filtro"
+    (input)="filtrarMedidas()"
+    class="form-control mb-4"
+  />
+
+  <!-- Tabla de Medidas -->
+  <table class="table table-hover">
+    <thead class="table-light">
+      <tr>
+        <th>Imagen</th>
+        <th>Nombre</th>
+        <th>Unidad</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let medida of medidasFiltradas">
+        <td>
+          <img
+            [src]="medida.imagen || 'https://cdn-icons-png.flaticon.com/512/3502/3502688.png'"
+            class="rounded-circle img-thumbnail"
+            style="width: 50px; height: 50px; object-fit: cover;"
+            alt="Imagen de {{medida.nombreMedida}}"
+          />
+        </td>
+        <td>{{ medida.nombreMedida }}</td>
+        <td>{{ medida.unidadMedida }}</td>
+        <td>
+          <button (click)="abrirModalEditar(medida)" class="btn btn-sm btn-warning me-2">
+            <i class="bi bi-pencil"></i> Editar
+          </button>
+          <button (click)="eliminarMedida(medida.codMedida!)" class="btn btn-sm btn-danger">
+            <i class="bi bi-trash"></i> Eliminar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal para agregar/editar -->
+  <div *ngIf="mostrarModal" class="modal-backdrop show fade d-block"></div>
+
+  <div *ngIf="mostrarModal" class="modal fade show d-block" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content p-4 rounded-4 shadow-sm">
+        <div class="modal-header border-0">
+          <h5 class="modal-title">
+            {{ editando ? 'Editar Medida' : 'Nueva Medida' }}
+          </h5>
+          <button type="button" class="btn-close" (click)="cerrarModal()"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Aquí incluimos el formulario reactivo -->
+          <app-medida-insert-reactive
+  [medidaAEditar]="medidaSeleccionada"
+  (guardado)="cerrarModal()">
+</app-medida-insert-reactive>
+
+        </div>
       </div>
     </div>
-  
   </div>
-  
+</div>

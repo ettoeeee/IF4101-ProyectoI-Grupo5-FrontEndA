@@ -1,0 +1,79 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- Imagen de perfil con efecto de carga -->
+    <div class="d-flex flex-column align-items-center mb-4 position-relative">
+      <!-- Spinner de carga -->
+      <div *ngIf="cargandoImagen" class="d-flex justify-content-center my-3">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;">
+          <span class="visually-hidden">Cargando...</span>
+        </div>
+      </div>
+  
+      <!-- Barra de progreso mientras carga -->
+      <div *ngIf="cargandoImagen" class="w-100 mb-2">
+        <progress [value]="porcentajeCarga" max="100" class="w-100"></progress>
+        <small class="d-block text-center">{{ porcentajeCarga }}%</small>
+      </div>
+  
+      <!-- Imagen o Spinner -->
+      <div class="position-relative" style="width: 120px; height: 120px;">
+        <!-- Spinner cuando está cargando -->
+        <div *ngIf="cargandoImagen"
+          class="spinner-border text-primary position-absolute top-50 start-50 translate-middle"
+          style="width: 3rem; height: 3rem;" role="status">
+        </div>
+  
+        <!-- Imagen (cuando no está cargando) -->
+        <img
+          *ngIf="!cargandoImagen"
+          [src]="imagenPreview || 'https://cdn-icons-png.flaticon.com/512/3502/3502688.png'"
+          class="rounded-circle shadow-sm w-100 h-100 fade-in"
+          style="object-fit: cover; border: 2px solid #dee2e6;"
+          alt="Imagen de medida"
+        />
+      </div>
+  
+      <!-- Input oculto de imagen -->
+      <input
+        type="file"
+        #fileInput
+        accept="image/*"
+        (change)="onFileSelected($event)"
+        hidden
+      />
+  
+      <!-- Botón de cargar imagen -->
+      <button
+        type="button"
+        class="btn btn-sm btn-light shadow-sm border position-absolute d-flex justify-content-center align-items-center"
+        style="bottom: 0; right: 0; width: 35px; height: 35px; border-radius: 50%;"
+        (click)="fileInput.click()"
+      >
+        <i class="bi bi-camera-fill"></i>
+      </button>
+    </div>
+  
+    <!-- Nombre de la medida -->
+    <div class="mb-3">
+      <label for="tipoMedida" class="form-label">Nombre de la Medida</label>
+      <input id="tipoMedida" class="form-control" formControlName="tipoMedida" placeholder="Ej: Circunferencia de brazo" />
+      <div *ngIf="form.get('tipoMedida')?.invalid && (form.get('tipoMedida')?.dirty || form.get('tipoMedida')?.touched)"
+        class="text-danger">
+        El nombre de la medida es requerido
+      </div>
+    </div>
+  
+    <!-- Unidad de medida -->
+    <div class="mb-3">
+      <label for="unidad" class="form-label">Unidad de Medida</label>
+      <input id="unidad" class="form-control" formControlName="unidad" placeholder="Ej: cm, kg, %" />
+      <div *ngIf="form.get('unidad')?.invalid && (form.get('unidad')?.dirty || form.get('unidad')?.touched)"
+        class="text-danger">
+        La unidad de medida es requerida
+      </div>
+    </div>
+  
+    <!-- Botón -->
+    <button type="submit" class="btn btn-primary w-100" [disabled]="form.invalid">
+      {{ medidaAEditar ? 'Actualizar Medida' : 'Registrar Medida' }}
+    </button>
+  </form>
