@@ -5,6 +5,13 @@ import { ClienteListComponent } from './features/clientes/cliente-list/cliente-l
 import { MedidasCorporalesComponent } from './features/medidas-corporales/medidas-corporales.component';
 
 export const routes: Routes = [
+  
+  {
+    path: 'login',
+    loadComponent: () => import('./features/login/login.component')
+      .then(m => m.LoginComponent)
+  },
+
   {
     path: '',
     component: LayoutComponent,
@@ -26,7 +33,13 @@ export const routes: Routes = [
           import('./features/instructores/instructor-form/instructor-form.component')
             .then(m => m.InstructorFormComponent)
       },
-
+ // Categorías de Ejercicio
+      {
+        path: 'categorias',
+        loadComponent: () =>
+          import('./features/categoriaejercicio/categoriaejercicio/categoriaejercicio.component')
+            .then(ce => ce.CategoriaEjercicioComponent)
+      },
       // Medidas Corporales
       {
         path: 'medidas-corporales',
@@ -63,13 +76,7 @@ export const routes: Routes = [
             .then(e => e.EjercicioComponent)
       },
 
-      // Categorías de Ejercicio
-      {
-        path: 'categorias',
-        loadComponent: () =>
-          import('./features/categoriaejercicio/categoriaejercicio/categoriaejercicio.component')
-            .then(ce => ce.CategoriaEjercicioComponent)
-      }
+     
     ]
   }
 ];

@@ -13,7 +13,7 @@ export class ClienteService {
   constructor(private http: HttpClient) {}
 
   registrarCliente(cliente: Cliente): Observable<{ mensaje: string }> {
-    return this.http.post<{ mensaje: string }>(`${this.apiUrl}/clientes`, cliente); // ✅ agregamos aquí
+    return this.http.post<{ mensaje: string }>(`${this.apiUrl}/clientes`, cliente);
   }
 
   obtenerClientes(): Observable<Cliente[]> {
@@ -30,6 +30,6 @@ export class ClienteService {
   }
 
   listarClientes(): Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(this.apiUrl);
+    return this.http.get<Cliente[]>(`${this.apiUrl}/clientes`);
   }
 }
