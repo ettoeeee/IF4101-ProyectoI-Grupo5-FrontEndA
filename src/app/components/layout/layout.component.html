@@ -46,13 +46,20 @@
         Ejercicios
       </button>
    
-      <button 
+      
+    <button 
+    class="btn btn-sidebar" 
+    [class.active]="esRutaActiva('/categorias')" 
+    (click)="navegar('/categorias')">
+    Categorías de Ejercicio
+  </button>
+  
+  <button 
       class="btn btn-sidebar" 
       [class.active]="esRutaActiva('/cerrar')" 
       (click)="navegar('/ejercicios')">
       Cerrar Sesión 
     </button>
-
     </div>
     
   </div>

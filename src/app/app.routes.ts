@@ -33,7 +33,13 @@ export const routes: Routes = [
           import('./features/instructores/instructor-form/instructor-form.component')
             .then(m => m.InstructorFormComponent)
       },
-
+ // Categorías de Ejercicio
+      {
+        path: 'categorias',
+        loadComponent: () =>
+          import('./features/categoriaejercicio/categoriaejercicio/categoriaejercicio.component')
+            .then(ce => ce.CategoriaEjercicioComponent)
+      },
       // Medidas Corporales
       {
         path: 'medidas-corporales',
@@ -70,13 +76,7 @@ export const routes: Routes = [
             .then(e => e.EjerciciosComponent)
       },
 
-      // Categorías de Ejercicio
-      {
-        path: 'categorias',
-        loadComponent: () =>
-          import('./features/categoriaejercicio/categoriaejercicio/categoriaejercicio.component')
-            .then(ce => ce.CategoriaEjercicioComponent)
-      }
+     
     ]
   }
 ];
