@@ -16,10 +16,14 @@
     <tbody>
       <tr *ngFor="let categoria of categoriasFiltradas">
         <td>{{ categoria.nombreCategoria }}</td>
-        <td>
-          <button (click)="abrirModalEditar(categoria)" class="btn btn-sm btn-warning">✏️</button>
-          <button (click)="eliminarCategoria(categoria.idCategoriaEjercicio)" class="btn btn-sm btn-danger">🗑️</button>
-        </td>
+        <td class="text-center">
+          <button class="btn btn-sm btn-outline-primary me-2" (click)="abrirModalEditar(categoria)">
+            ✏️ Editar
+          </button>
+          <button class="btn btn-sm btn-outline-danger" (click)="eliminarCategoria(categoria.idCategoriaEjercicio)">
+            🗑️ Eliminar
+          </button>
+        </td>        
       </tr>
     </tbody>
   </table>
