@@ -1,50 +1,44 @@
 import { Component, OnInit } from '@angular/core';
-import { InstructorService } from '../../../services/instructor/instructor.service';
-import { Instructor } from '../../../domain/instructor.model';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+import { Empleado } from '../../../domain/empleado.model';
+import { EmpleadoService } from '@app/services/empleado/empleado.service';
 
 @Component({
   selector: 'app-instructor-list',
   standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './instructor-list.component.html',
-  styleUrls: ['./instructor-list.component.css'],
-  imports: [CommonModule,
-    HttpClientModule]
+  styleUrls: ['./instructor-list.component.css']
 })
-
 export class InstructorListComponent implements OnInit {
+  instructores: Empleado[] = [];
+  filtro = '';
 
-  instructores: Instructor[] = [];
-
-  constructor(private instructorService: InstructorService) { }
+  constructor(private empleadoService: EmpleadoService) { }
 
   ngOnInit(): void {
-    console.log('✅ ngOnInit() ejecutado');
     this.cargarInstructores();
   }
 
-  cargarInstructores(): void {
-    console.log('✅ cargarInstructores() ejecutado');
-
-    console.log('🌐 URL solicitada:', this.instructorService['apiUrl']);
-
-    this.instructorService.getAll().subscribe({
-      next: (data: Instructor[]) => {
-        console.log('✅ Instructores recibidos:', data);
-        this.instructores = data;
+  private cargarInstructores(): void {
+    this.empleadoService.getAll().subscribe({
+      next: todos => {
+        // Filtrar solo los de rol "Instructor"
+        this.instructores = todos.filter(e => e.rolEmpleado === 'Instructor');
       },
-      error: (err: any) => console.error('❌ Error cargando instructores:', err)
+      error: err => console.error('Error cargando instructores', err)
     });
   }
 
-
-  eliminarInstructor(instructor: Instructor): void {
-    if (confirm(`¿Seguro que deseas eliminar a ${instructor.nombre} ${instructor.apellidos}?`)) {
-      this.instructorService.delete(instructor.idInstructor, instructor.idPersona).subscribe({
-        next: () => this.cargarInstructores(),
-        error: (err: any) => console.error('Error al eliminar instructor:', err)
-      });
-    }
+  filtrarInstructores(): Empleado[] {
+    const termino = this.filtro.toLowerCase().trim();
+    return this.instructores.filter(i =>
+      i.nombre.toLowerCase().includes(termino) ||
+      i.apellidos.toLowerCase().includes(termino) ||
+      i.telefono.includes(termino) ||
+      i.correoElectronico.toLowerCase().includes(termino)
+    );
   }
 }

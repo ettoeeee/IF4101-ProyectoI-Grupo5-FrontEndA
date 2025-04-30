@@ -1,25 +1,36 @@
-<h2>Lista de Instructores</h2>
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Instructores</h2>
+  <input class="form-control w-25"
+         placeholder="Buscar instructor..."
+         [(ngModel)]="filtro" />
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Apellidos</th>
+<table class="table table-hover table-bordered align-middle">
+  <thead class="table-light">
+    <tr class="text-center">
+      <th>Instructor</th>
       <th>Teléfono</th>
-      <th>Fecha Ingreso</th>
-      <th>Acciones</th>
+      <th>Email</th>
+      <th>Fecha Nac.</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let instructor of instructores">
-      <td>{{ instructor.nombre }}</td>
-      <td>{{ instructor.apellidos }}</td>
-      <td>{{ instructor.telefono }}</td>
-      <td>{{ instructor.fechaIngreso | date: 'yyyy-MM-dd' }}</td>
-      <td>
-        <button (click)="eliminarInstructor(instructor)">Eliminar</button>
-        <!-- Aquí podrías agregar luego un botón de editar -->
+    <tr *ngFor="let ins of filtrarInstructores()">
+      <!-- Imagen + Nombre -->
+      <td class="d-flex align-items-center gap-2">
+        <img [src]="ins.imagenRuta || 'https://cdn-icons-png.flaticon.com/512/847/847969.png'"
+             (error)="ins.imagenRuta = 'https://cdn-icons-png.flaticon.com/512/847/847969.png'"
+             class="rounded-circle"
+             alt="Foto Instructor"
+             style="width:40px; height:40px; object-fit:cover; border:1px solid #ccc;" />
+        <span class="fw-bold">{{ ins.nombre }} {{ ins.apellidos }}</span>
       </td>
+      <td class="text-center">{{ ins.telefono }}</td>
+      <td class="text-center">{{ ins.correoElectronico }}</td>
+      <td class="text-center">{{ ins.fechaNacimiento | date:'dd/MM/yyyy' }}</td>
+    </tr>
+    <tr *ngIf="filtrarInstructores().length === 0">
+      <td colspan="4" class="text-center">No hay instructores que coincidan.</td>
     </tr>
   </tbody>
 </table>

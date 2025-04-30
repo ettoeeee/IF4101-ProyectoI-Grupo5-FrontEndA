@@ -34,6 +34,13 @@
         Empleados
       </button>
 
+      <button
+        class="btn btn-sidebar"
+        [class.active]="esRutaActiva('/instructores')"
+        (click)="navegar('/instructores')">
+        Instructores
+      </button>
+
      <button 
         class="btn btn-sidebar" 
         [class.active]="esRutaActiva('/ejercicios')" 
