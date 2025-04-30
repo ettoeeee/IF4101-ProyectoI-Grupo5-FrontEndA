@@ -28,17 +28,17 @@ export class ClienteInsertReactiveComponent implements OnInit {
       telefono: ['', Validators.required],
       correoElectronico: ['', [Validators.required, Validators.email]],
       imagenRuta: [''],
-      direccion: [''], // 🔥 Nuevo campo
-      nombreContactoEmergencia: [''], // 🔥 Nuevo campo
-      telContactoEmergencia: [''], // 🔥 Nuevo campo
+      direccion: [''], 
+      nombreContactoEmergencia: [''], 
+      telContactoEmergencia: [''], 
       activo: [true]
     });
     
   }
 
-  clientesExistentes: Cliente[] = []; // 🔥 Listado de clientes actuales
+  clientesExistentes: Cliente[] = []; // Listado de clientes actuales
   cargandoImagen: boolean = false;
-  porcentajeCarga: number = 0; // 🔥 Barra de progreso
+  porcentajeCarga: number = 0; // Barra de progreso
   imagenPreview: string | ArrayBuffer | null = null;
   
   // Cargar los clientes en ngOnInit
@@ -47,7 +47,7 @@ export class ClienteInsertReactiveComponent implements OnInit {
       this.form.patchValue(this.clienteAEditar);
     }
   
-    // 🔥 Cargar clientes existentes para validar duplicados
+    // Cargar clientes existentes para validar duplicados
     this.clienteService.listarClientes().subscribe({
       next: (clientes: Cliente[]) => {
         this.clientesExistentes = clientes;

@@ -1,4 +1,4 @@
-/* 🔵 Fondo general de tabla */
+/* Fondo general de tabla */
 table.table {
   background-color: #ffffff;
   border-collapse: separate;
@@ -8,14 +8,14 @@ table.table {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
 
-/* 🔵 Encabezado */
+/* Encabezado */
 thead.table-light {
   background-color: #f1f3f5;
   font-weight: bold;
   color: #495057;
 }
 
-/* 🔵 Filas de datos */
+/* Filas de datos */
 tbody tr {
   background-color: #ffffff;
   transition: all 0.3s ease;
@@ -25,12 +25,12 @@ tbody tr {
     background-color: #e9ecef;
   }
 
-/* 🔵 Celdas generales */
+/* Celdas generales */
 td {
   vertical-align: middle !important;
 }
 
-  /* 🔵 Imagen de Cliente */
+  /* Imagen de Cliente */
   td.d-flex.align-items-center img {
     width: 48px;
     height: 48px;
@@ -44,12 +44,12 @@ td {
       transform: scale(1.1);
     }
 
-  /* 🔵 Nombre del cliente */
+  /* Nombre del cliente */
   td span.fw-bold {
     font-size: 1rem;
   }
 
-/* 🔵 Botones */
+/* Botones */
 button.btn-outline-primary,
 button.btn-outline-danger {
   border-radius: 6px;
@@ -79,7 +79,7 @@ button.btn-outline-danger {
     color: #ffffff;
   }
 
-/* 🔵 Badges de Activo */
+/* Badges de Activo */
 .badge {
   font-size: 0.75rem;
   padding: 5px 10px;
@@ -94,21 +94,21 @@ button.btn-outline-danger {
     background-color: #6c757d;
   }
 
-/* 🔵 Input buscador */
+/* Input buscador */
 input.form-control.mb-4 {
   border-radius: 10px;
   font-size: 16px;
   padding: 10px;
 }
 
-/* 🔵 Título de Gestión de Clientes */
+/* Título de Gestión de Clientes */
 h2 {
   font-weight: 700;
   font-size: 1.8rem;
   color: #212529;
 }
 
-/* 🔵 Botón "Nuevo Cliente" */
+/* Botón "Nuevo Cliente" */
 button.btn-primary {
   border-radius: 8px;
   font-weight: bold;
@@ -116,7 +116,7 @@ button.btn-primary {
   padding: 8px 20px;
 }
 
-/* 🔵 Estilo de Modal */
+/* Estilo de Modal */
 .modal-content {
   border-radius: 20px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);

@@ -9,7 +9,7 @@ import { Ejercicio } from '@app/domain/ejercicio.model'; // Ajusta el path si lo
 })
 export class EjercicioService {
 
-  private apiUrl = `${environment.apiBaseUrl}/ejercicios`; // 👈 solo /ejercicios
+  private apiUrl = `${environment.apiBaseUrl}/ejercicios`; // solo /ejercicios
 
   constructor(private http: HttpClient) { }
 
