@@ -1,0 +1,8 @@
+/* clientes-tab.component.css */
+
+.card-img-top {
+  width: 100%; /* se adapta al ancho de la tarjeta */
+  height: 150px; /* altura fija más pequeña */
+  object-fit: cover; /* centra y recorta manteniendo proporción */
+  border-radius: 0.25rem 0.25rem 0 0; /* conserva el borde redondeado del card */
+}

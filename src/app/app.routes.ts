@@ -81,8 +81,26 @@ export const routes: Routes = [
           import('./features/ejercicios/ejercicios/ejercicios.component')
             .then(e => e.EjercicioComponent)
       },
+      {
+        path: '',
+        redirectTo: 'clientes',
+        pathMatch: 'full'
+      },
+      // app.routes.ts
 
-     
+      // … dentro de children de LayoutComponent …
+      {
+        path: 'instructores/clientes',
+        loadComponent: () =>
+          import('./features/instructores/clientes-tab/clientes-tab.component')
+            .then(m => m.ClientesTabComponent)
+      },
+      {
+        path: 'clientes/:clienteId/rutinas',
+        loadComponent: () =>
+          import('./features/rutinas/rutinas-por-cliente/rutinas-por-cliente.component')
+            .then(m => m.RutinasPorClienteComponent)
+      }
     ]
   }
 ];

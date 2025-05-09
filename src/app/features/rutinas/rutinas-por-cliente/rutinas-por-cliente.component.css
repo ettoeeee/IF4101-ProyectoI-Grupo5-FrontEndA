@@ -1,0 +1,104 @@
+/* Fondo y separación de la tabla */
+table.table {
+  background-color: #ffffff;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+}
+
+/* Encabezado */
+thead.table-light {
+  background-color: #f1f3f5;
+  font-weight: bold;
+  color: #495057;
+}
+
+/* Filas */
+tbody tr {
+  background-color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+  tbody tr:hover {
+    background-color: #e9ecef;
+  }
+
+/* Celdas */
+td, th {
+  vertical-align: middle !important;
+  text-align: center;
+}
+
+/* Botones de acción dentro de la tabla */
+button.btn-sm {
+  border-radius: 6px;
+  font-size: 0.85rem;
+  padding: 5px 10px;
+}
+
+.btn-outline-primary {
+  color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+  .btn-outline-primary:hover {
+    background-color: #0d6efd;
+    color: #fff;
+  }
+
+.btn-outline-danger {
+  color: #dc3545;
+  border-color: #dc3545;
+}
+
+  .btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+  }
+
+.btn-outline-secondary {
+  color: #6c757d;
+  border-color: #6c757d;
+}
+
+  .btn-outline-secondary:hover {
+    background-color: #6c757d;
+    color: #fff;
+  }
+
+/* Modal */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Título y botón nuevo */
+.d-flex > h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #212529;
+}
+
+.d-flex > .btn-primary {
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 6px 18px;
+}
+
+/* Responsividad: en pantallas pequeñas reduce padding */
+@media (max-width: 576px) {
+  .modal-dialog {
+    margin: 1rem;
+  }
+
+  table.table {
+    font-size: 0.9rem;
+  }
+}

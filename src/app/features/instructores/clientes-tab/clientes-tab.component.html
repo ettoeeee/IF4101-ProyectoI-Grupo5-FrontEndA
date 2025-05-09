@@ -1,0 +1,17 @@
+<div class="row g-4">
+  <div *ngFor="let cliente of clientes"
+       class="col-md-4"
+       style="cursor: pointer;"
+       (click)="verRutinas(cliente)">
+    <div class="card h-100">
+      <img [src]="cliente.imagenRuta || 'https://cdn-icons-png.flaticon.com/512/847/847969.png'"
+           class="card-img-top"
+           alt="Foto {{cliente.nombre}}">
+      <div class="card-body">
+        <h5 class="card-title">{{ cliente.nombre }} {{ cliente.apellidos }}</h5>
+        <p class="card-text">Cédula: {{ cliente.idPersona }}</p>
+        <p class="card-text">Tel: {{ cliente.telefono }}</p>
+      </div>
+    </div>
+  </div>
+</div>

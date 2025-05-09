@@ -4,63 +4,60 @@
     <h4 class="mb-4 text-center fw-bold">Bulk Gym</h4>
 
     <div class="d-flex flex-column gap-2">
-      <button 
-        class="btn btn-sidebar" 
-        [class.active]="esRutaActiva('/dashboard')" 
-        (click)="navegar('/dashboard')">
+      <button class="btn btn-sidebar"
+              [class.active]="esRutaActiva('/dashboard')"
+              (click)="navegar('/dashboard')">
         Panel Principal
       </button>
-    
-      <button 
-        class="btn btn-sidebar" 
-        [class.active]="esRutaActiva('/clientes')" 
-        (click)="navegar('/clientes')">
+
+      <button class="btn btn-sidebar"
+              [class.active]="esRutaActiva('/clientes')"
+              (click)="navegar('/clientes')">
         Clientes
       </button>
-    
- 
-    
-      <button 
-        class="btn btn-sidebar" 
-        [class.active]="esRutaActiva('/medidas-corporales')" 
-        (click)="navegar('/medidas-corporales')">
+
+
+
+      <button class="btn btn-sidebar"
+              [class.active]="esRutaActiva('/medidas-corporales')"
+              (click)="navegar('/medidas-corporales')">
         Medidas Corporales
       </button>
 
-      <button
-        class="btn btn-sidebar"
-        [class.active]="esRutaActiva('/empleados')"
-        (click)="navegar('/empleados')">
+      <button class="btn btn-sidebar"
+              [class.active]="esRutaActiva('/empleados')"
+              (click)="navegar('/empleados')">
         Empleados
       </button>
 
-      <button
-        class="btn btn-sidebar"
-        [class.active]="esRutaActiva('/instructores')"
-        (click)="navegar('/instructores')">
+      <button class="btn btn-sidebar"
+              [class.active]="esRutaActiva('/instructores')"
+              (click)="navegar('/instructores')">
         Instructores
       </button>
 
-     <button 
-        class="btn btn-sidebar" 
-        [class.active]="esRutaActiva('/ejercicios')" 
-        (click)="navegar('/ejercicios')">
+      <button class="btn btn-sidebar"
+              [class.active]="esRutaActiva('/ejercicios')"
+              (click)="navegar('/ejercicios')">
         Ejercicios
       </button>
-   
-      
-    <button 
-    class="btn btn-sidebar" 
-    [class.active]="esRutaActiva('/categorias')" 
-    (click)="navegar('/categorias')">
-    Categorías de Ejercicio
-  </button>
-  
-  <button 
-    class="btn btn-sidebar" 
-    (click)="cerrarSesion()">
-    Cerrar Sesión 
-    </button>
+
+      <button class="btn btn-sidebar"
+              [class.active]="esRutaActiva('/instructores/clientes')"
+              (click)="navegar('/instructores/clientes')">
+        Rutinas del Cliente
+      </button>
+
+      <button class="btn btn-sidebar"
+              [class.active]="esRutaActiva('/categorias')"
+              (click)="navegar('/categorias')">
+        Categorías de Ejercicio
+      </button>
+
+      <button class="btn btn-sidebar"
+              (click)="cerrarSesion()">
+        Cerrar Sesión
+      </button>
     </div>
     
   </div>
