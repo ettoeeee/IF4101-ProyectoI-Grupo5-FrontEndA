@@ -1,0 +1,130 @@
+<div class="contenedor">
+  <h1>Crear rutina</h1>
+  <h2>Agregar medidas corporales a la rutina</h2>
+
+  <div class="agregar-medida-container">
+    <div class="form-group">
+      <label for="medidaSelect">Seleccionar medida:</label>
+      <select 
+        id="medidaSelect" 
+        class="form-control" 
+        [(ngModel)]="medidaSeleccionada"
+        (change)="valorMedida = null">
+        <option [ngValue]="null">-- Seleccione una medida --</option>
+        <option *ngFor="let medida of medidasFiltradas" [ngValue]="medida">
+          {{ medida.nombreMedida }} ({{ medida.unidadMedida }})
+        </option>
+      </select>
+    </div>
+
+    <div class="form-group" *ngIf="medidaSeleccionada">
+      <label for="valorMedida">Valor:</label>
+      <input 
+        type="number" 
+        id="valorMedida" 
+        class="form-control" 
+        [(ngModel)]="valorMedida"
+        placeholder="Ingrese el valor">
+    </div>
+
+    <button 
+      class="btn-agregar-medida" 
+      (click)="agregarMedida()"
+      [disabled]="!medidaSeleccionada || !valorMedida || valorMedida <= 0">
+      <span class="btn-icon">➕</span>
+      <span class="btn-text">Agregar Medida</span>
+      <span class="btn-pulse"></span>
+    </button>
+  </div>
+
+  <hr />
+
+  <h3>Medidas agregadas a la rutina</h3>
+  
+  <div class="lista-medidas-agregadas">
+    <div *ngFor="let item of rutina" class="medida-card-agregada">
+      <div class="card-header">
+        <img [src]="item.medidaCorporal.imagen" alt="{{ item.medidaCorporal.nombreMedida }}" />
+        <div class="card-title">
+          <h4>{{ item.medidaCorporal.nombreMedida }}</h4>
+          <span>{{ item.medidaCorporal.unidadMedida }}</span>
+        </div>
+      </div>
+      
+      <div class="card-body">
+        <div class="valor-container">
+          <label>Valor actual:</label>
+          <div class="valor-display">{{ item.valorMedida }}</div>
+        </div>
+        
+        <div class="acciones-medida">
+          <button 
+            class="btn-editar" 
+            (click)="abrirModalEditar(modalEditar, item)"
+            data-tooltip="Editar medida">
+            ✏️
+            <span class="sr-only">Editar</span>
+          </button>
+          <button 
+            class="btn-eliminar-medida" 
+            (click)="abrirModalEliminar(modalEliminar, item)"
+            data-tooltip="Eliminar medida">
+            🗑️
+            <span class="sr-only">Eliminar</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Eliminar -->
+<ng-template #modalEliminar let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Confirmar eliminación</h4>
+    <button type="button" class="close" (click)="modal.dismiss()">
+      <span>&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    ¿Estás seguro que deseas eliminar esta medida de la rutina?
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Cancelar</button>
+    <button type="button" class="btn btn-danger" (click)="eliminarMedida()">Eliminar</button>
+  </div>
+</ng-template>
+
+<!-- Modal Editar -->
+<ng-template #modalEditar let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Editar valor de medida</h4>
+    <button type="button" class="close" (click)="modal.dismiss()">
+      <span>&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" *ngIf="itemAEditar">
+    <div class="form-group">
+      <label>Medida: {{itemAEditar.medidaCorporal.nombreMedida}}</label>
+    </div>
+    <div class="form-group">
+      <label for="nuevoValor">Nuevo valor:</label>
+      <input 
+        type="number" 
+        id="nuevoValor" 
+        class="form-control" 
+        [(ngModel)]="nuevoValor"
+        placeholder="Ingrese el nuevo valor">
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Cancelar</button>
+    <button 
+      type="button" 
+      class="btn btn-primary" 
+      (click)="actualizarMedida()"
+      [disabled]="!nuevoValor || nuevoValor <= 0">
+      Guardar Cambios
+    </button>
+  </div>
+</ng-template>

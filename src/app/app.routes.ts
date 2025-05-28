@@ -54,8 +54,17 @@ export const routes: Routes = [
             .then(m => m.MedidasCorporalesComponent)
       },
 
-      // Empleados
+      //ItemRutinaMedida
       {
+        path: 'rutinaMedida',
+        loadComponent: () =>
+          import('./features/itemRutinaMedida/item-rutina-medidas.component')
+            .then(m => m.ItemRutinaMedidasComponent)
+      }
+      
+
+      // Empleados
+      ,{
         path: 'empleados',
         loadComponent: () =>
           import('./features/empleados/empleado-list/empleado-list.component')

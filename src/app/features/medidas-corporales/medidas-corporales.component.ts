@@ -75,7 +75,7 @@ export class MedidasCorporalesComponent implements OnInit {
       if (result.isConfirmed) {
         this.medidasService.eliminarMedida(id).subscribe({
           next: () => {
-            // 🔥 Eliminar directamente de las listas medidas y medidasFiltradas
+            // Eliminar directamente de las listas medidas y medidasFiltradas
             this.medidas = this.medidas.filter(m => m.codMedida !== id);
             this.filtrarMedidas(); // refresca la lista filtrada
             
