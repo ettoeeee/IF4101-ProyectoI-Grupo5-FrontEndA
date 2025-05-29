@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SesionService {
 
-  private apiUrl = 'http://localhost:8080/bulk-gym/api'; // Ajustado para el backend
+  private apiUrl = 'http://localhost:8080/bulk-gym/api'; 
 
   constructor(private http: HttpClient, private router: Router) {}
 

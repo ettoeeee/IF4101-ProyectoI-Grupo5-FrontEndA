@@ -1,9 +1,9 @@
-<!-- 🔵 Botón para abrir el modal de nuevo ejercicio -->
+<!-- Botón para abrir el modal de nuevo ejercicio -->
 <div class="d-flex justify-content-end mb-4">
   <button class="btn btn-primary" (click)="abrirModal()">➕ Nuevo Ejercicio</button>
 </div>
 
-<!-- 🟠 Tabla de ejercicios existentes -->
+<!-- Tabla de ejercicios existentes -->
 <div class="card shadow-sm">
   <div class="card-body">
     <h5 class="card-title mb-4">Listado de Ejercicios Registrados</h5>
@@ -45,7 +45,7 @@
   </div>
 </div>
 
-<!-- 🟣 Modal para agregar o editar ejercicio -->
+<!-- Modal para agregar o editar ejercicio -->
 <div *ngIf="mostrarModal">
   <div class="modal-backdrop fade show" style="z-index: 1040;"></div>
   <div class="modal fade show d-block" style="z-index: 1050;">
@@ -60,7 +60,7 @@
         <div class="modal-body">
           <form [formGroup]="formulario" (ngSubmit)="guardarEjercicio()">
             
-            <!-- 🖼️ Imagen -->
+            <!-- Imagen -->
             <div class="mb-4 text-center position-relative">
               <div *ngIf="cargandoImagen" class="d-flex justify-content-center my-3">
                 <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
@@ -82,13 +82,13 @@
               <button type="button" class="btn btn-outline-secondary btn-sm" (click)="fileInput.click()">📷 Cargar Imagen</button>
             </div>
 
-            <!-- 📋 Nombre del ejercicio -->
+            <!-- Nombre del ejercicio -->
             <div class="mb-3">
               <label for="nombreEjercicio" class="form-label">Nombre del Ejercicio</label>
               <input id="nombreEjercicio" type="text" class="form-control" formControlName="nombreEjercicio" placeholder="Ej: Sentadilla con barra" required>
             </div>
 
-            <!-- 📋 Categoría -->
+            <!-- Categoría -->
             <div class="mb-3">
               <label for="idCategoria" class="form-label">Categoría</label>
               <select id="idCategoria" class="form-select" formControlName="idCategoria" required>
@@ -99,7 +99,7 @@
               </select>
             </div>
 
-            <!-- 🎯 Botones de acción -->
+            <!-- Botones de acción -->
             <div class="d-flex justify-content-end">
               <button type="button" class="btn btn-secondary me-2" (click)="cerrarModal()">Cancelar</button>
               <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid">

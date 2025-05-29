@@ -43,7 +43,7 @@ export class ClienteListComponent implements OnInit {
     this.cargarClientes();
   }
 
-  // 🔥 Esta función es para filtrar clientes en la tabla
+  // Esta función es para filtrar clientes en la tabla
 filtrarClientes(): Cliente[] {
   const filtroNormalizado = this.filtro.toLowerCase();
   return this.clientes.filter(c =>
@@ -54,8 +54,8 @@ filtrarClientes(): Cliente[] {
      c.direccion?.toLowerCase().includes(filtroNormalizado) ||
      c.nombreContactoEmergencia?.toLowerCase().includes(filtroNormalizado) ||
      c.telContactoEmergencia?.includes(filtroNormalizado) ||
-     String(c.idCliente).includes(filtroNormalizado) || // 🔥 También busca por ID
-     (c.activo ? 'activo' : 'inactivo').includes(filtroNormalizado)) // 🔥 También busca por estado
+     String(c.idCliente).includes(filtroNormalizado) || 
+     (c.activo ? 'activo' : 'inactivo').includes(filtroNormalizado)) 
   );
 }
 
@@ -76,7 +76,7 @@ eliminarCliente(idCliente: number): void {
       this.clienteService.eliminarCliente(idCliente).subscribe({
         next: () => {
           Swal.fire('Eliminado', 'El cliente ha sido eliminado exitosamente.', 'success');
-          this.cargarClientes(); // 🔥 Refresca la tabla si tienes un método para recargar
+          this.cargarClientes(); 
         },
         error: (err) => {
           Swal.fire('Error', 'No se pudo eliminar el cliente.', 'error');

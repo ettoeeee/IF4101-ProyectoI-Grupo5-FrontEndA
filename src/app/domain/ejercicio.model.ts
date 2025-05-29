@@ -5,5 +5,5 @@ export interface Ejercicio {
   categoriaEjercicio?: {
     idCategoriaEjercicio: number;
     nombreCategoria: string;
-  }[];  // 👈 MUY IMPORTANTE: es un arreglo []
+  }[];  
 }

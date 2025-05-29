@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\domain",
     "\\src\\app\\features",
-    "\\src\\app\\features\\clientes",
-    "\\src\\app\\features\\clientes\\cliente-insert-reactive",
-    "\\src\\app\\features\\empleados",
+    "\\src\\app\\features\\rutinas",
+    "\\src\\app\\features\\rutinas\\rutina-form",
+    "\\src\\app\\features\\rutinas\\rutinas-por-cliente",
     "\\src\\app\\services",
-    "\\src\\app\\services\\cliente",
-    "\\src\\environments"
+    "\\src\\app\\services\\rutina"
   ],
-  "SelectedNode": "\\src\\app\\features\\empleados\\empleado-form\\empleado-form.component.ts",
+  "SelectedNode": "\\src\\app\\services\\rutina\\rutina.service.ts",
   "PreviewInSolutionExplorer": false
 }

@@ -3,6 +3,118 @@
   "WorkspaceRootPath": "C:\\Angular Projects\\bulk-gym-frontend\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\rutina\\rutina.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\services\\rutina\\rutina.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\domain\\rutina.model.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\domain\\rutina.model.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\rutinas\\rutinas-por-cliente\\rutinas-por-cliente.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\rutinas\\rutinas-por-cliente\\rutinas-por-cliente.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\rutinas\\rutinas-por-cliente\\rutinas-por-cliente.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\rutinas\\rutinas-por-cliente\\rutinas-por-cliente.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\rutinas\\rutinas-por-cliente\\rutinas-por-cliente.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\rutinas\\rutinas-por-cliente\\rutinas-por-cliente.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app.routes.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\app.routes.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\clientes-tab\\clientes-tab.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\instructores\\clientes-tab\\clientes-tab.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\clientes-tab\\clientes-tab.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\instructores\\clientes-tab\\clientes-tab.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\domain\\item-rutina-medida.model.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\domain\\item-rutina-medida.model.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\domain\\item-rutina-ejercicio.model.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\domain\\item-rutina-ejercicio.model.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\instructor-list\\instructor-list.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\instructores\\instructor-list\\instructor-list.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\instructor-list\\instructor-list.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\instructores\\instructor-list\\instructor-list.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\instructor-list\\instructor-list.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\instructores\\instructor-list\\instructor-list.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-list\\cliente-list.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\clientes\\cliente-list\\cliente-list.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-list\\cliente-list.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\clientes\\cliente-list\\cliente-list.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-list\\cliente-list.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\clientes\\cliente-list\\cliente-list.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\components\\layout\\layout.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\layout\\layout.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\components\\layout\\layout.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\layout\\layout.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\app.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\main.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\app.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\panel-principal\\panel-principal.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\services\\panel-principal\\panel-principal.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\components\\panel-principal\\panel-principal.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\panel-principal\\panel-principal.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\components\\panel-principal\\panel-principal.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\panel-principal\\panel-principal.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-form\\empleado-form.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\empleados\\empleado-form\\empleado-form.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
@@ -43,14 +155,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\empleados\\empleado-list\\empleado-list.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\instructor-list\\instructor-list.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\instructores\\instructor-list\\instructor-list.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\instructor-list\\instructor-list.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\instructores\\instructor-list\\instructor-list.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-list\\empleado-list.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\empleados\\empleado-list\\empleado-list.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -71,10 +175,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\empleados\\empleado-list\\empleado-list.component.spec.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app.routes.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\app.routes.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\angular.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:angular.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -87,28 +187,8 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\components\\layout\\layout.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\layout\\layout.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\components\\layout\\layout.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\layout\\layout.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\components\\panel-principal\\panel-principal.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\components\\panel-principal\\panel-principal.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\app.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\app.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-list\\cliente-list.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\clientes\\cliente-list\\cliente-list.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app-routing.module.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
@@ -131,22 +211,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\services\\instructor\\instructor.service.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-list\\cliente-list.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\clientes\\cliente-list\\cliente-list.component.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-list\\cliente-list.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\features\\clientes\\cliente-list\\cliente-list.component.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\main.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\main.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\app.component.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\domain\\cliente.model.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\app\\domain\\cliente.model.ts||{0F2454B1-A556-402D-A7D0-1FDE7F99DEE0}"
     }
@@ -162,281 +226,184 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "environment.ts",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\environments\\environment.ts",
-              "RelativeDocumentMoniker": "src\\environments\\environment.ts",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\environments\\environment.ts",
-              "RelativeToolTip": "src\\environments\\environment.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-04-28T06:46:11.715Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "empleado-form.component.html",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-form\\empleado-form.component.html",
-              "RelativeDocumentMoniker": "src\\app\\features\\empleados\\empleado-form\\empleado-form.component.html",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-form\\empleado-form.component.html",
-              "RelativeToolTip": "src\\app\\features\\empleados\\empleado-form\\empleado-form.component.html",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAA+AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-27T06:40:23.911Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "empleado-form.component.ts",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-form\\empleado-form.component.ts",
-              "RelativeDocumentMoniker": "src\\app\\features\\empleados\\empleado-form\\empleado-form.component.ts",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-form\\empleado-form.component.ts",
-              "RelativeToolTip": "src\\app\\features\\empleados\\empleado-form\\empleado-form.component.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-04-27T06:31:26.075Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "empleado.service.ts",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\empleado\\empleado.service.ts",
-              "RelativeDocumentMoniker": "src\\app\\services\\empleado\\empleado.service.ts",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\empleado\\empleado.service.ts",
-              "RelativeToolTip": "src\\app\\services\\empleado\\empleado.service.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-04-27T06:27:22.86Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "cliente.service.ts",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\cliente\\cliente.service.ts",
-              "RelativeDocumentMoniker": "src\\app\\services\\cliente\\cliente.service.ts",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\cliente\\cliente.service.ts",
-              "RelativeToolTip": "src\\app\\services\\cliente\\cliente.service.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA/AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-04-27T00:54:21.839Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "cliente-insert-reactive.component.ts",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.ts",
-              "RelativeDocumentMoniker": "src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.ts",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.ts",
-              "RelativeToolTip": "src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.ts",
-              "ViewState": "AgIAAJEAAAAAAAAAAADwv68AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-04-27T16:54:59.566Z",
+              "Title": "rutina-form.component.css",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.css",
+              "RelativeDocumentMoniker": "src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.css",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.css",
+              "RelativeToolTip": "src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-09T05:58:51.174Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "cliente-insert-reactive.component.html",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.html",
-              "RelativeDocumentMoniker": "src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.html",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.html",
-              "RelativeToolTip": "src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.html",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAAACIAAAAEAAAAAAAAAA==",
+              "Title": "rutina.model.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\domain\\rutina.model.ts",
+              "RelativeDocumentMoniker": "src\\app\\domain\\rutina.model.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\domain\\rutina.model.ts",
+              "RelativeToolTip": "src\\app\\domain\\rutina.model.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-05-09T04:29:21.667Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "rutina.service.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\rutina\\rutina.service.ts",
+              "RelativeDocumentMoniker": "src\\app\\services\\rutina\\rutina.service.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\rutina\\rutina.service.ts",
+              "RelativeToolTip": "src\\app\\services\\rutina\\rutina.service.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-05-09T04:24:06.196Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "rutina-form.component.html",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.html",
+              "RelativeDocumentMoniker": "src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.html",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.html",
+              "RelativeToolTip": "src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-27T16:55:20.727Z",
+              "WhenOpened": "2025-05-09T05:58:49.75Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "rutina-form.component.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.ts",
+              "RelativeToolTip": "src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-05-09T05:54:26.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "rutinas-por-cliente.component.css",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\rutinas\\rutinas-por-cliente\\rutinas-por-cliente.component.css",
+              "RelativeDocumentMoniker": "src\\app\\features\\rutinas\\rutinas-por-cliente\\rutinas-por-cliente.component.css",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\rutinas\\rutinas-por-cliente\\rutinas-por-cliente.component.css",
+              "RelativeToolTip": "src\\app\\features\\rutinas\\rutinas-por-cliente\\rutinas-por-cliente.component.css",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAAF4AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-05-09T05:46:47.772Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "rutinas-por-cliente.component.html",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\rutinas\\rutinas-por-cliente\\rutinas-por-cliente.component.html",
+              "RelativeDocumentMoniker": "src\\app\\features\\rutinas\\rutinas-por-cliente\\rutinas-por-cliente.component.html",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\rutinas\\rutinas-por-cliente\\rutinas-por-cliente.component.html",
+              "RelativeToolTip": "src\\app\\features\\rutinas\\rutinas-por-cliente\\rutinas-por-cliente.component.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-05-09T05:01:53.474Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "medida-insert-reactive.component.ts",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\medidas-corporales\\medidas-insert-reactive\\medida-insert-reactive.component.ts",
-              "RelativeDocumentMoniker": "src\\app\\features\\medidas-corporales\\medidas-insert-reactive\\medida-insert-reactive.component.ts",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\medidas-corporales\\medidas-insert-reactive\\medida-insert-reactive.component.ts",
-              "RelativeToolTip": "src\\app\\features\\medidas-corporales\\medidas-insert-reactive\\medida-insert-reactive.component.ts",
-              "ViewState": "AgIAAC4AAAAAAAAAAAAgwE8AAAALAAAAAAAAAA==",
+              "Title": "rutinas-por-cliente.component.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\rutinas\\rutinas-por-cliente\\rutinas-por-cliente.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\features\\rutinas\\rutinas-por-cliente\\rutinas-por-cliente.component.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\rutinas\\rutinas-por-cliente\\rutinas-por-cliente.component.ts",
+              "RelativeToolTip": "src\\app\\features\\rutinas\\rutinas-por-cliente\\rutinas-por-cliente.component.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-04-28T06:06:07.437Z",
+              "WhenOpened": "2025-05-09T04:54:10.7Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "medida-insert-reactive.component.html",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\medidas-corporales\\medidas-insert-reactive\\medida-insert-reactive.component.html",
-              "RelativeDocumentMoniker": "src\\app\\features\\medidas-corporales\\medidas-insert-reactive\\medida-insert-reactive.component.html",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\medidas-corporales\\medidas-insert-reactive\\medida-insert-reactive.component.html",
-              "RelativeToolTip": "src\\app\\features\\medidas-corporales\\medidas-insert-reactive\\medida-insert-reactive.component.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-28T06:05:57.648Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "instructor-list.component.ts",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\instructor-list\\instructor-list.component.ts",
-              "RelativeDocumentMoniker": "src\\app\\features\\instructores\\instructor-list\\instructor-list.component.ts",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\instructor-list\\instructor-list.component.ts",
-              "RelativeToolTip": "src\\app\\features\\instructores\\instructor-list\\instructor-list.component.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-04-27T20:53:55.097Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "instructor-list.component.html",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\instructor-list\\instructor-list.component.html",
-              "RelativeDocumentMoniker": "src\\app\\features\\instructores\\instructor-list\\instructor-list.component.html",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\instructor-list\\instructor-list.component.html",
-              "RelativeToolTip": "src\\app\\features\\instructores\\instructor-list\\instructor-list.component.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAALAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-27T20:57:24.56Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "empleado-list.component.html",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-list\\empleado-list.component.html",
-              "RelativeDocumentMoniker": "src\\app\\features\\empleados\\empleado-list\\empleado-list.component.html",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-list\\empleado-list.component.html",
-              "RelativeToolTip": "src\\app\\features\\empleados\\empleado-list\\empleado-list.component.html",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAkwBkAAAADAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-27T06:40:28.846Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "empleado-list.component.ts",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-list\\empleado-list.component.ts",
-              "RelativeDocumentMoniker": "src\\app\\features\\empleados\\empleado-list\\empleado-list.component.ts",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-list\\empleado-list.component.ts",
-              "RelativeToolTip": "src\\app\\features\\empleados\\empleado-list\\empleado-list.component.ts",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAxwBMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-04-27T06:27:59.574Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "empleado.model.ts",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\domain\\empleado.model.ts",
-              "RelativeDocumentMoniker": "src\\app\\domain\\empleado.model.ts",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\domain\\empleado.model.ts",
-              "RelativeToolTip": "src\\app\\domain\\empleado.model.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAA9AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-04-27T01:23:05.246Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "empleado-form.component.css",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-form\\empleado-form.component.css",
-              "RelativeDocumentMoniker": "src\\app\\features\\empleados\\empleado-form\\empleado-form.component.css",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-form\\empleado-form.component.css",
-              "RelativeToolTip": "src\\app\\features\\empleados\\empleado-form\\empleado-form.component.css",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAIwGUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-27T17:07:28.613Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "empleado-list.component.css",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-list\\empleado-list.component.css",
-              "RelativeDocumentMoniker": "src\\app\\features\\empleados\\empleado-list\\empleado-list.component.css",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-list\\empleado-list.component.css",
-              "RelativeToolTip": "src\\app\\features\\empleados\\empleado-list\\empleado-list.component.css",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAkwBcAAAACAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-27T06:44:11.872Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "empleado-list.component.spec.ts",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-list\\empleado-list.component.spec.ts",
-              "RelativeDocumentMoniker": "src\\app\\features\\empleados\\empleado-list\\empleado-list.component.spec.ts",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-list\\empleado-list.component.spec.ts",
-              "RelativeToolTip": "src\\app\\features\\empleados\\empleado-list\\empleado-list.component.spec.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-04-27T18:20:54.339Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
               "Title": "app.routes.ts",
               "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app.routes.ts",
               "RelativeDocumentMoniker": "src\\app\\app.routes.ts",
               "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app.routes.ts",
               "RelativeToolTip": "src\\app\\app.routes.ts",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAA8AAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAADkAAAAAAAAAAAAIwDcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-04-27T06:31:58.022Z"
+              "WhenOpened": "2025-04-27T06:31:58.022Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "angular.json",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\angular.json",
-              "RelativeDocumentMoniker": "angular.json",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\angular.json",
-              "RelativeToolTip": "angular.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-04-27T16:14:57.538Z"
+              "DocumentIndex": 9,
+              "Title": "clientes-tab.component.html",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\clientes-tab\\clientes-tab.component.html",
+              "RelativeDocumentMoniker": "src\\app\\features\\instructores\\clientes-tab\\clientes-tab.component.html",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\clientes-tab\\clientes-tab.component.html",
+              "RelativeToolTip": "src\\app\\features\\instructores\\clientes-tab\\clientes-tab.component.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-05-09T04:53:34.662Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "cliente-insert-reactive.component.spec.ts",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.spec.ts",
-              "RelativeDocumentMoniker": "src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.spec.ts",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.spec.ts",
-              "RelativeToolTip": "src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.spec.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 10,
+              "Title": "clientes-tab.component.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\clientes-tab\\clientes-tab.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\features\\instructores\\clientes-tab\\clientes-tab.component.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\clientes-tab\\clientes-tab.component.ts",
+              "RelativeToolTip": "src\\app\\features\\instructores\\clientes-tab\\clientes-tab.component.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-04-27T17:38:12.988Z"
+              "WhenOpened": "2025-05-09T04:52:57.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "item-rutina-medida.model.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\domain\\item-rutina-medida.model.ts",
+              "RelativeDocumentMoniker": "src\\app\\domain\\item-rutina-medida.model.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\domain\\item-rutina-medida.model.ts",
+              "RelativeToolTip": "src\\app\\domain\\item-rutina-medida.model.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-05-09T04:30:24.268Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "item-rutina-ejercicio.model.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\domain\\item-rutina-ejercicio.model.ts",
+              "RelativeDocumentMoniker": "src\\app\\domain\\item-rutina-ejercicio.model.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\domain\\item-rutina-ejercicio.model.ts",
+              "RelativeToolTip": "src\\app\\domain\\item-rutina-ejercicio.model.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-05-09T04:30:02.232Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "instructor-list.component.css",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\instructor-list\\instructor-list.component.css",
+              "RelativeDocumentMoniker": "src\\app\\features\\instructores\\instructor-list\\instructor-list.component.css",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\instructor-list\\instructor-list.component.css",
+              "RelativeToolTip": "src\\app\\features\\instructores\\instructor-list\\instructor-list.component.css",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAkwHsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-30T04:57:53.943Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 20,
-              "Title": "cliente-insert-reactive.component.css",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.css",
-              "RelativeDocumentMoniker": "src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.css",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.css",
-              "RelativeToolTip": "src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.css",
-              "ViewState": "AgIAACYAAAAAAAAAAAAkwEUAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-27T17:07:21.66Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "layout.component.html",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\components\\layout\\layout.component.html",
-              "RelativeDocumentMoniker": "src\\app\\components\\layout\\layout.component.html",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\components\\layout\\layout.component.html",
-              "RelativeToolTip": "src\\app\\components\\layout\\layout.component.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-27T16:37:36.06Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
               "Title": "layout.component.ts",
               "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\components\\layout\\layout.component.ts",
               "RelativeDocumentMoniker": "src\\app\\components\\layout\\layout.component.ts",
@@ -448,151 +415,79 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "panel-principal.component.ts",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\components\\panel-principal\\panel-principal.component.ts",
-              "RelativeDocumentMoniker": "src\\app\\components\\panel-principal\\panel-principal.component.ts",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\components\\panel-principal\\panel-principal.component.ts",
-              "RelativeToolTip": "src\\app\\components\\panel-principal\\panel-principal.component.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-04-27T16:37:19.523Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "app.component.css",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app.component.css",
-              "RelativeDocumentMoniker": "src\\app\\app.component.css",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app.component.css",
-              "RelativeToolTip": "src\\app\\app.component.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-04-27T16:37:06.478Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "app.component.html",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app.component.html",
-              "RelativeDocumentMoniker": "src\\app\\app.component.html",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app.component.html",
-              "RelativeToolTip": "src\\app\\app.component.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 19,
+              "Title": "layout.component.html",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\components\\layout\\layout.component.html",
+              "RelativeDocumentMoniker": "src\\app\\components\\layout\\layout.component.html",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\components\\layout\\layout.component.html",
+              "RelativeToolTip": "src\\app\\components\\layout\\layout.component.html",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-27T16:37:04.52Z"
+              "WhenOpened": "2025-04-27T16:37:36.06Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 18,
               "Title": "cliente-list.component.ts",
               "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-list\\cliente-list.component.ts",
               "RelativeDocumentMoniker": "src\\app\\features\\clientes\\cliente-list\\cliente-list.component.ts",
               "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-list\\cliente-list.component.ts",
               "RelativeToolTip": "src\\app\\features\\clientes\\cliente-list\\cliente-list.component.ts",
-              "ViewState": "AgIAADcAAAAAAAAAAAAgwAgAAAAMAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAADwv1oAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
               "WhenOpened": "2025-04-27T16:06:51.159Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "ejercicios.component.html",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\ejercicios\\ejercicios\\ejercicios.component.html",
-              "RelativeDocumentMoniker": "src\\app\\features\\ejercicios\\ejercicios\\ejercicios.component.html",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\ejercicios\\ejercicios\\ejercicios.component.html",
-              "RelativeToolTip": "src\\app\\features\\ejercicios\\ejercicios\\ejercicios.component.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAwAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2025-04-27T16:02:18.412Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "ejercicio.service.ts",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\ejercicio\\ejercicio.service.ts",
-              "RelativeDocumentMoniker": "src\\app\\services\\ejercicio\\ejercicio.service.ts",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\ejercicio\\ejercicio.service.ts",
-              "RelativeToolTip": "src\\app\\services\\ejercicio\\ejercicio.service.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-04-27T16:01:20.386Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "categoriaejercicio.component.ts",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app\\features\\categoriaejercicio\\categoriaejercicio.component.ts",
-              "RelativeDocumentMoniker": "src\\app\\app\\features\\categoriaejercicio\\categoriaejercicio.component.ts",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app\\features\\categoriaejercicio\\categoriaejercicio.component.ts",
-              "RelativeToolTip": "src\\app\\app\\features\\categoriaejercicio\\categoriaejercicio.component.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-04-27T15:44:44.469Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
-              "Title": "instructor.service.ts",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\instructor\\instructor.service.ts",
-              "RelativeDocumentMoniker": "src\\app\\services\\instructor\\instructor.service.ts",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\instructor\\instructor.service.ts",
-              "RelativeToolTip": "src\\app\\services\\instructor\\instructor.service.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-04-25T18:50:39.09Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "main.ts",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\main.ts",
-              "RelativeDocumentMoniker": "src\\main.ts",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\main.ts",
-              "RelativeToolTip": "src\\main.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-04-27T06:32:56.885Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "app-routing.module.ts",
-              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app-routing.module.ts",
-              "RelativeDocumentMoniker": "src\\app\\app-routing.module.ts",
-              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app-routing.module.ts",
-              "RelativeToolTip": "src\\app\\app-routing.module.ts",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
-              "WhenOpened": "2025-04-27T06:32:44.934Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 17,
               "Title": "cliente-list.component.html",
               "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-list\\cliente-list.component.html",
               "RelativeDocumentMoniker": "src\\app\\features\\clientes\\cliente-list\\cliente-list.component.html",
               "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-list\\cliente-list.component.html",
               "RelativeToolTip": "src\\app\\features\\clientes\\cliente-list\\cliente-list.component.html",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGoAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAkwG0AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-04-27T06:33:12.799Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 14,
+              "Title": "instructor-list.component.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\instructor-list\\instructor-list.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\features\\instructores\\instructor-list\\instructor-list.component.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\instructor-list\\instructor-list.component.ts",
+              "RelativeToolTip": "src\\app\\features\\instructores\\instructor-list\\instructor-list.component.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-04-27T20:53:55.097Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "instructor-list.component.html",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\instructor-list\\instructor-list.component.html",
+              "RelativeDocumentMoniker": "src\\app\\features\\instructores\\instructor-list\\instructor-list.component.html",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\instructores\\instructor-list\\instructor-list.component.html",
+              "RelativeToolTip": "src\\app\\features\\instructores\\instructor-list\\instructor-list.component.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-27T20:57:24.56Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "cliente-list.component.css",
               "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-list\\cliente-list.component.css",
               "RelativeDocumentMoniker": "src\\app\\features\\clientes\\cliente-list\\cliente-list.component.css",
               "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-list\\cliente-list.component.css",
               "RelativeToolTip": "src\\app\\features\\clientes\\cliente-list\\cliente-list.component.css",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAAAHsAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAkwHsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2025-04-27T06:40:10.104Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 21,
               "Title": "app.component.ts",
               "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app.component.ts",
               "RelativeDocumentMoniker": "src\\app\\app.component.ts",
@@ -604,7 +499,367 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\index.html",
+              "RelativeDocumentMoniker": "src\\index.html",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\index.html",
+              "RelativeToolTip": "src\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-30T04:43:26.337Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "main.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\main.ts",
+              "RelativeDocumentMoniker": "src\\main.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\main.ts",
+              "RelativeToolTip": "src\\main.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-04-27T06:32:56.885Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "app.component.html",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app.component.html",
+              "RelativeDocumentMoniker": "src\\app\\app.component.html",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app.component.html",
+              "RelativeToolTip": "src\\app\\app.component.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-27T16:37:04.52Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "panel-principal.service.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\panel-principal\\panel-principal.service.ts",
+              "RelativeDocumentMoniker": "src\\app\\services\\panel-principal\\panel-principal.service.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\panel-principal\\panel-principal.service.ts",
+              "RelativeToolTip": "src\\app\\services\\panel-principal\\panel-principal.service.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-04-30T04:41:48.345Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "panel-principal.component.html",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\components\\panel-principal\\panel-principal.component.html",
+              "RelativeDocumentMoniker": "src\\app\\components\\panel-principal\\panel-principal.component.html",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\components\\panel-principal\\panel-principal.component.html",
+              "RelativeToolTip": "src\\app\\components\\panel-principal\\panel-principal.component.html",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-30T04:41:04.644Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "empleado-form.component.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-form\\empleado-form.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\features\\empleados\\empleado-form\\empleado-form.component.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-form\\empleado-form.component.ts",
+              "RelativeToolTip": "src\\app\\features\\empleados\\empleado-form\\empleado-form.component.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-04-27T06:31:26.075Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 32,
+              "Title": "empleado.service.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\empleado\\empleado.service.ts",
+              "RelativeDocumentMoniker": "src\\app\\services\\empleado\\empleado.service.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\empleado\\empleado.service.ts",
+              "RelativeToolTip": "src\\app\\services\\empleado\\empleado.service.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-04-27T06:27:22.86Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "panel-principal.component.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\components\\panel-principal\\panel-principal.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\components\\panel-principal\\panel-principal.component.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\components\\panel-principal\\panel-principal.component.ts",
+              "RelativeToolTip": "src\\app\\components\\panel-principal\\panel-principal.component.ts",
+              "ViewState": "AgIAACAAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-04-27T16:37:19.523Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "cliente-insert-reactive.component.html",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.html",
+              "RelativeDocumentMoniker": "src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.html",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.html",
+              "RelativeToolTip": "src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.html",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAACIAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-27T16:55:20.727Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "cliente-insert-reactive.component.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.ts",
+              "RelativeToolTip": "src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.ts",
+              "ViewState": "AgIAAJEAAAAAAAAAAADwv68AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-04-27T16:54:59.566Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 33,
+              "Title": "cliente.service.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\cliente\\cliente.service.ts",
+              "RelativeDocumentMoniker": "src\\app\\services\\cliente\\cliente.service.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\cliente\\cliente.service.ts",
+              "RelativeToolTip": "src\\app\\services\\cliente\\cliente.service.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-04-27T00:54:21.839Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
+              "Title": "empleado-form.component.html",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-form\\empleado-form.component.html",
+              "RelativeDocumentMoniker": "src\\app\\features\\empleados\\empleado-form\\empleado-form.component.html",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-form\\empleado-form.component.html",
+              "RelativeToolTip": "src\\app\\features\\empleados\\empleado-form\\empleado-form.component.html",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAABEAAAA+AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-27T06:40:23.911Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 34,
+              "Title": "environment.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\environments\\environment.ts",
+              "RelativeDocumentMoniker": "src\\environments\\environment.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\environments\\environment.ts",
+              "RelativeToolTip": "src\\environments\\environment.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-04-28T06:46:11.715Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 35,
+              "Title": "medida-insert-reactive.component.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\medidas-corporales\\medidas-insert-reactive\\medida-insert-reactive.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\features\\medidas-corporales\\medidas-insert-reactive\\medida-insert-reactive.component.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\medidas-corporales\\medidas-insert-reactive\\medida-insert-reactive.component.ts",
+              "RelativeToolTip": "src\\app\\features\\medidas-corporales\\medidas-insert-reactive\\medida-insert-reactive.component.ts",
+              "ViewState": "AgIAAC4AAAAAAAAAAAAgwE8AAAALAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-04-28T06:06:07.437Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 36,
+              "Title": "medida-insert-reactive.component.html",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\medidas-corporales\\medidas-insert-reactive\\medida-insert-reactive.component.html",
+              "RelativeDocumentMoniker": "src\\app\\features\\medidas-corporales\\medidas-insert-reactive\\medida-insert-reactive.component.html",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\medidas-corporales\\medidas-insert-reactive\\medida-insert-reactive.component.html",
+              "RelativeToolTip": "src\\app\\features\\medidas-corporales\\medidas-insert-reactive\\medida-insert-reactive.component.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-28T06:05:57.648Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 38,
+              "Title": "empleado-list.component.html",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-list\\empleado-list.component.html",
+              "RelativeDocumentMoniker": "src\\app\\features\\empleados\\empleado-list\\empleado-list.component.html",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-list\\empleado-list.component.html",
+              "RelativeToolTip": "src\\app\\features\\empleados\\empleado-list\\empleado-list.component.html",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAkwBkAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-27T06:40:28.846Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 37,
+              "Title": "empleado-list.component.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-list\\empleado-list.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\features\\empleados\\empleado-list\\empleado-list.component.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-list\\empleado-list.component.ts",
+              "RelativeToolTip": "src\\app\\features\\empleados\\empleado-list\\empleado-list.component.ts",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAxwBMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-04-27T06:27:59.574Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 41,
+              "Title": "empleado.model.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\domain\\empleado.model.ts",
+              "RelativeDocumentMoniker": "src\\app\\domain\\empleado.model.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\domain\\empleado.model.ts",
+              "RelativeToolTip": "src\\app\\domain\\empleado.model.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-04-27T01:23:05.246Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 40,
+              "Title": "empleado-form.component.css",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-form\\empleado-form.component.css",
+              "RelativeDocumentMoniker": "src\\app\\features\\empleados\\empleado-form\\empleado-form.component.css",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-form\\empleado-form.component.css",
+              "RelativeToolTip": "src\\app\\features\\empleados\\empleado-form\\empleado-form.component.css",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAIwGUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-27T17:07:28.613Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 39,
+              "Title": "empleado-list.component.css",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-list\\empleado-list.component.css",
+              "RelativeDocumentMoniker": "src\\app\\features\\empleados\\empleado-list\\empleado-list.component.css",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-list\\empleado-list.component.css",
+              "RelativeToolTip": "src\\app\\features\\empleados\\empleado-list\\empleado-list.component.css",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAkwBcAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-27T06:44:11.872Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 42,
+              "Title": "empleado-list.component.spec.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-list\\empleado-list.component.spec.ts",
+              "RelativeDocumentMoniker": "src\\app\\features\\empleados\\empleado-list\\empleado-list.component.spec.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\empleados\\empleado-list\\empleado-list.component.spec.ts",
+              "RelativeToolTip": "src\\app\\features\\empleados\\empleado-list\\empleado-list.component.spec.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-04-27T18:20:54.339Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 43,
+              "Title": "angular.json",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\angular.json",
+              "RelativeDocumentMoniker": "angular.json",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\angular.json",
+              "RelativeToolTip": "angular.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-04-27T16:14:57.538Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 44,
+              "Title": "cliente-insert-reactive.component.spec.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.spec.ts",
+              "RelativeDocumentMoniker": "src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.spec.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.spec.ts",
+              "RelativeToolTip": "src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.spec.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-04-27T17:38:12.988Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 45,
+              "Title": "cliente-insert-reactive.component.css",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.css",
+              "RelativeDocumentMoniker": "src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.css",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.css",
+              "RelativeToolTip": "src\\app\\features\\clientes\\cliente-insert-reactive\\cliente-insert-reactive.component.css",
+              "ViewState": "AgIAACYAAAAAAAAAAAAkwEUAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-27T17:07:21.66Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 46,
+              "Title": "app.component.css",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app.component.css",
+              "RelativeDocumentMoniker": "src\\app\\app.component.css",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app.component.css",
+              "RelativeToolTip": "src\\app\\app.component.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-04-27T16:37:06.478Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 48,
+              "Title": "ejercicios.component.html",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\ejercicios\\ejercicios\\ejercicios.component.html",
+              "RelativeDocumentMoniker": "src\\app\\features\\ejercicios\\ejercicios\\ejercicios.component.html",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\features\\ejercicios\\ejercicios\\ejercicios.component.html",
+              "RelativeToolTip": "src\\app\\features\\ejercicios\\ejercicios\\ejercicios.component.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-04-27T16:02:18.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 50,
+              "Title": "ejercicio.service.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\ejercicio\\ejercicio.service.ts",
+              "RelativeDocumentMoniker": "src\\app\\services\\ejercicio\\ejercicio.service.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\ejercicio\\ejercicio.service.ts",
+              "RelativeToolTip": "src\\app\\services\\ejercicio\\ejercicio.service.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-04-27T16:01:20.386Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 49,
+              "Title": "categoriaejercicio.component.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app\\features\\categoriaejercicio\\categoriaejercicio.component.ts",
+              "RelativeDocumentMoniker": "src\\app\\app\\features\\categoriaejercicio\\categoriaejercicio.component.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app\\features\\categoriaejercicio\\categoriaejercicio.component.ts",
+              "RelativeToolTip": "src\\app\\app\\features\\categoriaejercicio\\categoriaejercicio.component.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-04-27T15:44:44.469Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 51,
+              "Title": "instructor.service.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\instructor\\instructor.service.ts",
+              "RelativeDocumentMoniker": "src\\app\\services\\instructor\\instructor.service.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\services\\instructor\\instructor.service.ts",
+              "RelativeToolTip": "src\\app\\services\\instructor\\instructor.service.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-04-25T18:50:39.09Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 47,
+              "Title": "app-routing.module.ts",
+              "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app-routing.module.ts",
+              "RelativeDocumentMoniker": "src\\app\\app-routing.module.ts",
+              "ToolTip": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\app-routing.module.ts",
+              "RelativeToolTip": "src\\app\\app-routing.module.ts",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003213|",
+              "WhenOpened": "2025-04-27T06:32:44.934Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 52,
               "Title": "cliente.model.ts",
               "DocumentMoniker": "C:\\Angular Projects\\bulk-gym-frontend\\src\\app\\domain\\cliente.model.ts",
               "RelativeDocumentMoniker": "src\\app\\domain\\cliente.model.ts",

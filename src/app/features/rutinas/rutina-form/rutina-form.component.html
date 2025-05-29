@@ -1,0 +1,41 @@
+<!-- Mensaje de error o éxito -->
+<div *ngIf="mensaje" class="alert" [ngClass]="mensaje.startsWith('Error') ? 'alert-danger' : 'alert-success'">
+  {{ mensaje }}
+</div>
+
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="row g-3 rutina-form">
+  <!-- Objetivo -->
+  <div class="col-12">
+    <label for="objetivo" class="form-label">Objetivo</label>
+    <textarea id="objetivo"
+              formControlName="objetivo"
+              class="form-control"
+              rows="2"
+              placeholder="Describe el objetivo de la rutina"></textarea>
+  </div>
+
+  <!-- Fecha de creación -->
+  <div class="col-md-6">
+    <label for="fechaCreacion" class="form-label">Fecha de creación</label>
+    <input id="fechaCreacion"
+           type="date"
+           formControlName="fechaCreacion"
+           class="form-control" />
+  </div>
+
+  <!-- Fecha de renovación -->
+  <div class="col-md-6">
+    <label for="fechaRenovacion" class="form-label">Fecha de renovación</label>
+    <input id="fechaRenovacion"
+           type="date"
+           formControlName="fechaRenovacion"
+           class="form-control" />
+  </div>
+
+  <!-- Botón -->
+  <div class="col-12 text-end">
+    <button type="submit" class="btn btn-primary">
+      {{ isEdit ? 'Actualizar Rutina' : 'Crear Rutina' }}
+    </button>
+  </div>
+</form>

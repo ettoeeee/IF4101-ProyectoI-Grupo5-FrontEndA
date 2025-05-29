@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { SesionService } from '../sesion.service'; // 👈 Relativo a donde está ubicado el guard
+import { SesionService } from '../sesion.service'; 
 
 @Injectable({
   providedIn: 'root'
