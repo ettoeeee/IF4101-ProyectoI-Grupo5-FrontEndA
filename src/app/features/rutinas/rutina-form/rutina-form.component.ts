@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { Rutina, RutinaPayload } from '@app/domain/rutina.model';
+import { Rutina } from '@app/domain/rutina.model';
 import { ItemRutinaEjercicio } from '@app/domain/item-rutina-ejercicio.model';
 import { ItemRutinaMedida } from '@app/domain/item-rutina-medida.model';
 import { RutinaService } from '@app/services/rutina/rutina.service';
@@ -16,7 +16,7 @@ import { Observable } from 'rxjs';
   templateUrl: './rutina-form.component.html',
   styleUrls: ['./rutina-form.component.css']
 })
-export class RutinaFormComponent implements OnInit {
+export class RutinaFormComponent  {
   @Input() rutinaAEditar?: Rutina;
   @Output() guardado = new EventEmitter<void>();
 
@@ -37,7 +37,8 @@ export class RutinaFormComponent implements OnInit {
       // ejercicios y medidas gestionarlos aparte o con FormArray si los quieres editar aquí
     });
   }
-
+/*
+  
   ngOnInit(): void {
     if (this.rutinaAEditar) {
       this.isEdit = true;
@@ -77,4 +78,6 @@ export class RutinaFormComponent implements OnInit {
       });
     }
   }
+
+  */
 }
