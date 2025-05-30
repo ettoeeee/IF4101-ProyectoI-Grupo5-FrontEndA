@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ItemRutinaMedida } from '@app/domain/item-rutina-medida.model';
@@ -6,6 +6,7 @@ import { ItemRutinaMedidasService } from '@app/services/itemRutinaMedida/item-ru
 import { MedidaCorporal } from '@app/domain/medidaCorporal.model';
 import { MedidasCorporalesService } from '@app/services/medidaCorporal/medidas-corporales.service';
 import { NgbModal, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 @Component({
   selector: 'app-item-rutina-medidas',
@@ -15,6 +16,8 @@ import { NgbModal, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./item-rutina-medidas.component.css']
 })
 export class ItemRutinaMedidasComponent implements OnInit {
+  @ViewChild('buscarInput') buscarInput!: ElementRef<HTMLInputElement>;
+  
   medidasDisponibles: MedidaCorporal[] = [];
   medidasFiltradas: MedidaCorporal[] = [];
   rutina: ItemRutinaMedida[] = [];
@@ -22,22 +25,50 @@ export class ItemRutinaMedidasComponent implements OnInit {
   valorMedida: number | null = null;
   itemAEditar: ItemRutinaMedida | null = null;
   nuevoValor: number | null = null;
+  
+  // Variables para controlar el estado de eliminación
+  showShake: boolean = false;
+  eliminando: boolean = false;
+  eliminacionCompletada: boolean = false;
+  eliminacionExitosa: boolean = false;
+  
+  // Variables para búsqueda
+  terminoBusqueda: string = '';
 
   constructor(
     private medidaService: ItemRutinaMedidasService,
     private modalService: NgbModal
   ) {}
 
-  ngOnInit() {
-    this.medidaService.obtenerTodas().subscribe(data => {
-      this.medidasDisponibles = data;
-      this.medidasFiltradas = [...data];
+  ngOnInit(): void {
+    this.cargarMedidas();
+  }
+
+  private cargarMedidas(): void {
+    this.medidaService.obtenerTodas().subscribe({
+      next: (data) => {
+        this.medidasDisponibles = data;
+        this.filtrarMedidasDisponibles();
+      },
+      error: (err) => console.error('Error al cargar medidas:', err)
     });
   }
 
-  agregarMedida() {
+
+   filtrarMedidasDisponibles(): void {
+  const termino = this.terminoBusqueda.toLowerCase();
+  this.medidasFiltradas = this.medidasDisponibles
+    .filter(m => !this.rutina.some(item => item.medidaCorporal.codMedida === m.codMedida))
+    .filter(m =>
+      m.nombreMedida.toLowerCase().includes(termino) ||
+      m.unidadMedida.toLowerCase().includes(termino)
+    );
+}
+
+
+  agregarMedida(): void {
     if (this.medidaSeleccionada && this.valorMedida && this.valorMedida > 0) {
-      const existe = this.rutina.find(i => i.medidaCorporal.codMedida === this.medidaSeleccionada?.codMedida);
+      const existe = this.rutina.some(i => i.medidaCorporal.codMedida === this.medidaSeleccionada?.codMedida);
       
       if (!existe) {
         this.rutina.push({
@@ -45,56 +76,93 @@ export class ItemRutinaMedidasComponent implements OnInit {
           valorMedida: this.valorMedida
         });
         
-        // Actualizar las medidas disponibles
-        this.medidasFiltradas = this.medidasDisponibles.filter(
-          m => !this.rutina.some(item => item.medidaCorporal.codMedida === m.codMedida)
-        );
-        
-        // Resetear selección
-        this.medidaSeleccionada = null;
-        this.valorMedida = null;
+        this.resetearFormulario();
+        this.filtrarMedidasDisponibles();
       }
     }
   }
 
-  abrirModalEliminar(content: any, item: ItemRutinaMedida) {
+  private resetearFormulario(): void {
+    this.medidaSeleccionada = null;
+    this.valorMedida = null;
+  }
+
+  abrirModalEliminar(content: any, item: ItemRutinaMedida): void {
     this.itemAEditar = item;
-    this.modalService.open(content, { centered: true });
+    this.resetEliminacionState();
+    this.modalService.open(content, { 
+      centered: true,
+      backdrop: 'static',
+      keyboard: false
+    });
   }
 
-  eliminarMedida() {
-    if (this.itemAEditar) {
-      this.rutina = this.rutina.filter(i => i.medidaCorporal.codMedida !== this.itemAEditar?.medidaCorporal.codMedida);
-      
-      // Actualizar las medidas disponibles
-      this.medidasFiltradas = this.medidasDisponibles.filter(
-        m => !this.rutina.some(item => item.medidaCorporal.codMedida === m.codMedida)
-      );
-      
-      this.modalService.dismissAll();
-      this.itemAEditar = null;
-    }
-  }
-
-  abrirModalEditar(content: any, item: ItemRutinaMedida) {
+  abrirModalEditar(content: any, item: ItemRutinaMedida): void {
     this.itemAEditar = item;
     this.nuevoValor = item.valorMedida;
     this.modalService.open(content, { centered: true });
   }
 
-  actualizarMedida() {
+  confirmarEliminacion(): void {
+    this.eliminando = true;
+    
+    setTimeout(() => {
+      try {
+        this.rutina = this.rutina.filter(
+          i => i.medidaCorporal.codMedida !== this.itemAEditar?.medidaCorporal.codMedida
+        );
+        this.eliminacionExitosa = true;
+      } catch (error) {
+        this.eliminacionExitosa = false;
+      }
+      
+      this.eliminacionCompletada = true;
+      this.eliminando = false;
+      this.filtrarMedidasDisponibles();
+    }, 1500);
+  }
+
+  actualizarMedida(): void {
     if (this.itemAEditar && this.nuevoValor && this.nuevoValor > 0) {
-      const index = this.rutina.findIndex(i => i.medidaCorporal.codMedida === this.itemAEditar?.medidaCorporal.codMedida);
+      const index = this.rutina.findIndex(
+        i => i.medidaCorporal.codMedida === this.itemAEditar?.medidaCorporal.codMedida
+      );
+      
       if (index !== -1) {
         this.rutina[index].valorMedida = this.nuevoValor;
       }
+      
       this.modalService.dismissAll();
       this.itemAEditar = null;
       this.nuevoValor = null;
     }
   }
 
+  cancelarEliminacion(): void {
+    this.showShake = true;
+    setTimeout(() => this.showShake = false, 500);
+  }
+
+  resetEliminacionState(): void {
+    this.eliminando = false;
+    this.eliminacionCompletada = false;
+    this.eliminacionExitosa = false;
+    this.showShake = false;
+  }
+
   validarNumero(item: ItemRutinaMedida): boolean {
     return item.valorMedida == null || isNaN(item.valorMedida) || item.valorMedida <= 0;
   }
+
+  get rutinaFiltrada(): ItemRutinaMedida[] {
+  if (!this.terminoBusqueda.trim()) {
+    return this.rutina;
+  }
+  const termino = this.terminoBusqueda.toLowerCase();
+  return this.rutina.filter(item =>
+    item.medidaCorporal.nombreMedida.toLowerCase().includes(termino) ||
+    item.medidaCorporal.unidadMedida.toLowerCase().includes(termino)
+  );
+}
+
 }
