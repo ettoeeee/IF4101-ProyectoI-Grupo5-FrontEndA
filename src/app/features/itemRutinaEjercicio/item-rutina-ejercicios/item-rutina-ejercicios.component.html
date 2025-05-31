@@ -1,0 +1,116 @@
+<div class="container mt-4">
+
+  <!-- Botón para abrir modal -->
+  <button class="btn btn-primary mb-3" (click)="abrirModal()">Agregar Item</button>
+
+  <!-- Tabla de Items -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Ejercicio</th>
+        <th>Series</th>
+        <th>Repeticiones</th>
+        <th>Equipo</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items">
+        <td>{{ obtenerNombreEjercicio(item.idEjercicio) }}</td>
+        <td>{{ item.seriesEjercicio }}</td>
+        <td>{{ item.repeticionesEjercicio }}</td>
+        <td>{{ item.equipoEjercicio }}</td>
+        <td>
+            <button (click)="editar(item)">Editar</button>
+            <button (click)="eliminar(item)">Eliminar</button>
+        </td>
+      </tr>
+      <tr *ngIf="items.length === 0">
+        <td colspan="6" class="text-center">No hay items registrados.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Modal -->
+  <div class="modal fade" tabindex="-1" [ngClass]="{'show d-block': mostrarModal}" [style.background]="'rgba(0,0,0,0.5)'" role="dialog">
+    <div class="modal-dialog">
+      <form [formGroup]="formulario" (ngSubmit)="guardar()" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">{{ modoEditar ? 'Editar Item' : 'Nuevo Item' }}</h5>
+          <button type="button" class="btn-close" aria-label="Close" (click)="cerrarModal()"></button>
+        </div>
+
+        <div class="modal-body">
+          <!-- idEjercicio -->
+          <div class="mb-3">
+            <label for="idEjercicio" class="form-label">Ejercicio</label>
+            <select
+              id="idEjercicio"
+              class="form-select"
+              formControlName="idEjercicio"
+            >
+              <option [ngValue]="null" disabled>Seleccione un ejercicio</option>
+              <option *ngFor="let ejercicio of ejercicios" [ngValue]="ejercicio.idEjercicio">
+              <!-- <option *ngFor="let ejercicio of ejercicios" [ngValue]="ejercicio.idEjercicio">-->
+              {{ ejercicio.nombreEjercicio }}
+              </option>
+            </select>
+            <div *ngIf="formulario.get('idEjercicio')?.invalid && formulario.get('idEjercicio')?.touched" class="text-danger">
+              El ejercicio es obligatorio.
+            </div>
+          </div>
+
+          <!-- seriesEjercicio -->
+          <div class="mb-3">
+            <label for="seriesEjercicio" class="form-label">Series</label>
+            <input
+              id="seriesEjercicio"
+              type="number"
+              class="form-control"
+              formControlName="seriesEjercicio"
+              min="1"
+            />
+            <div *ngIf="formulario.get('seriesEjercicio')?.invalid && formulario.get('seriesEjercicio')?.touched" class="text-danger">
+              Debe ingresar al menos 1 serie.
+            </div>
+          </div>
+
+          <!-- repeticionesEjercicio -->
+          <div class="mb-3">
+            <label for="repeticionesEjercicio" class="form-label">Repeticiones</label>
+            <input
+              id="repeticionesEjercicio"
+              type="number"
+              class="form-control"
+              formControlName="repeticionesEjercicio"
+              min="1"
+            />
+            <div *ngIf="formulario.get('repeticionesEjercicio')?.invalid && formulario.get('repeticionesEjercicio')?.touched" class="text-danger">
+              Debe ingresar al menos 1 repetición.
+            </div>
+          </div>
+
+          <!-- equipoEjercicio -->
+          <div class="mb-3">
+            <label for="equipoEjercicio" class="form-label">Equipo</label>
+            <input
+              id="equipoEjercicio"
+              type="text"
+              class="form-control"
+              formControlName="equipoEjercicio"
+              maxlength="50"
+            />
+            <div *ngIf="formulario.get('equipoEjercicio')?.invalid && formulario.get('equipoEjercicio')?.touched" class="text-danger">
+              El equipo es obligatorio.
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="cerrarModal()">Cancelar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="formulario.invalid">{{ modoEditar ? 'Actualizar' : 'Guardar' }}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

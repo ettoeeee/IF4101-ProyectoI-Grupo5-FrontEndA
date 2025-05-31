@@ -2,6 +2,26 @@
   <h1>Crear rutina</h1>
   <h2>Agregar medidas corporales a la rutina</h2>
 
+   <!-- Barra de búsqueda -->
+ <div class="busqueda-container">
+  <div class="form-group">
+    <label for="buscar-medida">Buscar medida:</label>
+    <div class="input-group">
+      <input
+        #buscarInput
+        type="text"
+        id="buscar-medida"
+        class="form-control"
+        placeholder="Escribe para buscar..."
+        [(ngModel)]="terminoBusqueda"
+        (ngModelChange)="filtrarMedidasDisponibles()">
+      <span class="input-group-text">
+        <i class="fas fa-search"></i>
+      </span>
+    </div>
+  </div>
+</div>
+
   <div class="agregar-medida-container">
     <div class="form-group">
       <label for="medidaSelect">Seleccionar medida:</label>
@@ -42,7 +62,7 @@
   <h3>Medidas agregadas a la rutina</h3>
   
   <div class="lista-medidas-agregadas">
-    <div *ngFor="let item of rutina" class="medida-card-agregada">
+    <div *ngFor="let item of rutinaFiltrada" class="medida-card-agregada">
       <div class="card-header">
         <img [src]="item.medidaCorporal.imagen" alt="{{ item.medidaCorporal.nombreMedida }}" />
         <div class="card-title">
@@ -78,53 +98,111 @@
   </div>
 </div>
 
-<!-- Modal Eliminar -->
+<!-- Modal Eliminar - Versión mejorada con animaciones y feedback -->
 <ng-template #modalEliminar let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title">Confirmar eliminación</h4>
-    <button type="button" class="close" (click)="modal.dismiss()">
-      <span>&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    ¿Estás seguro que deseas eliminar esta medida de la rutina?
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Cancelar</button>
-    <button type="button" class="btn btn-danger" (click)="eliminarMedida()">Eliminar</button>
+  <div class="modal-content p-4 rounded-4 shadow-lg" [ngClass]="{'shake-animation': showShake}">
+    <!-- Pantalla principal de confirmación -->
+    <div *ngIf="!eliminacionCompletada">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title text-danger">
+          <i class="fas fa-exclamation-triangle me-2"></i>Confirmar eliminación
+        </h5>
+        <button type="button" class="btn-close" (click)="modal.dismiss()" [disabled]="eliminando"></button>
+      </div>
+      
+      <div class="modal-body text-center py-4">
+        <div class="confirmation-icon mb-4">
+          <i class="fas fa-trash-alt fa-4x text-danger" 
+             [class.pulse-animation]="!eliminando"
+             [class.fa-spin]="eliminando"></i>
+        </div>
+        
+        <h4 class="fw-bold mb-3">¿Eliminar esta medida?</h4>
+        <p class="text-muted mb-4">Esta acción no se puede deshacer</p>
+        
+        <div *ngIf="itemAEditar" class="alert alert-light alert-dismissible fade show">
+          <strong>{{itemAEditar.medidaCorporal.nombreMedida}}</strong> - Valor: {{itemAEditar.valorMedida}}
+          <span class="badge bg-danger ms-2">Se eliminará</span>
+        </div>
+      </div>
+      
+      <div class="modal-footer border-0 justify-content-center pt-0">
+        <button type="button" class="btn btn-lg btn-outline-secondary me-3" 
+                (click)="cancelarEliminacion()" [disabled]="eliminando">
+          <i class="fas fa-times me-2"></i>Cancelar
+        </button>
+        <button type="button" class="btn btn-lg btn-danger" 
+                (click)="confirmarEliminacion()" [disabled]="eliminando">
+          <i class="fas fa-trash-alt me-2"></i>{{ eliminando ? 'Eliminando...' : 'Sí, eliminar' }}
+        </button>
+      </div>
+    </div>
+    
+    <!-- Pantalla de resultado -->
+    <div *ngIf="eliminacionCompletada" class="text-center p-4">
+      <div class="result-icon mb-4">
+        <i class="fas fa-5x" 
+           [class.fa-check-circle]="eliminacionExitosa" 
+           [class.text-success]="eliminacionExitosa"
+           [class.fa-times-circle]="!eliminacionExitosa"
+           [class.text-danger]="!eliminacionExitosa"
+           [class.bounce-animation]="eliminacionExitosa"
+           [class.shake-animation]="!eliminacionExitosa"></i>
+      </div>
+      
+      <h4 class="fw-bold mb-3">{{ eliminacionExitosa ? '¡Eliminado!' : 'Error' }}</h4>
+      <p class="mb-4">{{ eliminacionExitosa ? 'La medida se eliminó correctamente.' : 'No se pudo eliminar la medida.' }}</p>
+      
+      <button type="button" class="btn btn-lg btn-primary" (click)="modal.close()">
+        <i class="fas fa-check me-2"></i>Aceptar
+      </button>
+    </div>
   </div>
 </ng-template>
 
-<!-- Modal Editar -->
+<!-- Modal Editar - Nuevo diseño -->
 <ng-template #modalEditar let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title">Editar valor de medida</h4>
-    <button type="button" class="close" (click)="modal.dismiss()">
-      <span>&times;</span>
-    </button>
-  </div>
-  <div class="modal-body" *ngIf="itemAEditar">
-    <div class="form-group">
-      <label>Medida: {{itemAEditar.medidaCorporal.nombreMedida}}</label>
+  <div class="modal-content p-4 rounded-4 shadow-sm">
+    <div class="modal-header border-0">
+      <h5 class="modal-title text-primary">
+        <i class="fas fa-edit me-2"></i>Editar medida
+      </h5>
+      <button type="button" class="btn-close" (click)="modal.dismiss()"></button>
     </div>
-    <div class="form-group">
-      <label for="nuevoValor">Nuevo valor:</label>
-      <input 
-        type="number" 
-        id="nuevoValor" 
-        class="form-control" 
-        [(ngModel)]="nuevoValor"
-        placeholder="Ingrese el nuevo valor">
+    <div class="modal-body py-4" *ngIf="itemAEditar">
+      <div class="text-center mb-4">
+        <i class="fas fa-ruler fa-4x text-primary mb-3" style="animation: bounce 2s infinite;"></i>
+        <h4>{{itemAEditar.medidaCorporal.nombreMedida}}</h4>
+        <p class="text-muted">{{itemAEditar.medidaCorporal.unidadMedida}}</p>
+      </div>
+      
+      <div class="form-group mb-4">
+        <label class="form-label">Nuevo valor</label>
+        <div class="input-group">
+          <span class="input-group-text">
+            <i class="fas fa-hashtag"></i>
+          </span>
+          <input 
+            type="number" 
+            class="form-control form-control-lg" 
+            [(ngModel)]="nuevoValor"
+            placeholder="Ingrese el nuevo valor"
+            autofocus>
+        </div>
+        <small class="text-muted">Valor actual: {{itemAEditar.valorMedida}}</small>
+      </div>
     </div>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">Cancelar</button>
-    <button 
-      type="button" 
-      class="btn btn-primary" 
-      (click)="actualizarMedida()"
-      [disabled]="!nuevoValor || nuevoValor <= 0">
-      Guardar Cambios
-    </button>
+    <div class="modal-footer border-0 justify-content-center">
+      <button type="button" class="btn btn-lg btn-outline-secondary me-3" (click)="modal.dismiss()">
+        <i class="fas fa-times me-2"></i>Cancelar
+      </button>
+      <button 
+        type="button" 
+        class="btn btn-lg btn-primary" 
+        (click)="actualizarMedida()"
+        [disabled]="!nuevoValor || nuevoValor <= 0">
+        <i class="fas fa-save me-2"></i>Guardar cambios
+      </button>
+    </div>
   </div>
 </ng-template>

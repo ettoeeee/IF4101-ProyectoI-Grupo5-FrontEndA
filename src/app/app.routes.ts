@@ -39,7 +39,7 @@ export const routes: Routes = [
           import('./features/instructores/instructor-form/instructor-form.component')
             .then(m => m.InstructorFormComponent)
       },
- // Categorías de Ejercicio
+      // Categorías de Ejercicio
       {
         path: 'categorias',
         loadComponent: () =>
@@ -60,9 +60,15 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./features/itemRutinaMedida/item-rutina-medidas.component')
             .then(m => m.ItemRutinaMedidasComponent)
-      }
+      },
       
-
+      //ItemRutinaEjercicio
+      {
+        path: 'item-rutina-ejercicio',
+        loadComponent: () =>
+          import('./features/itemRutinaEjercicio/item-rutina-ejercicios/item-rutina-ejercicios.component')
+            .then(m => m.ItemRutinaEjercicioComponent)
+      }
       // Empleados
       ,{
         path: 'empleados',
