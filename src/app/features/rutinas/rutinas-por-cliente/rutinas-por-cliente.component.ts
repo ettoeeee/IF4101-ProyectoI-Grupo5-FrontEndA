@@ -15,13 +15,23 @@ import { ClienteSeleccionado } from '@app/services/rutina-cliente/cliente-selecc
   templateUrl: './rutinas-por-cliente.component.html',
   styleUrls: ['./rutinas-por-cliente.component.css']
 })
+
 export class RutinasPorClienteComponent implements OnInit {
   clienteId!: number;
   rutinas: Rutina[] = [];
-
-  // para el modal
   mostrarModal = false;
   rutinaSeleccionada?: Rutina;
+
+  abrirModal(rutina?: Rutina) {
+    this.rutinaSeleccionada = rutina;
+    this.mostrarModal = true;
+  }
+
+  onGuardado() {
+    // se emite al crear/editar
+    this.mostrarModal = false;
+    this.cargarRutinas();
+  }
 
   constructor(
     private route: ActivatedRoute,
@@ -38,11 +48,6 @@ export class RutinasPorClienteComponent implements OnInit {
     this.rutinaService
       .getByCliente(this.clienteId)
       .subscribe(r => this.rutinas = r);
-  }
-
-  abrirModal(rutina?: Rutina) {
-    this.rutinaSeleccionada = rutina;
-    this.mostrarModal = true;
   }
 
   cerrarModal() {

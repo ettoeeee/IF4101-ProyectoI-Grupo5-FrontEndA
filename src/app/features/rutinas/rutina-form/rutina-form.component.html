@@ -1,43 +1,89 @@
-<!-- Mensaje de error o éxito -->
-<div *ngIf="mensaje" class="alert" [ngClass]="mensaje.startsWith('Error') ? 'alert-danger' : 'alert-success'">
-  {{ mensaje }}
-</div>
+<!-- src/app/features/rutina-form/rutina-form.component.html -->
 
-<!-- 
-
-<form [formGroup]="form" (ngSubmit)="onSubmit()" class="row g-3 rutina-form">-->
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
   <!-- Objetivo -->
-  <div class="col-12">
+  <div class="mb-3">
     <label for="objetivo" class="form-label">Objetivo</label>
-    <textarea id="objetivo"
-              formControlName="objetivo"
-              class="form-control"
-              rows="2"
-              placeholder="Describe el objetivo de la rutina"></textarea>
+    <input id="objetivo"
+           type="text"
+           class="form-control"
+           formControlName="objetivo" />
+    <div *ngIf="form.get('objetivo')?.invalid && form.get('objetivo')?.touched"
+         class="text-danger">
+      El objetivo es requerido.
+    </div>
   </div>
 
-  <!-- Fecha de creación -->
-  <div class="col-md-6">
-    <label for="fechaCreacion" class="form-label">Fecha de creación</label>
+  <!-- Fecha de Creación -->
+  <div class="mb-3">
+    <label for="fechaCreacion" class="form-label">Fecha de Creación</label>
     <input id="fechaCreacion"
            type="date"
-           formControlName="fechaCreacion"
-           class="form-control" />
+           class="form-control"
+           formControlName="fechaCreacion" />
+    <div *ngIf="form.get('fechaCreacion')?.invalid && form.get('fechaCreacion')?.touched"
+         class="text-danger">
+      La fecha de creación es requerida.
+    </div>
   </div>
 
-  <!-- Fecha de renovación -->
-  <div class="col-md-6">
-    <label for="fechaRenovacion" class="form-label">Fecha de renovación</label>
+  <!-- Fecha de Renovación -->
+  <div class="mb-3">
+    <label for="fechaRenovacion" class="form-label">Fecha de Renovación</label>
     <input id="fechaRenovacion"
            type="date"
-           formControlName="fechaRenovacion"
-           class="form-control" />
+           class="form-control"
+           formControlName="fechaRenovacion" />
+    <div *ngIf="form.get('fechaRenovacion')?.invalid && form.get('fechaRenovacion')?.touched"
+         class="text-danger">
+      La fecha de renovación es requerida.
+    </div>
   </div>
 
-  <!-- Botón -->
-  <div class="col-12 text-end">
-    <button type="submit" class="btn btn-primary">
-      {{ isEdit ? 'Actualizar Rutina' : 'Crear Rutina' }}
-    </button>
+  <!-- Horario -->
+  <div class="mb-3">
+    <label for="horario" class="form-label">Horario</label>
+    <input id="horario"
+           type="text"
+           class="form-control"
+           formControlName="horario" />
+    <div *ngIf="form.get('horario')?.invalid && form.get('horario')?.touched"
+         class="text-danger">
+      El horario es requerido.
+    </div>
   </div>
-<!-- </form>-->
+
+  <!-- Lesiones -->
+  <div class="mb-3">
+    <label for="lesiones" class="form-label">Lesiones</label>
+    <input id="lesiones"
+           type="text"
+           class="form-control"
+           formControlName="lesiones" />
+  </div>
+
+  <!-- Padecimientos -->
+  <div class="mb-3">
+    <label for="padecimientos" class="form-label">Padecimientos</label>
+    <input id="padecimientos"
+           type="text"
+           class="form-control"
+           formControlName="padecimientos" />
+  </div>
+
+  <!-- Mensaje de estado -->
+  <div *ngIf="mensaje" class="alert" [ngClass]="submitting ? 'alert-info' : 'alert-danger'">
+    {{ mensaje }}
+  </div>
+
+  <!-- Botón de submit -->
+  <button type="submit"
+          class="btn btn-primary"
+          [disabled]="submitting">
+    {{
+ submitting
+       ? (isEdit ? 'Actualizando…' : 'Creando…')
+       : (isEdit ? 'Actualizar Rutina' : 'Crear Rutina')
+    }}
+  </button>
+</form>
