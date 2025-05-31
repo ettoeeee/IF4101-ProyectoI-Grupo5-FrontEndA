@@ -21,8 +21,12 @@
         <td>{{ item.repeticionesEjercicio }}</td>
         <td>{{ item.equipoEjercicio }}</td>
         <td>
-            <button (click)="editar(item)">Editar</button>
-            <button (click)="eliminar(item)">Eliminar</button>
+            <button class="btn btn-sm btn-outline-primary me-2" (click)="editar(item)">
+                ✏️ Editar
+            </button>
+            <button class="btn btn-sm btn-outline-danger" (click)="eliminar(item)">
+                🗑️ Eliminar
+            </button>
         </td>
       </tr>
       <tr *ngIf="items.length === 0">
@@ -48,6 +52,7 @@
               id="idEjercicio"
               class="form-select"
               formControlName="idEjercicio"
+              [disabled]="modoEditar" 
             >
               <option [ngValue]="null" disabled>Seleccione un ejercicio</option>
               <option *ngFor="let ejercicio of ejercicios" [ngValue]="ejercicio.idEjercicio">
