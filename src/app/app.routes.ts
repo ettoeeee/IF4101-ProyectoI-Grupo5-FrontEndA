@@ -26,6 +26,15 @@ export const routes: Routes = [
       { path: 'dashboard', component: PanelPrincipalComponent },
       { path: 'clientes', component: ClienteListComponent },
 
+// gestopn 
+{ 
+        path: 'gestion-rutinas', 
+        loadComponent: () => 
+          import('./features/rutinas/gestion-rutinas/gestion-rutinas.component')
+            .then(m => m.GestionRutinasComponent)
+      },
+
+
       // Instructores
       {
         path: 'instructores',
@@ -115,7 +124,16 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./features/rutinas/rutinas-por-cliente/rutinas-por-cliente.component')
             .then(m => m.RutinasPorClienteComponent)
-      }
+      }, 
+
+
+      {
+  path: 'rutinas/nueva',
+  loadComponent: () => import('./features/rutinas/crear-rutina/crear-rutina.component')
+    .then(m => m.CrearRutinaComponent)
+}
     ]
   }
+
+  
 ];

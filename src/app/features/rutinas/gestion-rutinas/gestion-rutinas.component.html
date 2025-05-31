@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <!-- Título y botón principal -->
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h2>Gestión de Rutinas</h2>
+    <button class="btn btn-primary" (click)="irACrearRutina()">
+      <i class="bi bi-plus-lg"></i> Nueva Rutina
+    </button>
+  </div>
+
+  <!-- Buscador (si más adelante usas filtro) -->
+  <input
+    class="form-control mb-4"
+    placeholder="Buscar por nombre o rutina"
+    [(ngModel)]="filtro"
+  />
+
+  <!-- Tabla de Rutinas -->
+  <table class="table table-hover table-bordered align-middle">
+    <thead class="table-light">
+      <tr class="text-center">
+        <th>Cliente</th>
+        <th>Objetivo</th>
+        <th>Fecha de Creación</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- Puedes rellenar esto más adelante -->
+      <tr>
+        <td colspan="4" class="text-center text-muted">Sin rutinas registradas</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

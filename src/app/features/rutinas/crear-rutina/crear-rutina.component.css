@@ -1,0 +1,45 @@
+.cliente-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.cliente-item {
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.cliente-item:hover {
+  background-color: #e0f7fa;
+}
+
+.cliente-item.seleccionado {
+  background-color: #c8e6c9;
+  border-color: #2e7d32;
+  font-weight: bold;
+}
+
+.cliente-info {
+  margin-top: 20px;
+}
+
+mat-form-field {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+button {
+  margin-top: 16px;
+}
+
+mat-horizontal-stepper {
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}

@@ -27,6 +27,7 @@ export class MedidasCorporalesComponent implements OnInit {
     this.obtenerMedidas();
   }
 
+  
   obtenerMedidas(): void {
     this.medidasService.obtenerMedidas().subscribe({
       next: (medidas) => {
@@ -61,6 +62,7 @@ export class MedidasCorporalesComponent implements OnInit {
     this.obtenerMedidas(); 
   }
 
+  
   eliminarMedida(id: number): void {
     Swal.fire({
       title: '¿Está seguro?',
@@ -88,6 +90,9 @@ export class MedidasCorporalesComponent implements OnInit {
       }
     });
   }
+  
+  
+
   
   
 }
