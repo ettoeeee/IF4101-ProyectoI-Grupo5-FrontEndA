@@ -25,11 +25,11 @@
           <i class="bi bi-pencil-square"></i>
         </button>
         <button class="btn btn-sm btn-outline-danger me-1"
-                (click)="eliminarRutina(r.idRutina!)">
+                (click)="eliminarRutina(r.idRutina)">
           <i class="bi bi-trash3"></i>
         </button>
         <button class="btn btn-sm btn-outline-secondary"
-                (click)="generarPDF(r.idRutina!)">
+                (click)="generarPDF(r.idRutina)">
           <i class="bi bi-file-earmark-pdf"></i>
         </button>
       </td>
@@ -38,18 +38,25 @@
 </table>
 
 <!-- Modal de Form -->
-<div *ngIf="mostrarModal" class="modal-backdrop show fade d-block"></div>
-<div *ngIf="mostrarModal" class="modal fade show d-block" tabindex="-1">
+<div *ngIf="mostrarModal"
+     class="modal-backdrop show fade d-block"></div>
+<div *ngIf="mostrarModal"
+     class="modal fade show d-block"
+     tabindex="-1">
   <div class="modal-dialog modal-lg modal-dialog-centered">
     <div class="modal-content p-4 rounded-3 shadow-sm">
       <div class="modal-header border-0">
         <h5 class="modal-title">
           {{ rutinaSeleccionada ? 'Editar Rutina' : 'Nueva Rutina' }}
         </h5>
-        <button type="button" class="btn-close" (click)="cerrarModal()"></button>
+        <button type="button"
+                class="btn-close"
+                aria-label="Close"
+                (click)="cerrarModal()"></button>
       </div>
       <div class="modal-body">
-        <app-rutina-form [rutinaAEditar]="rutinaSeleccionada"
+        <app-rutina-form [clienteId]="clienteId"
+                         [rutinaAEditar]="rutinaSeleccionada"
                          (guardado)="cerrarModal()">
         </app-rutina-form>
       </div>

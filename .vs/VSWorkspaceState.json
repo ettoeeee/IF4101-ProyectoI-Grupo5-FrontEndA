@@ -3,14 +3,14 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\domain",
     "\\src\\app\\features",
-    "\\src\\app\\features\\rutinas",
-    "\\src\\app\\features\\rutinas\\rutina-form",
-    "\\src\\app\\features\\rutinas\\rutinas-por-cliente",
-    "\\src\\app\\services",
-    "\\src\\app\\services\\rutina"
+    "\\src\\app\\features\\clientes",
+    "\\src\\app\\features\\clientes\\cliente-insert-reactive",
+    "\\src\\app\\features\\clientes\\cliente-list",
+    "\\src\\app\\features\\instructores",
+    "\\src\\app\\features\\instructores\\clientes-tab",
+    "\\src\\app\\features\\rutinas"
   ],
-  "SelectedNode": "\\src\\app\\services\\rutina\\rutina.service.ts",
+  "SelectedNode": "\\src\\app\\features\\rutinas\\rutina-form\\rutina-form.component.ts",
   "PreviewInSolutionExplorer": false
 }

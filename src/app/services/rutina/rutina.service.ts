@@ -7,13 +7,24 @@ import { environment } from '@environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class RutinaService {
-  private apiUrl = `${environment.apiBaseUrl}`;
-
+  private apiUrl = `${environment.apiBaseUrl}/clientes`;
   constructor(private http: HttpClient) { }
 
   /** GET /api/clientes/{id}/rutinas */
   obtenerPorCliente(idCliente: number): Observable<Rutina[]> {
-    return this.http.get<Rutina[]>(`${this.apiUrl}/clientes/${idCliente}/rutinas`);
+    return this.http.get<Rutina[]>(`${this.apiUrl}${idCliente}/rutinas`);
+  }
+
+  getByCliente(idCliente: number): Observable<Rutina[]> {
+    return this.http.get<Rutina[]>(`${this.apiUrl}/${idCliente}/rutinas`);
+  }
+
+  /** POST /api/clientes/{id}/rutinas */
+  crearParaCliente(idCliente: number, rutina: Rutina): Observable<Rutina> {
+    return this.http.post<Rutina>(
+      `${this.apiUrl}/${idCliente}/rutinas`,
+      rutina
+    );
   }
 
   /** Llama al endpoint PDF que ya montaste */
@@ -23,20 +34,6 @@ export class RutinaService {
     });
   }
 
-  /** Create devuelve la nueva rutina (con su id) 
-  create(data: RutinaPayload): Observable<Rutina> {
-    return this.http.post<Rutina>(this.apiUrl, data);
-  }
-*/
-  getByCliente(idCliente: number): Observable<Rutina[]> {
-    return this.http.get<Rutina[]>(`${this.apiUrl}/clientes/${idCliente}/rutinas`);
-  }
-
-  /*
-  update(id: number, data: RutinaPayload): Observable<void> {
-    return this.http.put<void>(`${this.apiUrl}/${id}`, data);
-  }
-*/
   delete(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }

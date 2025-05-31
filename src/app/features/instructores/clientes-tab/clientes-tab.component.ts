@@ -30,6 +30,6 @@ export class ClientesTabComponent implements OnInit {
   }
 
   verRutinas(cliente: Cliente) {
-    this.router.navigate(['/clientes', cliente.idPersona, 'rutinas']);
+    this.router.navigate(['/clientes', cliente.idCliente, 'rutinas']);
   }
 }
