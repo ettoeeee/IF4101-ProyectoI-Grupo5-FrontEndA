@@ -176,16 +176,32 @@ itemRutinaEjerciciosComp!: ItemRutinaEjercicioComponent;
 
   // ✅ Preparar objeto final DTO
   const rutinaDTO: RutinaCompletaDTO = {
-    idInstructor: this.rutina.idInstructor!,
-    objetivo: this.rutina.objetivo || '',
-    lesiones: this.rutina.lesiones || '',
-    padecimientos: this.rutina.padecimientos || '',
-    horario: this.rutina.horario || '',
-    fechaCreacion: this.rutina.fechaCreacion!,
-    fechaRenovacion: this.rutina.fechaRenovacion!,
-    medidas: this.rutina.medidas!,
-    ejercicios: this.rutina.ejercicios!
-  };
+  idRutina: this.rutina.idRutina!,
+  idInstructor: this.rutina.idInstructor!,
+  objetivo: this.rutina.objetivo || '',
+  lesiones: this.rutina.lesiones || '',
+  padecimientos: this.rutina.padecimientos || '',
+  horario: this.rutina.horario || '',
+  fechaCreacion: this.rutina.fechaCreacion!,
+  fechaRenovacion: this.rutina.fechaRenovacion!,
+  medidas: this.rutina.medidas!,
+  ejercicios: this.rutina.ejercicios!, 
+  cliente: {
+  idPersona: this.clienteSeleccionado.idPersona,
+  nombre: this.clienteSeleccionado.nombre,
+  apellidos: this.clienteSeleccionado.apellidos,
+  sexo: this.clienteSeleccionado.sexo,
+  telefono: this.clienteSeleccionado.telefono,
+  correoElectronico: this.clienteSeleccionado.correoElectronico,
+  imagenRuta: this.clienteSeleccionado.imagenRuta || '',
+  direccion: this.clienteSeleccionado.direccion || '',
+  nombreContactoEmergencia: this.clienteSeleccionado.nombreContactoEmergencia || '',
+  telContactoEmergencia: this.clienteSeleccionado.telContactoEmergencia || '',
+  activo: this.clienteSeleccionado.activo
+}
+
+};
+
 
   // ✅ Enviar al backend
   this.http.post(`${environment.apiBaseUrl}/clientes/${this.clienteSeleccionado.idCliente}/rutinas/completa`, rutinaDTO)

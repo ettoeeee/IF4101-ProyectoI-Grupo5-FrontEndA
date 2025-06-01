@@ -48,7 +48,6 @@ export class ItemRutinaEjercicioComponent implements OnInit {
       // Crea un Map para búsqueda rápida
       this.ejercicioMap = new Map(data.map(e => [e.idEjercicio!, e.nombreEjercicio]));
 
-      this.listarItems();  // Solo listar items después de tener los ejercicios
     });
   }
 

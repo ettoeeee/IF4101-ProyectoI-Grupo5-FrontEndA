@@ -16,6 +16,10 @@ export class ClienteService {
     return this.http.post<{ mensaje: string }>(`${this.apiUrl}/clientes`, cliente);
   }
 
+  obtenerTodos(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(`${this.apiUrl}/clientes`);
+  }
+
   obtenerClientes(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(`${this.apiUrl}/clientes`);
   }

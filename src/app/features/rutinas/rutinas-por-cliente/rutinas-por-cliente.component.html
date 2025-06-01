@@ -1,65 +1,68 @@
-<!-- src/app/features/rutinas/rutinas-por-cliente/rutinas-por-cliente.component.html -->
+<!-- src/app/features/rutinas-por-cliente/rutinas-por-cliente.component.html -->
 
-<div class="d-flex justify-content-between align-items-center mb-3">
-  <h2>Rutinas del Cliente {{ clienteId }}</h2>
-  <button class="btn btn-primary" (click)="abrirModal()">
-    <i class="bi bi-plus-lg"></i> Nueva Rutina
-  </button>
-</div>
+<div class="container mt-4">
 
-<table class="table table-hover table-bordered">
-  <thead class="table-light text-center">
-    <tr>
-      <th>Fecha Creación</th>
-      <th>Objetivo</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let r of rutinas" class="align-middle text-center">
-      <td>{{ r.fechaCreacion | date:'dd/MM/yyyy' }}</td>
-      <td>{{ r.objetivo }}</td>
-      <td>
-        <button class="btn btn-sm btn-outline-primary me-1"
-                (click)="abrirModal(r)">
-          <i class="bi bi-pencil-square"></i>
+  <!-- BARRA DE BÚSQUEDA: solo aparece cuando NO hay un clienteId válido -->
+  <div *ngIf="!clienteId" class="row mb-4">
+    <div class="col-12 col-md-6">
+      <label for="inputClienteId" class="form-label">Buscar Cliente por ID</label>
+      <div class="input-group">
+        <input type="number"
+               id="inputClienteId"
+               class="form-control"
+               placeholder="Ingresa el ID de cliente"
+               [(ngModel)]="clienteIdBuscado" />
+        <button class="btn btn-primary"
+                (click)="buscarCliente()"
+                type="button">
+          Buscar
         </button>
-        <button class="btn btn-sm btn-outline-danger me-1"
-                (click)="eliminarRutina(r.idRutina)">
-          <i class="bi bi-trash3"></i>
-        </button>
-        <button class="btn btn-sm btn-outline-secondary"
-                (click)="generarPDF(r.idRutina)">
-          <i class="bi bi-file-earmark-pdf"></i>
-        </button>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<!-- Modal de Form -->
-<div *ngIf="mostrarModal"
-     class="modal-backdrop show fade d-block"></div>
-<div *ngIf="mostrarModal"
-     class="modal fade show d-block"
-     tabindex="-1">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content p-4 rounded-3 shadow-sm">
-      <div class="modal-header border-0">
-        <h5 class="modal-title">
-          {{ rutinaSeleccionada ? 'Editar Rutina' : 'Nueva Rutina' }}
-        </h5>
-        <button type="button"
-                class="btn-close"
-                aria-label="Close"
-                (click)="cerrarModal()"></button>
-      </div>
-      <div class="modal-body">
-        <app-rutina-form [clienteId]="clienteId"
-                         [rutinaAEditar]="rutinaSeleccionada"
-                         (guardado)="cerrarModal()">
-        </app-rutina-form>
       </div>
     </div>
   </div>
+
+  <!-- SI ya hay un clienteId (viniendo de la ruta o de la búsqueda), muestra sus rutinas -->
+  <div *ngIf="clienteId">
+    <h3>Rutinas del Cliente {{ clienteId }}</h3>
+
+    <table class="table table-bordered table-hover mt-3">
+      <thead class="table-light text-center">
+        <tr>
+          <th>Fecha Creación</th>
+          <th>Objetivo</th>
+          <th>Reporte</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Mensaje si no hay rutinas para este cliente -->
+        <tr *ngIf="rutinas.length === 0">
+          <td colspan="3" class="text-center">
+            No se encontraron rutinas para este cliente.
+          </td>
+        </tr>
+        <!-- Listado de rutinas -->
+        <tr *ngFor="let r of rutinas" class="align-middle text-center">
+          <!-- Fecha Creación -->
+          <td>
+            {{ r.fechaCreacion | date:'dd/MM/yyyy' }}
+          </td>
+
+          <!-- Objetivo -->
+          <td>
+            {{ r.objetivo }}
+          </td>
+
+          <!-- Acciones (solo el botón PDF) -->
+          <td>
+            <button class="btn btn-sm btn-outline-secondary"
+                    (click)="descargarPDF(r.idRutina!)"
+                    title="Descargar PDF">
+              <i class="bi bi-file-earmark-pdf"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
 </div>
