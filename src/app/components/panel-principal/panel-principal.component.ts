@@ -13,11 +13,11 @@
   })
   export class PanelPrincipalComponent implements OnInit {
     
-    cantidadClientes = 0;      // 🔥 Inicializado en 0 para que cargue después
-    nuevosClientesMes = 0;     // 🔥 (opcional, puedes ponerlo luego real)
+    cantidadClientes = 0;      
+    nuevosClientesMes = 0;     
    
-    cantidadClientesActivos = 0;    // 👈 Agregar esto
-    cantidadClientesInactivos = 0;  // 👈 Y esto
+    cantidadClientesActivos = 0;   
+    cantidadClientesInactivos = 0;  
     
     cantidadEmpleados = 24;
     cantidadEntrenadores = 3;

@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class SesionService {
 
-  private apiUrl = 'http://localhost:8080/bulk-gym/api'; 
+  private apiUrl = 'http://localhost:8080/bulk-gym/api';
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -22,9 +22,10 @@ export class SesionService {
     this.router.navigate(['/login']);
   }
 
-  guardarSesion(usuario: string, rol: string) {
+  guardarSesion(usuario: string, rol: string, token: string) {
     sessionStorage.setItem('usuario', usuario);
     sessionStorage.setItem('rol', rol);
+    sessionStorage.setItem('token', token);
   }
 
   obtenerRol(): string | null {
@@ -32,6 +33,6 @@ export class SesionService {
   }
 
   estaLogueado(): boolean {
-    return sessionStorage.getItem('usuario') !== null;
+    return sessionStorage.getItem('token') !== null;
   }
 }

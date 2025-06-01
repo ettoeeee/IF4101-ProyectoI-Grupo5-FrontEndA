@@ -1,0 +1,84 @@
+<div class="panel-container">
+  <h2 class="titulo">Panel de Entrenador</h2>
+  <p class="subtitulo">Bienvenido al sistema de gestión de rutinas</p>
+
+  <div class="tarjetas">
+    <mat-card class="card pulse blue">
+      <div class="icon-container">
+        <mat-icon class="icono">fitness_center</mat-icon>
+      </div>
+      <h3>Rutinas Activas</h3>
+      <p class="numero">{{ rutinasActivas }}</p>
+      <span class="detalle">3 nuevas esta semana</span>
+      <div class="card-hover-effect"></div>
+    </mat-card>
+
+    <mat-card class="card pulse green">
+      <div class="icon-container">
+        <mat-icon class="icono">groups</mat-icon>
+      </div>
+      <h3>Clientes Totales</h3>
+      <p class="numero">{{ clientesTotales }}</p>
+      <span class="detalle">2 nuevos este mes</span>
+      <div class="card-hover-effect"></div>
+    </mat-card>
+
+    <mat-card class="card pulse purple">
+      <div class="icon-container">
+        <mat-icon class="icono">autorenew</mat-icon>
+      </div>
+      <h3>Rutinas por Renovar</h3>
+      <p class="numero">{{ rutinasPorRenovar }}</p>
+      <span class="detalle">Próximos 7 días</span>
+      <div class="card-hover-effect"></div>
+    </mat-card>
+  </div>
+
+ <div class="tabla-panel">
+    <div class="tabla-header">
+      <h3>Rutinas Recientes</h3>
+      <button class="btn-ver-todas" (click)="router.navigate(['/rutinas'])">
+        <span class="btn-text">Ver todas</span>
+        <span class="btn-icon">📋</span>
+        <span class="pulse-effect"></span>
+      </button>
+    </div>
+
+    <!-- Cambia el dataSource a rutinasParaMostrar -->
+    <table mat-table [dataSource]="rutinasParaMostrar" class="mat-elevation-z2 tabla">
+      
+      <!-- Columna Cliente - Usa clienteNombre -->
+      <ng-container matColumnDef="cliente">
+        <th mat-header-cell *matHeaderCellDef> Cliente </th>
+        <td mat-cell *matCellDef="let r"> {{ r.clienteNombre }} </td>
+      </ng-container>
+
+      <!-- Columna Fecha - Usa fechaCreacionFormateada -->
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let r"> {{ r.fechaCreacionFormateada }} </td>
+      </ng-container>
+
+      <!-- Columna Objetivo - Se mantiene igual -->
+      <ng-container matColumnDef="objetivo">
+        <th mat-header-cell *matHeaderCellDef> Objetivo </th>
+        <td mat-cell *matCellDef="let r"> {{ r.objetivo || 'Sin objetivo' }} </td>
+      </ng-container>
+
+      <!-- Columna Acción - Actualiza el click para usar idRutina -->
+      <ng-container matColumnDef="accion">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let r">
+          <button mat-button class="btn-ver-rutina" (click)="verDetalleRutina(r.idRutina)">
+            <span class="eye-icon">👁️</span>
+            <span>Ver</span>
+            <span class="hover-underline"></span>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['cliente', 'fecha', 'objetivo', 'accion']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['cliente', 'fecha', 'objetivo', 'accion']"></tr>
+    </table>
+  </div>
+</div>

@@ -164,32 +164,15 @@ itemRutinaEjerciciosComp!: ItemRutinaEjercicioComponent;
     }));
 
   // ✅ Convertir ejercicios al formato esperado por el backend (DTO)
-  const ejerciciosLocalStorage = localStorage.getItem('itemsRutina');
-  this.rutina.ejercicios = [];
+  this.rutina.ejercicios = (this.itemRutinaEjerciciosComp?.items || [])
+    .filter(item => item.idEjercicio !== undefined)
+    .map(item => ({
+      idEjercicio: item.idEjercicio!,
+      series: item.seriesEjercicio,          // Cambiado
+      repeticiones: item.repeticionesEjercicio,  // Cambiado
+      equipo: item.equipoEjercicio          // Cambiado
+    }));
 
-  if (ejerciciosLocalStorage) {
-    try {
-      const parsed = JSON.parse(ejerciciosLocalStorage);
-const vistos = new Set();
-this.rutina.ejercicios = parsed
-  .filter((e: any) => {
-    const key = e.idEjercicio;
-    if (vistos.has(key)) return false;
-    vistos.add(key);
-    return true;
-  })
-  .map((e: any) => ({
-    idEjercicio: e.idEjercicio,
-    series: e.seriesEjercicio,
-    repeticiones: e.repeticionesEjercicio,
-    equipo: e.equipoEjercicio
-  
-      }));
-    } catch (e) {
-      console.error("❌ Error al parsear ejercicios del localStorage", e);
-      this.rutina.ejercicios = [];
-    }
-  }
 
   // ✅ Preparar objeto final DTO
   const rutinaDTO: RutinaCompletaDTO = {

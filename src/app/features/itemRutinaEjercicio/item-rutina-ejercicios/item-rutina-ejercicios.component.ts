@@ -48,14 +48,7 @@ export class ItemRutinaEjercicioComponent implements OnInit {
       // Crea un Map para búsqueda rápida
       this.ejercicioMap = new Map(data.map(e => [e.idEjercicio!, e.nombreEjercicio]));
 
-      // Recuperar items almacenados localmente
-      const dataLocal = localStorage.getItem('itemsRutina');
-      if (dataLocal) {
-        this.items = JSON.parse(dataLocal);
-      } else {
-        // Si no hay en localStorage, cargar desde backend
-        this.listarItems();
-      }
+      this.listarItems();  // Solo listar items después de tener los ejercicios
     });
   }
 
@@ -86,34 +79,6 @@ export class ItemRutinaEjercicioComponent implements OnInit {
     this.mostrarModal = false;
   }
 
-  /*
-  guardar(): void {
-    if (this.formulario.invalid) return;
-
-    const item: ItemRutinaEjercicio = this.formulario.value;
-
-    if (this.modoEditar && this.idRutinaEditar !== null && this.idEjercicioEditar !== null) {
-      this.itemService.modificar(
-        this.idRutinaEditar,
-        this.idEjercicioEditar,
-        item.seriesEjercicio,
-        item.repeticionesEjercicio,
-        item.equipoEjercicio
-      ).subscribe(() => {
-        Swal.fire('✅', 'Item actualizado correctamente', 'success');
-        this.listarItems();
-        this.cerrarModal();
-      });
-    } else {
-      this.itemService.insertar(item).subscribe(() => {
-        Swal.fire('✅', 'Item creado correctamente', 'success');
-        this.listarItems();
-        this.cerrarModal();
-      });
-    }
-  }
-  */
-
   guardar(): void {
     if (this.formulario.invalid) return;
 
@@ -142,7 +107,6 @@ export class ItemRutinaEjercicioComponent implements OnInit {
 
       this.items.push(nuevoItem);
       Swal.fire('✅', 'Item agregado localmente', 'success');
-      localStorage.setItem('itemsRutina', JSON.stringify(this.items));
     }
 
     this.cerrarModal();

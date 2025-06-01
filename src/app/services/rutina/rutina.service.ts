@@ -68,4 +68,12 @@ export class RutinaService {
   ): Observable<Blob> {
     return this.descargarPdfParaCliente(idCliente, idRutina);
   }
+
+  getRutinasRecientes(fechaLimite: Date): Observable<Rutina[]> {
+  return this.http.get<Rutina[]>(`${this.apiUrl}/recientes`, {
+    params: {
+      fechaLimite: fechaLimite.toISOString()
+    }
+  });
+}
 }
