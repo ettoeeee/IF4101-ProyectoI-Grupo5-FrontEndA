@@ -80,4 +80,6 @@ export class RutinasPorClienteComponent implements OnInit {
       }
     });
   }
+
+  
 }

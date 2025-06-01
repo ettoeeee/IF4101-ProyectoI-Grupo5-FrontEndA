@@ -1,14 +1,17 @@
 // src/app/services/rutina/rutina.service.ts
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Rutina } from '@app/domain/rutina.model';
 import { Observable } from 'rxjs';
 import { environment } from '@environments/environment';
+import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })
 export class RutinaService {
   private apiUrl = `${environment.apiBaseUrl}/clientes`;
   constructor(private http: HttpClient) { }
+   private apiUrl2 = 'http://localhost:8080/bulk-gym/api/rutinas/recientes';
+  
 
   /** GET /api/clientes/{id}/rutinas */
   obtenerPorCliente(idCliente: number): Observable<Rutina[]> {
@@ -45,11 +48,14 @@ export class RutinaService {
     });
   }
 
-  getRutinasRecientes(fechaLimite: Date): Observable<Rutina[]> {
-  return this.http.get<Rutina[]>(`${this.apiUrl}/recientes`, {
-    params: {
-      fechaLimite: fechaLimite.toISOString()
-    }
-  });
-}
+ getRutinasRecientes(fechaLimite: Date): Observable<any[]> {
+    const fechaFormateada = fechaLimite.toISOString().split('T')[0]; // formato yyyy-MM-dd
+    const params = new HttpParams().set('fechaLimite', fechaFormateada);
+
+    // Llama a: http://localhost:8080/bulk-gym/api/rutinas/recientes?fechaLimite=yyyy-MM-dd
+    return this.http.get<any[]>(`${this.apiUrl2}`, { params });
+  }
+
+
+
 }

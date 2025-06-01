@@ -44,41 +44,48 @@
       </button>
     </div>
 
-    <!-- Cambia el dataSource a rutinasParaMostrar -->
-    <table mat-table [dataSource]="rutinasParaMostrar" class="mat-elevation-z2 tabla">
-      
-      <!-- Columna Cliente - Usa clienteNombre -->
-      <ng-container matColumnDef="cliente">
-        <th mat-header-cell *matHeaderCellDef> Cliente </th>
-        <td mat-cell *matCellDef="let r"> {{ r.clienteNombre }} </td>
-      </ng-container>
+   <table mat-table [dataSource]="rutinasParaMostrar" class="mat-elevation-z2 custom-table">
 
-      <!-- Columna Fecha - Usa fechaCreacionFormateada -->
-      <ng-container matColumnDef="fecha">
-        <th mat-header-cell *matHeaderCellDef> Fecha </th>
-        <td mat-cell *matCellDef="let r"> {{ r.fechaCreacionFormateada }} </td>
-      </ng-container>
+    
+  <!-- Columna Cliente -->
+  <ng-container matColumnDef="cliente">
+    <th mat-header-cell *matHeaderCellDef> Cliente </th>
+    <td mat-cell *matCellDef="let r"> 
+      {{ r.clienteNombre || 'Cliente no disponible' }}
+    </td>
+  </ng-container>
 
-      <!-- Columna Objetivo - Se mantiene igual -->
-      <ng-container matColumnDef="objetivo">
-        <th mat-header-cell *matHeaderCellDef> Objetivo </th>
-        <td mat-cell *matCellDef="let r"> {{ r.objetivo || 'Sin objetivo' }} </td>
-      </ng-container>
+  <!-- Columna Fecha -->
+  <ng-container matColumnDef="fecha">
+    <th mat-header-cell *matHeaderCellDef> Fecha </th>
+    <td mat-cell *matCellDef="let r"> 
+      {{ r.fechaCreacionFormateada || 'Sin fecha' }}
+    </td>
+  </ng-container>
 
-      <!-- Columna Acción - Actualiza el click para usar idRutina -->
-      <ng-container matColumnDef="accion">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let r">
-          <button mat-button class="btn-ver-rutina" (click)="verDetalleRutina(r.idRutina)">
-            <span class="eye-icon">👁️</span>
-            <span>Ver</span>
-            <span class="hover-underline"></span>
-          </button>
-        </td>
-      </ng-container>
+  <!-- Columna Objetivo -->
+  <ng-container matColumnDef="objetivo">
+    <th mat-header-cell *matHeaderCellDef> Objetivo </th>
+    <td mat-cell *matCellDef="let r"> 
+      {{ r.objetivo || 'Sin objetivo' }}
+    </td>
+  </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="['cliente', 'fecha', 'objetivo', 'accion']"></tr>
-      <tr mat-row *matRowDef="let row; columns: ['cliente', 'fecha', 'objetivo', 'accion']"></tr>
-    </table>
+ <!-- Columna Acción con animaciones y ícono -->
+<ng-container matColumnDef="accion">
+  <th mat-header-cell *matHeaderCellDef></th>
+  <td mat-cell *matCellDef="let r">
+    <button mat-button class="btn-ver-rutina" (click)="verDetalleRutina(r.idRutina)">
+      <mat-icon class="eye-icon">visibility</mat-icon>
+      <span>Ver</span>
+      <span class="hover-underline"></span>
+    </button>
+  </td>
+</ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="['cliente', 'fecha', 'objetivo', 'accion']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['cliente', 'fecha', 'objetivo', 'accion']"></tr>
+</table>
   </div>
 </div>
