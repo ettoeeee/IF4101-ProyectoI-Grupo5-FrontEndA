@@ -6,16 +6,18 @@ import { Observable } from 'rxjs';
 import { environment } from '@environments/environment';
 import { RutinaCompletaDTO } from '@app/domain/dto/RutinaCompletaDTO';
 
-
 @Injectable({ providedIn: 'root' })
 export class RutinaService {
+
+  private apiClientes = `${environment.apiBaseUrl}/clientes`;
   private apiUrl = `${environment.apiBaseUrl}/clientes`;
+
   constructor(private http: HttpClient) { }
 
+  
   obtenerPorCliente(idCliente: number): Observable<RutinaCompletaDTO[]> {
     return this.http.get<RutinaCompletaDTO[]>(`${environment.apiBaseUrl}/clientes/${idCliente}/rutinas`);
   }
-
 
   /** GET /api/clientes/{idCliente}/rutinas/{idRutina} */
   obtenerRutinaPorId(idCliente: number, idRutina: number): Observable<Rutina> {
@@ -25,29 +27,48 @@ export class RutinaService {
   obtenerTodas(): Observable<RutinaCompletaDTO[]> {
     return this.http.get<RutinaCompletaDTO[]>(`${environment.apiBaseUrl}/rutinas`);
   }
-
+ 
+  /**
+   * alias de obtenerPorCliente
+   */
   getByCliente(idCliente: number): Observable<Rutina[]> {
     return this.http.get<Rutina[]>(`${this.apiUrl}/${idCliente}/rutinas`);
   }
 
-  /** POST /api/clientes/{id}/rutinas */
+  /**
+   * POST /api/clientes/{idCliente}/rutinas
+   */
   crearParaCliente(idCliente: number, rutina: Rutina): Observable<Rutina> {
     return this.http.post<Rutina>(
-      `${this.apiUrl}/${idCliente}/rutinas`,
+      `${this.apiClientes}/${idCliente}/rutinas`,
       rutina
     );
   }
 
-  /** Llama al endpoint PDF que ya montaste */
-  descargarPdf(idRutina: number): Observable<Blob> {
-    return this.http.get(`${this.apiUrl}/rutinas/${idRutina}/pdf`, {
-      responseType: 'blob'
-    });
+  /**
+   * DELETE /api/clientes/{idCliente}/rutinas/{idRutina}
+   */
+  eliminarParaCliente(idCliente: number, idRutina: number): Observable<void> {
+    return this.http.delete<void>(
+      `${this.apiClientes}/${idCliente}/rutinas/${idRutina}`
+    );
   }
 
-  delete(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  /**
+   * DESCARGA PDF: GET /api/clientes/{idCliente}/rutinas/{idRutina}/pdf
+   */
+  descargarPdfParaCliente(
+    idCliente: number,
+    idRutina: number
+  ): Observable<Blob> {
+    return this.http.get(
+      `${this.apiClientes}/${idCliente}/rutinas/${idRutina}/pdf`,
+      {
+        responseType: 'blob',
+      }
+    );
   }
+
 
   update(rutina: RutinaCompletaDTO): Observable<RutinaCompletaDTO> {
     const idCliente = rutina.cliente?.idPersona;
@@ -63,10 +84,30 @@ export class RutinaService {
     );
   }
 
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
   /** Método para descargar el PDF de la rutina */
   getPdf(id: number): Observable<Blob> {
     return this.http.get(`${this.apiUrl}/${id}/pdf`, {
       responseType: 'blob'
     });
   }
+
+  getPdfParaCliente(
+    idCliente: number,
+    idRutina: number
+  ): Observable<Blob> {
+    return this.descargarPdfParaCliente(idCliente, idRutina);
+  }
+
+  getRutinasRecientes(fechaLimite: Date): Observable<Rutina[]> {
+  return this.http.get<Rutina[]>(`${this.apiUrl}/recientes`, {
+    params: {
+      fechaLimite: fechaLimite.toISOString()
+    }
+  });
 }
+  }
+  

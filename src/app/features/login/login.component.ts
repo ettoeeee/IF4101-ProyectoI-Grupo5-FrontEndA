@@ -37,12 +37,12 @@ export class LoginComponent {
 
     this.sesionService.login(datos).subscribe({
       next: (respuesta) => {
-        this.sesionService.guardarSesion(datos.usuario, respuesta.rol);
+        this.sesionService.guardarSesion(datos.usuario, respuesta.rol, respuesta.token);
 
         if (respuesta.rol === 'ADMINISTRADOR') {
           this.router.navigate(['/dashboard']);
-        } else if (respuesta.rol === 'ENTRENADOR') {
-          this.router.navigate(['/panel-entrenador']); // Ajusta el destino
+        } else if (respuesta.rol === 'INSTRUCTOR') {
+          this.router.navigate(['/instructor']);
         }
       },
       error: () => {
