@@ -44,4 +44,12 @@ export class RutinaService {
       responseType: 'blob'
     });
   }
+
+  getRutinasRecientes(fechaLimite: Date): Observable<Rutina[]> {
+  return this.http.get<Rutina[]>(`${this.apiUrl}/recientes`, {
+    params: {
+      fechaLimite: fechaLimite.toISOString()
+    }
+  });
+}
 }

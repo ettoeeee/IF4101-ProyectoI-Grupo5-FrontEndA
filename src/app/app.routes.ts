@@ -27,6 +27,12 @@ export const routes: Routes = [
       { path: 'clientes', component: ClienteListComponent },
 
 // gestopn 
+{
+  path: 'instructor', 
+        loadComponent: () => 
+          import('./components/entrenador-panel/entrenador-panel.component')
+            .then(m => m.EntrenadorPanelComponent)
+},
 { 
         path: 'gestion-rutinas', 
         loadComponent: () => 
