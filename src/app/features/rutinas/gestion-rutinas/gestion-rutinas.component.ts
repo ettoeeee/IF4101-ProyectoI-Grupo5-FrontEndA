@@ -138,4 +138,8 @@ export class GestionRutinasComponent implements OnInit {
       });
   }
 
+  volverAlPanel(): void {
+  this.router.navigate(['/instructor']);
+}
+
 }
