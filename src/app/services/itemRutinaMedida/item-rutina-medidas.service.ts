@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class ItemRutinaMedidasService {
-  private apiUrl = 'http://localhost:8080/bulk-gym/api/itemMedidas/medidasItem';
+  private apiUrl = 'https://1b7e-163-178-107-104.ngrok-free.app/bulk-gym/api/itemMedidas/medidasItem';
 
   constructor(private http: HttpClient) {}
 

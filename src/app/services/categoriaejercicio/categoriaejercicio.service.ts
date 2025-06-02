@@ -7,7 +7,7 @@ import { CategoriaEjercicio } from '../../domain/categoriaejercicio.model';
   providedIn: 'root'
 })
 export class CategoriaEjercicioService {
-  private apiUrl = 'http://localhost:8080/bulk-gym/api/categorias'; // Ajusta si el endpoint es diferente
+  private apiUrl = 'https://1b7e-163-178-107-104.ngrok-free.app/bulk-gym/api/categorias'; // Ajusta si el endpoint es diferente
 
   constructor(private http: HttpClient) {}
 
