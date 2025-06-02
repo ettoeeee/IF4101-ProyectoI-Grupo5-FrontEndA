@@ -13,8 +13,8 @@ import { RutinaCompletaDTO } from '@app/domain/dto/RutinaCompletaDTO';
 @Injectable({ providedIn: 'root' })
 export class RutinaService {
 
-  private apiClientes = `${environment.apiBaseUrl}/clientes`;
   private apiUrl = `${environment.apiBaseUrl}/clientes`;
+ 
 
   constructor(private http: HttpClient) { }
    private apiUrl2 = 'http://localhost:8080/bulk-gym/api/rutinas/recientes';
@@ -46,7 +46,7 @@ export class RutinaService {
    */
   crearParaCliente(idCliente: number, rutina: Rutina): Observable<Rutina> {
     return this.http.post<Rutina>(
-      `${this.apiClientes}/${idCliente}/rutinas`,
+      `${this.apiUrl}/${idCliente}/rutinas`,
       rutina
     );
   }
@@ -56,7 +56,7 @@ export class RutinaService {
    */
   eliminarParaCliente(idCliente: number, idRutina: number): Observable<void> {
     return this.http.delete<void>(
-      `${this.apiClientes}/${idCliente}/rutinas/${idRutina}`
+      `${this.apiUrl}/${idCliente}/rutinas/${idRutina}`
     );
   }
 
@@ -68,7 +68,7 @@ export class RutinaService {
     idRutina: number
   ): Observable<Blob> {
     return this.http.get(
-      `${this.apiClientes}/${idCliente}/rutinas/${idRutina}/pdf`,
+      `${this.apiUrl}/${idCliente}/rutinas/${idRutina}/pdf`,
       {
         responseType: 'blob',
       }

@@ -151,4 +151,11 @@ private formatearDatosRutinas(rutinas: any[]): any[] {
   });
 }
 
+verRutinasPorCliente(): void {
+  this.router.navigate(['/instructores/clientes']);
+}
+
+verRutinaDeCliente(clienteId: number): void {
+  this.router.navigate(['/clientes', clienteId, 'rutinas']);
+}
 }
