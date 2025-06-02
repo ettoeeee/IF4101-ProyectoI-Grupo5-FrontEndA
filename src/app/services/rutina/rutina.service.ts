@@ -84,9 +84,10 @@ export class RutinaService {
     );
   }
 
-  delete(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
-  }
+  delete(idCliente: number, idRutina: number) {
+  return this.http.delete(`${environment.apiBaseUrl}/clientes/${idCliente}/rutinas/${idRutina}`);
+}
+
 
   /** Método para descargar el PDF de la rutina */
   getPdf(id: number): Observable<Blob> {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, AfterViewInit, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ItemRutinaEjercicioService } from '@app/services/itemRutinaEjercicio/item-rutina-ejercicio.service';
@@ -6,6 +6,7 @@ import { EjercicioService } from '@app/services/ejercicio/ejercicio.service';
 import { ItemRutinaEjercicio } from '@app/domain/item-rutina-ejercicio.model';
 import { Ejercicio } from '@app/domain/ejercicio.model';
 import Swal from 'sweetalert2';
+import { SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-item-rutina-ejercicio',
@@ -14,7 +15,10 @@ import Swal from 'sweetalert2';
   templateUrl: './item-rutina-ejercicios.component.html',
   styleUrls: ['./item-rutina-ejercicios.component.css']
 })
-export class ItemRutinaEjercicioComponent implements OnInit {
+
+export class ItemRutinaEjercicioComponent implements OnInit , OnChanges {
+
+  @Input() ejerciciosIniciales: ItemRutinaEjercicio[] = [];
 
   formulario: FormGroup;
   items: ItemRutinaEjercicio[] = [];
@@ -26,6 +30,8 @@ export class ItemRutinaEjercicioComponent implements OnInit {
   idEjercicioEditar: number | null = null;
 
   private ejercicioMap: Map<number, string> = new Map();
+
+  
 
   constructor(
     private fb: FormBuilder,
@@ -41,15 +47,23 @@ export class ItemRutinaEjercicioComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.ejercicioService.listarEjercicios().subscribe(data => {
-      this.ejercicios = data;
-
-      // Crea un Map para búsqueda rápida
-      this.ejercicioMap = new Map(data.map(e => [e.idEjercicio!, e.nombreEjercicio]));
-
-    });
+ngOnChanges(): void {
+  if (this.ejerciciosIniciales?.length) {
+    console.log('🌀 ngOnChanges cargando ejercicios iniciales:', this.ejerciciosIniciales);
+    this.items = [...this.ejerciciosIniciales];
   }
+}
+
+
+
+ngOnInit(): void {
+  this.listarEjercicios(); // o lo que uses para cargar el catálogo
+
+  if (this.ejerciciosIniciales?.length) {
+    this.items = [...this.ejerciciosIniciales];
+  }
+}
+
 
   listarItems(): void {
     this.itemService.listarTodos().subscribe(data => {

@@ -23,6 +23,10 @@ export class MedidasCorporalesService {
       imagen: medida.imagen || null 
     });
   }
+  getPorId(codMedida: number): Observable<MedidaCorporal> {
+  return this.http.get<MedidaCorporal>(`${environment.apiBaseUrl}/medidas/${codMedida}`);
+}
+
 
   actualizarMedida(id: number, medida: MedidaCorporal): Observable<MedidaCorporal> {
     return this.http.put<MedidaCorporal>(`${this.apiUrl}/${id}`, {

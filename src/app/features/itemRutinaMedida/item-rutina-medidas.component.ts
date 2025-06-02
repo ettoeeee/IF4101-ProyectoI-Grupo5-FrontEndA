@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef, Input, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ItemRutinaMedida } from '@app/domain/item-rutina-medida.model';
@@ -15,9 +15,12 @@ import { NgbModal, NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './item-rutina-medidas.component.html',
   styleUrls: ['./item-rutina-medidas.component.css']
 })
+
 export class ItemRutinaMedidasComponent implements OnInit {
   @ViewChild('buscarInput') buscarInput!: ElementRef<HTMLInputElement>;
   
+  @Input() medidasIniciales: ItemRutinaMedida[] = [];  // Para poder modificar rutinas, cargar los datos 
+
   medidasDisponibles: MedidaCorporal[] = [];
   medidasFiltradas: MedidaCorporal[] = [];
   rutina: ItemRutinaMedida[] = [];
@@ -40,9 +43,28 @@ export class ItemRutinaMedidasComponent implements OnInit {
     private modalService: NgbModal
   ) {}
 
-  ngOnInit(): void {
-    this.cargarMedidas();
+
+
+ngOnInit(): void {
+  this.cargarMedidas();
+
+  console.log("📦 Recibidas medidas iniciales:", this.medidasIniciales);
+
+  if (this.medidasIniciales?.length) {
+    this.rutina = [...this.medidasIniciales];
+    this.filtrarMedidasDisponibles(); // esto es importante
   }
+}
+ngOnChanges(): void {
+  if (this.medidasIniciales?.length) {
+    console.log('🌀 ngOnChanges cargando medidas iniciales:', this.medidasIniciales);
+    this.rutina = [...this.medidasIniciales];
+    this.filtrarMedidasDisponibles();
+  }
+}
+
+
+
 
   private cargarMedidas(): void {
     this.medidaService.obtenerTodas().subscribe({
@@ -154,7 +176,7 @@ export class ItemRutinaMedidasComponent implements OnInit {
     return item.valorMedida == null || isNaN(item.valorMedida) || item.valorMedida <= 0;
   }
 
-  get rutinaFiltrada(): ItemRutinaMedida[] {
+get rutinaFiltrada(): ItemRutinaMedida[] {
   if (!this.terminoBusqueda.trim()) {
     return this.rutina;
   }
@@ -164,6 +186,7 @@ export class ItemRutinaMedidasComponent implements OnInit {
     item.medidaCorporal.unidadMedida.toLowerCase().includes(termino)
   );
 }
+
 
 
 

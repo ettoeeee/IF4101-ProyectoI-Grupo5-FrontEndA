@@ -1,4 +1,5 @@
 import { ClienteDTO } from "./ClienteDTO";
+import { Cliente } from '../cliente.model';
 
 export interface RutinaCompletaDTO {
   idRutina: number;
@@ -11,8 +12,8 @@ export interface RutinaCompletaDTO {
   fechaRenovacion: string;
   medidas: ItemRutinaMedidaDTO[];
   ejercicios: ItemRutinaEjercicioDTO[];
-
-  cliente: ClienteDTO;
+  cliente: Cliente;
+  //cliente: ClienteDTO;
 }
 
 export interface ItemRutinaMedidaDTO {

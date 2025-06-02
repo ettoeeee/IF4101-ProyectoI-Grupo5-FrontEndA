@@ -33,6 +33,15 @@ export const routes: Routes = [
           import('./components/entrenador-panel/entrenador-panel.component')
             .then(m => m.EntrenadorPanelComponent)
 },
+
+//modificar 
+{
+  path: 'clientes/:clienteId/rutinas/:id/editar',
+  loadComponent: () =>
+    import('./features/rutinas/crear-rutina/crear-rutina.component')
+      .then(m => m.CrearRutinaComponent)
+}
+,
 { 
         path: 'gestion-rutinas', 
         loadComponent: () => 
@@ -137,7 +146,23 @@ export const routes: Routes = [
   path: 'rutinas/nueva',
   loadComponent: () => import('./features/rutinas/crear-rutina/crear-rutina.component')
     .then(m => m.CrearRutinaComponent)
+}, 
+
+
+//modificar una rutina , reutilizando el componernte de crearRunina 
+{
+  path: 'clientes/:clienteId/rutinas/:id/editar',
+  loadComponent: () =>
+    import('./features/rutinas/crear-rutina/crear-rutina.component')
+      .then(m => m.CrearRutinaComponent)
 }
+
+
+
+
+
+
+
     ]
   }
 

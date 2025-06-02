@@ -1,16 +1,24 @@
-<h2>Crear Nueva Rutina</h2>
-<p>Complete los pasos para crear una rutina personalizada</p>
+<h2 *ngIf="!modoEdicion">Crear Nueva Rutina</h2>
+<h2 *ngIf="modoEdicion">Editar Rutina</h2>
+<p *ngIf="!modoEdicion">Complete los pasos para crear una rutina personalizada</p>
+<p *ngIf="modoEdicion">Modifique los datos de la rutina existente</p>
 
 <mat-horizontal-stepper #stepper>
   <!-- Paso 1: Cliente y Datos -->
+  
+  
   <mat-step label="Cliente y Datos">
-    <h3>Seleccionar Cliente e Información Básica</h3>
 
-    <div class="clientes-lista">
-      <div *ngFor="let cliente of clientes" (click)="seleccionarCliente(cliente)" class="cliente-item">
-        {{ cliente.nombre }} {{ cliente.apellidos }}
-      </div>
+<div *ngIf="!modoEdicion">
+  <h3>Seleccionar Cliente e Información Básica</h3>
+
+  <div class="clientes-lista">
+    <div *ngFor="let cliente of clientes" (click)="seleccionarCliente(cliente)" class="cliente-item">
+      {{ cliente.nombre }} {{ cliente.apellidos }}
     </div>
+  </div>
+</div>
+
 
     <div *ngIf="clienteSeleccionado" class="cliente-info">
       <p><strong>Seleccionado:</strong> {{ clienteSeleccionado.nombre }} {{ clienteSeleccionado.apellidos }}</p>
@@ -39,21 +47,21 @@
     <button mat-raised-button color="primary" (click)="continuar()">Siguiente</button>
   </mat-step>
 
-  <!-- Paso 2: Medidas Corporales -->
-  <mat-step label="Medidas Corporales">
+ <!-- Paso 2: Medidas Corporales -->
+<mat-step label="Medidas Corporales">
   <h3>Seleccione las medidas del cliente</h3>
-  <app-item-rutina-medidas></app-item-rutina-medidas>
+<app-item-rutina-medidas [medidasIniciales]="medidasInicialesParaEditar"></app-item-rutina-medidas>
   <button mat-button matStepperNext>Siguiente</button>
 </mat-step>
 
 <!-- Paso 3: Ejercicios -->
 <mat-step label="Ejercicios">
   <h3>Seleccione los ejercicios</h3>
-  <app-item-rutina-ejercicio></app-item-rutina-ejercicio>
-
+<app-item-rutina-ejercicio [ejerciciosIniciales]="ejerciciosInicialesParaEditar"></app-item-rutina-ejercicio>
   <button mat-button matStepperNext>Siguiente</button>
 </mat-step>
-  
+
+
 
   <!-- Paso 4: Resumen -->
   <mat-step label="Resumen">

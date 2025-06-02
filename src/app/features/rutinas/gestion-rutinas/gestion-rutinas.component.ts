@@ -25,31 +25,31 @@ export class GestionRutinasComponent implements OnInit {
   constructor(private router: Router, private rutinaService: RutinaService, private clienteService: ClienteService ) {}
 
   ngOnInit(): void {
-    this.clienteService.obtenerTodos().subscribe({
-      next: (clientes) => {
-        // Para cada cliente hacemos la llamada a sus rutinas
-        const observables = clientes.map(c => this.rutinaService.obtenerPorCliente(c.idCliente!));
-        
-        // forkJoin espera a que todas las llamadas terminen y junta todos los resultados en un array
-        forkJoin(observables).subscribe({
-          next: (listasDeRutinas) => {
-            // Asociamos cada rutina con su cliente
-            this.rutinas = listasDeRutinas.flatMap((rutinasDeUnCliente, index) => {
-              const cliente = clientes[index];
-              return rutinasDeUnCliente.map(rutina => ({
-                ...rutina,
-                cliente: cliente  // Agregamos el objeto cliente
-              }));
-            });
+  this.clienteService.obtenerTodos().subscribe({
+    next: (clientes) => {
+      const observables = clientes.map(c => this.rutinaService.obtenerPorCliente(c.idCliente!));
+      
+      forkJoin(observables).subscribe({
+        next: (listasDeRutinas) => {
+          this.rutinas = listasDeRutinas.flatMap((rutinasDeUnCliente, index) => {
+            const cliente = clientes[index];
+            return rutinasDeUnCliente.map(rutina => ({
+              ...rutina,
+              cliente: cliente // ✅ Aquí agregamos el cliente correctamente
+            }));
+          });
 
-            this.rutinasFiltradas = this.rutinas;
-          }, 
-          error: (err) => console.error('Error al cargar rutinas de clientes', err)
-        });
-      },
-      error: (err) => console.error('Error al cargar clientes', err)
-    });
-  }
+          console.log('✅ Rutinas con cliente:', this.rutinas); // ⬅️ Aquí sí verás el cliente definido
+
+          this.rutinasFiltradas = this.rutinas;
+        },
+        error: (err) => console.error('Error al cargar rutinas de clientes', err)
+      });
+    },
+    error: (err) => console.error('Error al cargar clientes', err)
+  });
+}
+
 
 
   irACrearRutina(): void {
@@ -69,9 +69,25 @@ export class GestionRutinasComponent implements OnInit {
     );
   }
 
- editarRutina(rutina: RutinaCompletaDTO): void {
-  this.rutinaEnEdicion = {...rutina};
+
+
+ // editarRutina(rutina: RutinaCompletaDTO): void {
+ // const idCliente = rutina.cliente?.idPersona;
+  // const idRutina = rutina.idRutina;
+ //  this.router.navigate([`/clientes/${idCliente}/rutinas/${idRutina}/editar`]);
+// }
+
+editarRutina(rutina: RutinaCompletaDTO) {
+  const idCliente = rutina.cliente?.idCliente;
+  const idRutina = rutina.idRutina;
+
+  if (idCliente && idRutina) {
+    this.router.navigate([`/clientes/${idCliente}/rutinas/${idRutina}/editar`]);
+  } else {
+    console.error('Cliente o rutina no definidos');
+  }
 }
+
 
 guardarEdicion(): void {
   if (!this.rutinaEnEdicion) return;
@@ -101,21 +117,23 @@ cancelarEdicion(): void {
 eliminarRutina(rutina: RutinaCompletaDTO): void {
   const confirmacion = confirm(`¿Seguro que deseas eliminar la rutina de ${rutina.cliente?.nombre}?`);
 
-  if (confirmacion && rutina.idRutina) {
-    this.rutinaService.delete(rutina.idRutina).subscribe({
+  if (confirmacion && rutina.idRutina && rutina.cliente?.idCliente) {
+    this.rutinaService.delete(rutina.cliente.idCliente, rutina.idRutina).subscribe({
       next: () => {
-        // Quitamos la rutina eliminada de la lista
         this.rutinas = this.rutinas.filter(r => r.idRutina !== rutina.idRutina);
-        this.aplicarFiltro(); // actualiza la lista filtrada
+        this.aplicarFiltro();
         alert('Rutina eliminada exitosamente');
       },
       error: (err) => {
-        console.error('Error al eliminar rutina', err);
+        console.error('❌ Error al eliminar rutina', err);
         alert('Ocurrió un error al eliminar la rutina');
       }
     });
   }
 }
+
+
+
 
 
 }
