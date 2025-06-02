@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:8080/bulk-gym/api'
+  apiBaseUrl: 'https://8a5f-163-178-107-104.ngrok-free.app'
   
 };
