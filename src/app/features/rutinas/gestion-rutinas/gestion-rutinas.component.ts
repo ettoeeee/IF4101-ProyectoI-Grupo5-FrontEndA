@@ -119,4 +119,23 @@ export class GestionRutinasComponent implements OnInit {
       });
     }
   }
+    descargarPDF(idRutina: number, idCliente: number): void {
+    this.rutinaService
+      .descargarPdfParaCliente(idCliente, idRutina)
+      .subscribe({
+        next: (blob: Blob) => {
+          const url = window.URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `rutina_${idRutina}.pdf`;
+          a.click();
+          window.URL.revokeObjectURL(url);
+        },
+        error: (err: any) => {
+          console.error('Error descargando PDF:', err);
+          alert('Ocurrió un error al descargar el PDF.');
+        }
+      });
+  }
+
 }

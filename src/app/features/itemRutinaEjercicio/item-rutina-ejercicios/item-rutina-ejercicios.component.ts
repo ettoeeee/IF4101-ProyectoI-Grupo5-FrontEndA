@@ -104,7 +104,7 @@ ngOnInit(): void {
         this.items[index] = { ...this.items[index], ...nuevoItem };
       }
 
-      Swal.fire('✅', 'Item editado localmente', 'success');
+      Swal.fire('✅', 'Ejercicio editado localmente', 'success');
     } else {
       // Verifica que no se agregue dos veces el mismo ejercicio
       if (this.items.some(i => i.idEjercicio === nuevoItem.idEjercicio)) {
@@ -120,7 +120,7 @@ ngOnInit(): void {
       }
 
       this.items.push(nuevoItem);
-      Swal.fire('✅', 'Item agregado localmente', 'success');
+      Swal.fire('✅', 'Ejercicio agregado localmente', 'success');
     }
 
     this.cerrarModal();
@@ -146,9 +146,9 @@ ngOnInit(): void {
   }
 
   eliminar(item: ItemRutinaEjercicio): void {
-    if (confirm('¿Está seguro de eliminar este item?')) {
+    if (confirm('¿Está seguro de eliminar este ejercicio?')) {
       this.itemService.eliminar(item.idRutina, item.idEjercicio).subscribe(() => {
-        Swal.fire('✅', 'Item eliminado', 'success');
+        Swal.fire('✅', 'Ejercicio eliminado', 'success');
         this.listarItems();
       });
     }

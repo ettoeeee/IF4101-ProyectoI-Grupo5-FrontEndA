@@ -1,7 +1,7 @@
 <div class="container mt-4">
 
   <!-- Botón para abrir modal -->
-  <button class="btn btn-primary mb-3" (click)="abrirModal()">Agregar Item</button>
+  <button class="btn btn-primary mb-3" (click)="abrirModal()">Agregar Ejercicio</button>
 
   <div class="mb-3">
     <input type="text" class="form-control" [(ngModel)]="filtroCategoria" placeholder="Buscar por categoría...">
@@ -34,7 +34,7 @@
         </td>
       </tr>
       <tr *ngIf="items.length === 0">
-        <td colspan="6" class="text-center">No hay items registrados.</td>
+        <td colspan="6" class="text-center">No hay ejercicios registrados.</td>
       </tr>
     </tbody>
   </table>
@@ -44,7 +44,7 @@
       <div class="modal-dialog">
         <form [formGroup]="formulario" (ngSubmit)="guardar()" class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">{{ modoEditar ? 'Editar Item' : 'Nuevo Item' }}</h5>
+            <h5 class="modal-title">{{ modoEditar ? 'Editar Ejercicio' : 'Nuevo Ejercicio' }}</h5>
             <button type="button" class="btn-close" aria-label="Close" (click)="cerrarModal()"></button>
           </div>
 
