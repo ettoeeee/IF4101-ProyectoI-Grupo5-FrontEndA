@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, FormsModule } from '@angular/forms';
 import { ItemRutinaEjercicioService } from '@app/services/itemRutinaEjercicio/item-rutina-ejercicio.service';
 import { EjercicioService } from '@app/services/ejercicio/ejercicio.service';
 import { ItemRutinaEjercicio } from '@app/domain/item-rutina-ejercicio.model';
@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-item-rutina-ejercicio',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './item-rutina-ejercicios.component.html',
   styleUrls: ['./item-rutina-ejercicios.component.css']
 })
@@ -19,6 +19,7 @@ export class ItemRutinaEjercicioComponent implements OnInit {
   formulario: FormGroup;
   items: ItemRutinaEjercicio[] = [];
   ejercicios: Ejercicio[] = [];
+  filtroCategoria: string = '';
 
   mostrarModal = false;
   modoEditar = false;
@@ -142,6 +143,25 @@ export class ItemRutinaEjercicioComponent implements OnInit {
   obtenerNombreEjercicio(id: number): string {
   const ejercicio = this.ejercicios.find(e => e.idEjercicio === id);
   return ejercicio ? ejercicio.nombreEjercicio : 'Desconocido';
+  }
+
+
+  get itemsFiltrados(): ItemRutinaEjercicio[] {
+    if (!this.filtroCategoria.trim()) {
+      return this.items;
+    }
+
+    const filtroLower = this.filtroCategoria.toLowerCase();
+
+    return this.items.filter(item => {
+      const ejercicio = this.ejercicios.find(e => e.idEjercicio === item.idEjercicio);
+
+      if (!ejercicio || !ejercicio.categoriaEjercicio) return false;
+
+      return ejercicio.categoriaEjercicio.some(cat =>
+        cat.nombreCategoria.toLowerCase().includes(filtroLower)
+      );
+    });
   }
 
 }
