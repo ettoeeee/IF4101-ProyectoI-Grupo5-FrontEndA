@@ -24,7 +24,11 @@ export const routes: Routes = [
     component: EntrenadorLayoutComponent,
     canActivate: [GuardGuard], //Protección de rutas
     children: [
-      { path: 'instructor', component: EntrenadorPanelComponent },
+      {
+        path: 'instructor', component: EntrenadorPanelComponent,
+      },
+      { path: 'clientes', component: ClienteListComponent },
+
 
       {
   path: 'rutinas-cliente/:clienteId',
@@ -32,7 +36,18 @@ export const routes: Routes = [
     import('./features/rutinas/rutinas-por-cliente/rutinas-por-cliente.component')
       .then(m => m.RutinasPorClienteComponent)
 },
-
+      {
+        path: 'clientes/:clienteId/rutinas',
+        loadComponent: () =>
+          import('./features/instructores/clientes-tab/clientes-tab.component')
+            .then(m => m.ClientesTabComponent)
+      },
+            {
+        path: 'rutinas',
+        loadComponent: () =>
+          import('./features/rutinas/gestion-rutinas/gestion-rutinas.component')
+            .then(m => m.GestionRutinasComponent)
+      },
       {
   path: 'rutinas/nueva',
   loadComponent: () => import('./features/rutinas/crear-rutina/crear-rutina.component')

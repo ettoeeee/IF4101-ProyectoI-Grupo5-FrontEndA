@@ -4,11 +4,12 @@ import { MedidasCorporalesService } from '@app/services/medidaCorporal/medidas-c
 import { Component, EventEmitter, Output, Input, OnInit, OnChanges } from '@angular/core';
 import { MedidaCorporal } from '@app/domain/medidaCorporal.model';
 import Swal from 'sweetalert2';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-medida-insert-reactive',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './medida-insert-reactive.component.html',
   styleUrls: ['./medida-insert-reactive.component.css']
 })

@@ -11,6 +11,7 @@ import { Rutina } from '@app/domain/rutina.model';
 import { ClienteService } from '@app/services/cliente/cliente.service';
 import { Cliente } from '@app/domain/cliente.model';
 import { ViewEncapsulation } from '@angular/core';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 
@@ -24,7 +25,8 @@ import { ViewEncapsulation } from '@angular/core';
     MatIconModule,
     MatTableModule,
     MatButtonModule,
-    MatTooltipModule
+    MatTooltipModule,
+    TranslateModule
     
   ],
   templateUrl: './entrenador-panel.component.html',

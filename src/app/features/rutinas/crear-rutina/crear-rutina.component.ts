@@ -22,6 +22,7 @@ import { ItemRutinaMedida } from '@app/domain/item-rutina-medida.model';
 import { ItemRutinaEjercicio } from '@app/domain/item-rutina-ejercicio.model';
 import { MedidasCorporalesService } from '@app/services/medidaCorporal/medidas-corporales.service';
 import { forkJoin } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @Component({
@@ -39,7 +40,8 @@ import { forkJoin } from 'rxjs';
     MatInputModule,
     MatIconModule,
         ItemRutinaMedidasComponent ,
-            ItemRutinaEjercicioComponent
+    ItemRutinaEjercicioComponent,
+    TranslateModule
 
   ]
 })
