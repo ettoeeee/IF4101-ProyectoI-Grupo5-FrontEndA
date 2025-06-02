@@ -28,4 +28,9 @@ export class EjercicioService {
   eliminarEjercicio(id: number): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
   }
+
+  getPorId(id: number) {
+  return this.http.get<Ejercicio>(`${environment.apiBaseUrl}/ejercicios/${id}`);
+}
+
 }

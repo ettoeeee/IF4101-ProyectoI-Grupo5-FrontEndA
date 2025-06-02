@@ -47,6 +47,7 @@ export const routes: Routes = [
             .then(m => m.RutinasPorClienteComponent)
       },
       
+      
       {
   path: 'instructor', 
         loadComponent: () => 
@@ -66,8 +67,21 @@ export const routes: Routes = [
         loadComponent: () =>
           import('./features/instructores/clientes-tab/clientes-tab.component')
             .then(m => m.ClientesTabComponent)
-      }
+      },
 
+//modificar 
+{
+  path: 'clientes/:clienteId/rutinas/:id/editar',
+  loadComponent: () =>
+    import('./features/rutinas/crear-rutina/crear-rutina.component')
+      .then(m => m.CrearRutinaComponent)
+},
+{
+  path: 'rutinas-cliente/:clienteId',
+  loadComponent: () =>
+    import('./features/rutinas/rutinas-por-cliente/rutinas-por-cliente.component')
+      .then(m => m.RutinasPorClienteComponent)
+},
     ]
   },
 
@@ -160,8 +174,7 @@ export const routes: Routes = [
       // app.routes.ts
 
       // … dentro de children de LayoutComponent …
-  
-    
+
     ]
   }
 
