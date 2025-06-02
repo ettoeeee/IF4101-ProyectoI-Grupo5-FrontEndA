@@ -25,7 +25,6 @@ export const routes: Routes = [
     canActivate: [GuardGuard], //Protección de rutas
     children: [
       { path: 'instructor', component: EntrenadorPanelComponent },
-      { path: 'clientes', component: ClienteListComponent } ,
 
       {
   path: 'rutinas-cliente/:clienteId',
