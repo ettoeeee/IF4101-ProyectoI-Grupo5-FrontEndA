@@ -152,7 +152,7 @@ private formatearDatosRutinas(rutinas: any[]): any[] {
 }
 
 verRutinasPorCliente(): void {
-  this.router.navigate(['/instructores/clientes']);
+  this.router.navigate(['/gestion-rutinas']);
 }
 
 verRutinaDeCliente(clienteId: number): void {

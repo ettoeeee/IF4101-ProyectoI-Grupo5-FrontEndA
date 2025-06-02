@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-
+import { Router } from '@angular/router';
 import { RutinaService } from '@app/services/rutina/rutina.service';
 import { Rutina } from '@app/domain/rutina.model';
 
@@ -31,7 +31,8 @@ export class RutinasPorClienteComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private rutinaService: RutinaService
+    private rutinaService: RutinaService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -107,5 +108,8 @@ export class RutinasPorClienteComponent implements OnInit {
       });
   }
 
+volverAlPanel(): void {
+  this.router.navigate(['/instructor']);
+}
 
 }

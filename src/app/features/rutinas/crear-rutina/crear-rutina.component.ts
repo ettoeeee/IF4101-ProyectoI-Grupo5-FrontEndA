@@ -12,7 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 import { environment } from '@environments/environment';
 import { ItemRutinaMedidasComponent } from '@app/features/itemRutinaMedida/item-rutina-medidas.component';
 import { ItemRutinaEjercicioComponent } from '@app/features/itemRutinaEjercicio/item-rutina-ejercicios/item-rutina-ejercicios.component';
-
+import { Router } from '@angular/router';
 import { Cliente } from '@app/domain/cliente.model';
 import { ClienteService } from '@app/services/cliente/cliente.service';
 import { RutinaCompletaDTO } from '@app/domain/dto/RutinaCompletaDTO';
@@ -94,7 +94,8 @@ itemRutinaEjerciciosComp?: ItemRutinaEjercicioComponent;
     private route: ActivatedRoute,
     private clienteService: ClienteService,
     private http: HttpClient,
-     private medidasService: MedidasCorporalesService 
+    private medidasService: MedidasCorporalesService, 
+    private router: Router
   ) {}
 
 
@@ -281,10 +282,11 @@ private continuarRutina(): void {
 
 
 
-finalizar(): void {
-  if (!this.clienteSeleccionado?.idCliente) {
-    console.error('ID de cliente no definido');
-    return;
+  finalizar(): void {
+    if (!this.clienteSeleccionado?.idCliente) {
+      console.error('ID de cliente no definido');
+      return;
+    
   }
 
   if (this.enviando) {
@@ -328,6 +330,7 @@ finalizar(): void {
       repeticiones: item.repeticionesEjercicio,
       equipo: item.equipoEjercicio
     }));
+  
 
   // DTO a enviar
   const rutinaDTO: RutinaCompletaDTO = {
@@ -356,44 +359,63 @@ finalizar(): void {
       activo: this.clienteSeleccionado.activo
     }
   };
+setTimeout(() => {
+  if (this.rutina.idRutina) {
+    if (!this.modoEdicion) {
+      // Verificar si ya tiene una rutina vigente antes de crear (solo en modo creación)
+      const url = `${environment.apiBaseUrl}/clientes/${this.clienteSeleccionado!.idCliente}/rutinas/vigente`;
+      this.http.get<boolean>(url).subscribe({
+        next: (tieneRutina) => {
+          if (tieneRutina) {
+            alert('⚠️ Este cliente ya tiene una rutina vigente. No se puede crear otra.');
+            this.enviando = false;
+            return;
+          }
 
-  // Verificar si ya tiene una rutina vigente antes de crear (solo en modo creación)
-  if (!this.modoEdicion) {
-const url = `${environment.apiBaseUrl}/clientes/${this.clienteSeleccionado!.idCliente}/rutinas/vigente`;
-    this.http.get<boolean>(url).subscribe({
-      next: (tieneRutina) => {
-        if (tieneRutina) {
-          alert('⚠️ Este cliente ya tiene una rutina vigente. No se puede crear otra.');
-          this.enviando = false;
-          return;
-        }
-
-        // Crear rutina
-        this.crearRutina(rutinaDTO);
-      },
-      error: err => {
-        console.error('❌ Error al verificar rutina vigente', err);
-        alert('Ocurrió un error al verificar rutina vigente');
-        this.enviando = false;
-      }
-    });
-  } else {
-    // Modo edición
-    this.http.put(`${environment.apiBaseUrl}/clientes/${this.clienteSeleccionado.idCliente}/rutinas/${this.rutina.idRutina}`, rutinaDTO)
-      .subscribe({
-        next: () => {
-          alert('✅ Rutina actualizada correctamente');
-          localStorage.removeItem('itemsRutina');
-          this.enviando = false;
+          // Crear rutina
+          this.crearRutina(rutinaDTO);
         },
         error: err => {
+          console.error('❌ Error al verificar rutina vigente', err);
+          alert('Ocurrió un error al verificar rutina vigente');
+          this.enviando = false;
+        }
+      });
+    } else {
+      // Modo edición
+      this.http.put(`${environment.apiBaseUrl}/clientes/${this.clienteSeleccionado!.idCliente}/rutinas/${this.rutina.idRutina}`, rutinaDTO)
+        .subscribe({
+          next: () => {
+            alert('✅ Rutina actualizada correctamente');
+            localStorage.removeItem('itemsRutina');
+            this.enviando = false;
+            this.router.navigate(['/gestion-rutinas']);
+          },
+          error: err => {
+            console.error('❌ Error al actualizar rutina', err);
+            this.enviando = false;
+          }
+        });
+    }
+  } else {
+    // Modo creación
+    this.http.post(`${environment.apiBaseUrl}/clientes/${this.clienteSeleccionado!.idCliente}/rutinas/completa`, rutinaDTO)
+      .subscribe({
+        next: () => {
+          alert('✅ Rutina creada correctamente');
+          localStorage.removeItem('itemsRutina');
+          this.router.navigate(['/gestion-rutinas']);
+        },
+        error: err => {
+          console.error('❌ Error al guardar rutina', err);
           console.error('❌ Error al actualizar rutina', err);
           this.enviando = false;
         }
       });
   }
-}
-
+}, 1000);
+  }
+        
 // Método auxiliar para crear rutina
 private crearRutina(rutinaDTO: RutinaCompletaDTO): void {
 this.http.post(`${environment.apiBaseUrl}/clientes/${this.clienteSeleccionado!.idCliente}/rutinas/completa`, rutinaDTO)
@@ -401,6 +423,7 @@ this.http.post(`${environment.apiBaseUrl}/clientes/${this.clienteSeleccionado!.i
     next: () => {
       alert('✅ Rutina creada correctamente');
       localStorage.removeItem('itemsRutina');
+      this.router.navigate(['/gestion-rutinas']);
       this.enviando = false;
     },
     error: err => {

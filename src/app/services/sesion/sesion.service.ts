@@ -3,13 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { LoginRequestDTO } from '../../domain/dto/login-request.dto';
 import { LoginResponseDTO } from '../../domain/dto/login-response.dto';
 import { Router } from '@angular/router';
+import { environment } from '@environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SesionService {
 
-  private apiUrl = 'http://localhost:8080/bulk-gym/api';
+  private apiUrl = environment.apiBaseUrl;
 
   constructor(private http: HttpClient, private router: Router) {}
 
