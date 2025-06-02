@@ -174,45 +174,74 @@ $transition-bounce: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
   // Tabla personalizada BLANCA con texto oscuro
   .custom-table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    background-color: $color-bg-light;
-    border-radius: 8px;
-    overflow: hidden;
-    
-    thead {
-      tr {
-        background-color: #f3f4f6;
-        
-        th {
-          color: $color-text-dark;
-          font-weight: 600;
-          padding: 1rem;
-          text-align: left;
-          border-bottom: 1px solid $color-border;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background-color: white;
+  border-radius: 12px;
+  overflow: hidden;
+  color: $color-text-dark;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+
+  thead {
+    tr {
+      background-color: #f3f4f6;
+
+      th {
+        color: $color-text-dark;
+        font-weight: 600;
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 2px solid $color-border;
+        position: relative;
+        overflow: hidden;
+
+        // LÍNEA animada inferior al hacer hover en header
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 2px;
+          background-color: $color-primary;
+          transition: width 0.4s ease;
         }
-      }
-    }
-    
-    tbody {
-      tr {
-        transition: all 0.3s ease;
-        background-color: $color-bg-light;
-        
-        &:hover {
-          background-color: #f9fafb;
-          transform: translateX(4px);
-        }
-        
-        td {
-          color: $color-text-dark; // Texto oscuro sobre fondo blanco
-          padding: 1rem;
-          border-bottom: 1px solid $color-border;
+
+        &:hover::after {
+          width: 100%;
         }
       }
     }
   }
+
+  tbody {
+    tr {
+      background-color: white;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+
+      &:hover {
+        background-color: #f9fafb;
+        transform: scale(1.005);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+
+      td {
+        padding: 1rem;
+        color: $color-text-dark;
+        border-bottom: 1px solid $color-border;
+        transition: color 0.3s ease;
+
+        // efecto sutil al hacer hover en celda individual
+        &:hover {
+          color: $color-primary-dark;
+        }
+      }
+    }
+  }
+}
+
 
  // Botón "Ver todas" mejorado
 .btn-ver-todas {
@@ -325,3 +354,159 @@ $transition-bounce: cubic-bezier(0.68, -0.6, 0.32, 1.6);
 
  }
 }
+
+/* Agrega esto a tu archivo de estilos */
+.error-message {
+  background-color: #ffebee;
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  
+  .error-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #d32f2f;
+    
+    mat-icon {
+      color: #d32f2f;
+    }
+  }
+}
+
+.no-data-message {
+  padding: 30px;
+  text-align: center;
+  color: #666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  
+  mat-icon {
+    font-size: 40px;
+    width: 40px;
+    height: 40px;
+    color: #2196f3;
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+// Efecto de carga para las celdas (opcional)
+@keyframes cellLoading {
+  0% { background-color: rgba($color-primary-light, 0.1); }
+  50% { background-color: rgba($color-primary-light, 0.3); }
+  100% { background-color: rgba($color-primary-light, 0.1); }
+}
+
+/* ===== FORZAR TEXTO OSCURO EN TABLA ===== */
+.custom-table {
+  /* Texto negro para TODOS los elementos de la tabla */
+  .mat-header-cell,
+  .mat-cell {
+    color: #000000 !important; /* Negro puro */
+  }
+
+  /* Headers más destacados */
+  .mat-header-cell {
+    font-weight: 600 !important;
+    background-color: #f5f5f5 !important; /* Fondo gris claro */
+  }
+
+  /* Efecto hover */
+  .mat-row:hover .mat-cell {
+    background-color: rgba(0, 0, 0, 0.03) !important;
+  }
+}
+
+/* Mantener botones como están (azules) */
+.btn-ver-rutina {
+  color: #3b82f6 !important; /* Azul original */
+}
+
+/* ===== SOLUCIÓN DEFINITIVA - VERSIÓN 1 ===== */
+.tabla-panel {
+  .custom-table {
+    /* Forzar texto negro en todas las celdas */
+    .mat-header-cell,
+    .mat-cell:not(.btn-ver-rutina) {
+      color: #000000 !important;
+      font-weight: 500 !important;
+    }
+
+    /* Headers con fondo gris y texto más oscuro */
+    .mat-header-row .mat-header-cell {
+      background-color: #f8f9fa !important;
+      color: #212529 !important;
+      font-weight: 600 !important;
+    }
+
+    /* Efecto hover sutil */
+    .mat-row:hover .mat-cell {
+      background-color: rgba(0, 0, 0, 0.03) !important;
+    }
+  }
+}
+
+
+/* ===== SOLUCIÓN NUCLEAR ===== */
+.tabla-panel {
+  .mat-table.custom-table {
+    /* Texto negro FORZADO */
+    .mat-header-cell,
+    .mat-cell {
+      color: #000000 !important; /* Negro puro */
+      font-weight: 500 !important;
+    }
+
+    /* Headers con fondo gris */
+    .mat-header-cell {
+      background-color: #f8f9fa !important;
+      font-weight: 600 !important;
+    }
+
+    /* Filas alternas */
+    .mat-row:nth-child(even) {
+      background-color: #ffffff !important;
+    }
+    
+    .mat-row:nth-child(odd) {
+      background-color: #fcfcfc !important;
+    }
+
+    /* Hover */
+    .mat-row:hover .mat-cell {
+      background-color: rgba(0, 0, 0, 0.03) !important;
+    }
+  }
+}
+

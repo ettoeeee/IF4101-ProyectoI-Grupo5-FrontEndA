@@ -8,10 +8,16 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { RutinaService } from '@app/services/rutina/rutina.service';
 import { Router } from '@angular/router';
 import { Rutina } from '@app/domain/rutina.model';
+import { ClienteService } from '@app/services/cliente/cliente.service';
+import { Cliente } from '@app/domain/cliente.model';
+import { ViewEncapsulation } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-entrenador-panel',
   standalone: true,
+  
   imports: [
     CommonModule,
     MatCardModule,
@@ -19,9 +25,11 @@ import { Rutina } from '@app/domain/rutina.model';
     MatTableModule,
     MatButtonModule,
     MatTooltipModule
+    
   ],
   templateUrl: './entrenador-panel.component.html',
-  styleUrls: ['./entrenador-panel.component.scss']
+  styleUrls: ['./entrenador-panel.component.scss'],
+  encapsulation: ViewEncapsulation.None 
 })
 export class EntrenadorPanelComponent implements OnInit {
   rutinasActivas = 0;
@@ -29,38 +37,24 @@ export class EntrenadorPanelComponent implements OnInit {
   rutinasPorRenovar = 0;
   rutinasRecientes: Rutina[] = [];
   rutinasParaMostrar: any[] = []; // Nueva propiedad para datos formateados
+ todosLosClientes: Cliente[] = [];
+ loading = true;
+  error: string | null = null;
 
   constructor(
     private rutinaService: RutinaService,
+    private clienteService: ClienteService,
     public router: Router
   ) {}
 
-  ngOnInit() {
-    this.cargarRutinasRecientes();
-  }
 
-  cargarRutinasRecientes() {
-    const fechaLimite = new Date();
-    fechaLimite.setDate(fechaLimite.getDate() - 7);
+ getNombreCliente(idCliente: number): string {
+  const cliente = this.todosLosClientes.find(c => c.idCliente === idCliente);
+  return cliente ? `${cliente.nombre} ${cliente.apellidos}` : `Cliente #${idCliente}`;
+}
 
-    this.rutinaService.getRutinasRecientes(fechaLimite).subscribe({
-      next: (rutinas: Rutina[]) => {
-        this.rutinasRecientes = rutinas;
-        
-        // Creamos una copia formateada para mostrar
-        this.rutinasParaMostrar = rutinas.map(r => ({
-          ...r,
-          fechaCreacionFormateada: this.formatearFecha(r.fechaCreacion),
-          clienteNombre: this.getNombreCliente(r.idCliente)
-        }));
 
-        this.actualizarMetricas(rutinas);
-      },
-      error: (err) => console.error('Error cargando rutinas', err)
-    });
-  }
-
-  private actualizarMetricas(rutinas: Rutina[]) {
+  private actualizarMetricas(rutinas: any[]) {
     this.rutinasActivas = rutinas.length;
     this.clientesTotales = [...new Set(rutinas.map(r => r.idCliente))].length;
     
@@ -70,20 +64,91 @@ export class EntrenadorPanelComponent implements OnInit {
     ).length;
   }
 
-  formatearFecha(fecha: Date | string): string {
+
+formatearFecha(fecha: any): string {
+  if (!fecha) return 'Sin fecha';
+  try {
     const date = new Date(fecha);
-    return date.toLocaleDateString('es-ES', {
-      day: '2-digit',
-      month: '2-digit',
-      year: 'numeric'
-    });
+    return isNaN(date.getTime()) 
+      ? 'Sin fecha'
+      : date.toLocaleDateString('es-ES', {
+          day: '2-digit',
+          month: '2-digit',
+          year: 'numeric'
+        });
+  } catch {
+    return 'Sin fecha';
+  }
+}
+
+  private obtenerMensajeError(err: any): string {
+    if (err.status === 400) {
+      return 'Parámetros incorrectos en la solicitud';
+    } else if (err.status === 403) {
+      return 'No tienes permisos para acceder a estos datos';
+    } else if (err.status === 404) {
+      return 'Endpoint no encontrado';
+    } else {
+      return 'Error al cargar las rutinas. Intente nuevamente.';
+    }
   }
 
-  getNombreCliente(idCliente: number): string {
-    return `Cliente #${idCliente}`; // Implementa tu lógica real aquí
-  }
 
   verDetalleRutina(idRutina: number) {
     this.router.navigate(['/rutinas', idRutina]);
   }
+
+  ngOnInit() {
+  this.cargarClientes(); // Primero cargar clientes
+}
+
+cargarClientes() {
+  this.clienteService.obtenerClientes().subscribe({
+    next: (clientes) => {
+      this.todosLosClientes = clientes;
+      this.cargarRutinasRecientes(); // Luego cargar rutinas
+    },
+    error: (err) => {
+      console.error('Error cargando clientes', err);
+      this.cargarRutinasRecientes(); // Intentar cargar rutinas igual
+    }
+  });
+}
+
+cargarRutinasRecientes() {
+  this.loading = true;
+  this.error = null;
+
+  const fechaLimite = new Date();
+  fechaLimite.setDate(fechaLimite.getDate() - 30);
+
+  this.rutinaService.getRutinasRecientes(fechaLimite).subscribe({
+    next: (rutinas) => {
+      this.rutinasParaMostrar = this.formatearDatosRutinas(rutinas);
+      this.actualizarMetricas(rutinas);
+      this.loading = false;
+    },
+    error: (err) => {
+      console.error('Error cargando rutinas:', err);
+      this.error = this.obtenerMensajeError(err);
+      this.loading = false;
+    }
+  });
+}
+
+private formatearDatosRutinas(rutinas: any[]): any[] {
+  return rutinas.map(r => {
+    // Extraemos idCliente desde r.idCliente o r.cliente.idCliente o r.cliente.idPersona
+    const idCliente = r.idCliente ?? r.cliente?.idCliente ?? r.cliente?.idPersona;
+
+    return {
+      ...r,
+      idCliente, // lo guardamos para que esté disponible
+      fechaCreacionFormateada: this.formatearFecha(r.fechaCreacion),
+      clienteNombre: this.getNombreCliente(idCliente),
+      objetivo: r.objetivo || 'Sin objetivo'
+    };
+  });
+}
+
 }

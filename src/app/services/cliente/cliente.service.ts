@@ -36,4 +36,6 @@ export class ClienteService {
   listarClientes(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(`${this.apiUrl}/clientes`);
   }
+
+  
 }

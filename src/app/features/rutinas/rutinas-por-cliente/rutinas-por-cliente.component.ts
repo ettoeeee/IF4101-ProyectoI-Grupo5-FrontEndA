@@ -78,6 +78,7 @@ export class RutinasPorClienteComponent implements OnInit {
     });
   }
 
+
   /**
    * DESCARGA el PDF de la rutina indicada y fuerza la descarga en el navegador.
    * Usa GET /api/clientes/{clienteId}/rutinas/{idRutina}/pdf
@@ -105,5 +106,6 @@ export class RutinasPorClienteComponent implements OnInit {
         }
       });
   }
+
 
 }

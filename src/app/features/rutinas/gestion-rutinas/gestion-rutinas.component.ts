@@ -72,6 +72,7 @@ export class GestionRutinasComponent implements OnInit {
   this.rutinaEnEdicion = {...rutina};
 }
 
+
 guardarEdicion(): void {
   if (!this.rutinaEnEdicion) return;
   
@@ -115,6 +116,7 @@ eliminarRutina(rutina: RutinaCompletaDTO): void {
     });
   }
 }
+
 
 
 }
