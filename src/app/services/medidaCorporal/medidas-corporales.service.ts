@@ -8,7 +8,7 @@ import { environment } from '@environments/environment';
   providedIn: 'root'
 })
 export class MedidasCorporalesService {
-  private apiUrl = 'https://1b7e-163-178-107-104.ngrok-free.app/bulk-gym/api/medidas';
+  private apiUrl = 'https://9497-163-178-107-104.ngrok-free.app/bulk-gym/api/medidas';
 
   constructor(private http: HttpClient) {}
 
