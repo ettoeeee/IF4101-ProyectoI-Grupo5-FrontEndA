@@ -1,84 +1,59 @@
-<!-- Títulos dinámicos -->
-<h2 *ngIf="!modoEdicion">Crear Nueva Rutina</h2>
-<h2 *ngIf="modoEdicion">Editar Rutina</h2>
-<p *ngIf="!modoEdicion">Complete los pasos para crear una rutina personalizada</p>
-<p *ngIf="modoEdicion">Modifique los datos de la rutina existente</p>
+<h2>Crear Nueva Rutina</h2>
+<p>Complete los pasos para crear una rutina personalizada</p>
 
 <mat-horizontal-stepper #stepper>
-
   <!-- Paso 1: Cliente y Datos -->
   <mat-step label="Cliente y Datos">
+    <h3>Seleccionar Cliente e Información Básica</h3>
 
-    <div *ngIf="!modoEdicion">
-      <h3>Seleccionar Cliente e Información Básica</h3>
-
-      <div class="clientes-lista">
-        <div *ngFor="let cliente of clientes"
-             (click)="seleccionarCliente(cliente)"
-             class="cliente-item">
-          {{ cliente.nombre }} {{ cliente.apellidos }}
-        </div>
+    <div class="clientes-lista">
+      <div *ngFor="let cliente of clientes" (click)="seleccionarCliente(cliente)" class="cliente-item">
+        {{ cliente.nombre }} {{ cliente.apellidos }}
       </div>
     </div>
 
     <div *ngIf="clienteSeleccionado" class="cliente-info">
       <p><strong>Seleccionado:</strong> {{ clienteSeleccionado.nombre }} {{ clienteSeleccionado.apellidos }}</p>
-
-      <div *ngIf="verificandoRutina">
-        <mat-icon color="primary">hourglass_top</mat-icon> Verificando rutina vigente...
-      </div>
-
-      <div *ngIf="tieneRutinaVigente && !modoEdicion" class="alerta-vigencia mat-elevation-z2" style="background:#fff3cd; border-left: 6px solid #ffc107; padding: 12px; margin: 10px 0; border-radius: 4px;">
-        <mat-icon color="warn">warning</mat-icon>
-        <span style="margin-left: 8px;">Este cliente ya tiene una rutina vigente. No se puede crear una nueva hasta que expire.</span>
-      </div>
     </div>
 
-    <!-- Datos bloqueados si no se puede crear -->
     <mat-form-field appearance="fill">
       <mat-label>Objetivo</mat-label>
-      <input matInput [(ngModel)]="objetivo" placeholder="Ej: Hipertrofia, pérdida de peso..."
-             [disabled]="tieneRutinaVigente && !modoEdicion">
+      <input matInput [(ngModel)]="objetivo" placeholder="Ej: Hipertrofia, pérdida de peso...">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Horario</mat-label>
-      <input matInput [(ngModel)]="horario" [disabled]="tieneRutinaVigente && !modoEdicion">
+      <input matInput [(ngModel)]="horario">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Lesiones</mat-label>
-      <input matInput [(ngModel)]="lesiones" [disabled]="tieneRutinaVigente && !modoEdicion">
+      <input matInput [(ngModel)]="lesiones">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
       <mat-label>Padecimientos</mat-label>
-      <input matInput [(ngModel)]="padecimientos" [disabled]="tieneRutinaVigente && !modoEdicion">
+      <input matInput [(ngModel)]="padecimientos">
     </mat-form-field>
 
-    <button mat-raised-button color="primary" (click)="continuar()"
-            [disabled]="tieneRutinaVigente && !modoEdicion">
-      Siguiente
-    </button>
+    <button mat-raised-button color="primary" (click)="continuar()">Siguiente</button>
   </mat-step>
 
   <!-- Paso 2: Medidas Corporales -->
   <mat-step label="Medidas Corporales">
-    <h3 *ngIf="!modoEdicion">Seleccione las medidas del cliente</h3>
-    <app-item-rutina-medidas [medidasIniciales]="medidasInicialesParaEditar"></app-item-rutina-medidas>
-    <button mat-button matStepperNext [disabled]="(itemRutinaMedidasComp?.rutina?.length || 0) === 0">
-      Siguiente
-    </button>
-  </mat-step>
+  <h3>Seleccione las medidas del cliente</h3>
+  <app-item-rutina-medidas></app-item-rutina-medidas>
+  <button mat-button matStepperNext>Siguiente</button>
+</mat-step>
 
-  <!-- Paso 3: Ejercicios -->
-  <mat-step label="Ejercicios">
-    <h3>Seleccione los ejercicios</h3>
-    <app-item-rutina-ejercicio [ejerciciosIniciales]="ejerciciosInicialesParaEditar"></app-item-rutina-ejercicio>
-    <button mat-button matStepperNext [disabled]="(itemRutinaEjerciciosComp?.items?.length || 0) === 0">
-      Siguiente
-    </button>
-  </mat-step>
+<!-- Paso 3: Ejercicios -->
+<mat-step label="Ejercicios">
+  <h3>Seleccione los ejercicios</h3>
+  <app-item-rutina-ejercicio></app-item-rutina-ejercicio>
+
+  <button mat-button matStepperNext>Siguiente</button>
+</mat-step>
+  
 
   <!-- Paso 4: Resumen -->
   <mat-step label="Resumen">
@@ -90,23 +65,22 @@
     <p><strong>Lesiones:</strong> {{ rutina.lesiones }}</p>
     <p><strong>Padecimientos:</strong> {{ rutina.padecimientos }}</p>
 
-    <h4>Medidas</h4>
-    <ul>
-      <li *ngFor="let m of rutina.medidas">
-        ID {{ m.idMedidaCorporal }} - {{ m.valorMedida }} - {{ m.fechaMedicion }}
-      </li>
-    </ul>
+    <!-- Medidas -->
+<h4>Medidas</h4>
+<ul>
+  <li *ngFor="let m of rutina.medidas">
+    ID {{ m.idMedidaCorporal }} - {{ m.valorMedida }} - {{ m.fechaMedicion }}
+  </li>
+</ul>
 
-    <h4>Ejercicios</h4>
-    <ul>
-      <li *ngFor="let e of rutina.ejercicios">
-        ID {{ e.idEjercicio }} - {{ e.series }}x{{ e.repeticiones }} - {{ e.equipo }}
-      </li>
-    </ul>
+<!-- Ejercicios -->
+<h4>Ejercicios</h4>
+<ul>
+  <li *ngFor="let e of rutina.ejercicios">
+    ID {{ e.idEjercicio }} - {{ e.series }}x{{ e.repeticiones }} - {{ e.equipo }}
+  </li>
+</ul>
 
-    <button mat-raised-button color="accent" (click)="finalizar()" [disabled]="enviando">
-      Finalizar
-    </button>
+    <button mat-raised-button color="accent" (click)="finalizar()">Finalizar</button>
   </mat-step>
-
 </mat-horizontal-stepper>
