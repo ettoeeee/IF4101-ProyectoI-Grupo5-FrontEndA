@@ -1,21 +1,21 @@
 <!-- entrenador-sidebar.component.html -->
 <div class="sidebar">
-  <!-- Aquí comienza el logo -->
- <div class="logo">
-    <span>BulkGym</span>
+  <!-- Logo traducible -->
+  <div class="logo">
+    <span>{{ 'sidebarInst.logo' | translate }}</span>
   </div>
   <mat-nav-list>
     <a mat-list-item routerLink="/instructor" routerLinkActive="active">
       <mat-icon>dashboard</mat-icon>
-      <span>Panel Principal</span>
+      <span>{{ 'sidebarInst.panelPrincipal' | translate }}</span>
     </a>
     <a mat-list-item routerLink="/gestion-rutinas" routerLinkActive="active">
       <mat-icon>fitness_center</mat-icon>
-      <span>Rutinas</span>
+      <span>{{ 'sidebarInst.rutinas' | translate }}</span>
     </a>
     <a mat-list-item routerLink="/login">
       <mat-icon>logout</mat-icon>
-      <span>Cerrar Sesión</span>
+      <span>{{ 'sidebarInst.cerrarSesion' | translate }}</span>
     </a>
   </mat-nav-list>
 </div>

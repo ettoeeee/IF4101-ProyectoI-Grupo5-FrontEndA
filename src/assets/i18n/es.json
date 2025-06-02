@@ -12,6 +12,12 @@
     "categoriasEjercicio": "Categorías de Ejercicio",
     "cerrarSesion": "Cerrar Sesión"
   },
+  "sidebarInst": {
+    "logo": "BulkGym",
+    "panelPrincipal": "Panel Principal",
+    "rutinas": "Rutinas",
+    "cerrarSesion": "Cerrar Sesión"
+  },
   "dashboard": {
     "title": "Panel de Control",
     "subtitle": "Bienvenido, consulta y administra tu información de forma rápida y sencilla",
@@ -226,6 +232,60 @@
     },
     "noObjective": "Sin objetivo",
     "view": "Ver"
+  },
+  "routineManagement": {
+    "title": "Gestión de Rutinas",
+    "newRoutine": "Nueva Rutina",
+    "searchPlaceholder": "Buscar por nombre de cliente",
+    "editing": "Editando rutina de",
+    "objectiveLabel": "Objetivo:",
+    "saveButton": "Guardar",
+    "cancelButton": "Cancelar",
+    "header": {
+      "client": "Cliente",
+      "objective": "Objetivo",
+      "creationDate": "Fecha de Creación",
+      "actions": "Acciones"
+    },
+    "action": {
+      "edit": "Editar",
+      "delete": "Eliminar"
+    },
+    "noRoutines": "Sin rutinas registradas",
+    "backButton": "Volver al Panel"
+  },
+  "createRoutine": {
+    "title": "Crear Nueva Rutina",
+    "subtitle": "Complete los pasos para crear una rutina personalizada",
+    "step1Label": "Cliente y Datos",
+    "step1Heading": "Seleccionar Cliente e Información Básica",
+    "selected": "Seleccionado",
+    "objectiveLabel": "Objetivo",
+    "objectivePlaceholder": "Ej: Hipertrofia, pérdida de peso...",
+    "scheduleLabel": "Horario",
+    "injuriesLabel": "Lesiones",
+    "conditionsLabel": "Padecimientos",
+    "nextButton": "Siguiente",
+    "step2Label": "Medidas Corporales",
+    "step2Heading": "Seleccione las medidas del cliente",
+    "step3Label": "Ejercicios",
+    "step3Heading": "Seleccione los ejercicios",
+    "step4Label": "Resumen",
+    "step4Heading": "Resumen de la Rutina",
+    "summaryClient": {
+      "client": "Cliente",
+      "objective": "Objetivo",
+      "schedule": "Horario",
+      "injuries": "Lesiones",
+      "conditions": "Padecimientos"
+    },
+    "summaryRoutine": {
+      "measurementsHeading": "Medidas",
+      "measurementItemId": "ID",
+      "exercisesHeading": "Ejercicios",
+      "exerciseItemId": "ID"
+    },
+    "finishButton": "Finalizar"
   },
   "common": {
     "actions": "Acciones",

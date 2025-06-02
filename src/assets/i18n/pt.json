@@ -11,6 +11,12 @@
     "categoriasEjercicio": "Categorias de Exercício",
     "cerrarSesion": "Sair"
   },
+  "sidebarInst": {
+    "logo": "BulkGym",
+    "panelPrincipal": "Painel Principal",
+    "rutinas": "Rotinas",
+    "cerrarSesion": "Sair"
+  },
   "dashboard": {
     "title": "Painel de Controle",
     "subtitle": "Bem-vindo, consulte e gerencie suas informações de forma rápida e fácil",
@@ -225,6 +231,60 @@
     },
     "noObjective": "Sem objetivo",
     "view": "Ver"
+  },
+  "routineManagement": {
+    "title": "Gestão de Rotinas",
+    "newRoutine": "Nova Rotina",
+    "searchPlaceholder": "Buscar por nome do cliente",
+    "editing": "Editando rotina de",
+    "objectiveLabel": "Objetivo:",
+    "saveButton": "Salvar",
+    "cancelButton": "Cancelar",
+    "header": {
+      "client": "Cliente",
+      "objective": "Objetivo",
+      "creationDate": "Data de Criação",
+      "actions": "Ações"
+    },
+    "action": {
+      "edit": "Editar",
+      "delete": "Excluir"
+    },
+    "noRoutines": "Nenhuma rotina cadastrada",
+    "backButton": "Voltar ao Painel"
+  },
+  "createRoutine": {
+    "title": "Criar Nova Rotina",
+    "subtitle": "Complete as etapas para criar uma rotina personalizada",
+    "step1Label": "Cliente e Dados",
+    "step1Heading": "Selecione o Cliente e Informações Básicas",
+    "selected": "Selecionado",
+    "objectiveLabel": "Objetivo",
+    "objectivePlaceholder": "Ex: Hipertrofia, perda de peso...",
+    "scheduleLabel": "Horário",
+    "injuriesLabel": "Lesões",
+    "conditionsLabel": "Condições",
+    "nextButton": "Próximo",
+    "step2Label": "Medidas Corporais",
+    "step2Heading": "Selecione as medidas do cliente",
+    "step3Label": "Exercícios",
+    "step3Heading": "Selecione os exercícios",
+    "step4Label": "Resumo",
+    "step4Heading": "Resumo da Rotina",
+    "summaryClient": {
+      "client": "Cliente",
+      "objective": "Objetivo",
+      "schedule": "Horário",
+      "injuries": "Lesões",
+      "conditions": "Condições"
+    },
+    "summaryRoutine": {
+      "measurementsHeading": "Medidas",
+      "measurementItemId": "ID",
+      "exercisesHeading": "Exercícios",
+      "exerciseItemId": "ID"
+    },
+    "finishButton": "Concluir"
   },
   "common": {
     "actions": "Ações",

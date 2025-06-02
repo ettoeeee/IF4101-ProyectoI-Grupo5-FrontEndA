@@ -11,6 +11,12 @@
     "categoriasEjercicio": "Exercise Categories",
     "cerrarSesion": "Sign Out"
   },
+  "sidebarInst": {
+    "logo": "BulkGym",
+    "panelPrincipal": "Main Panel",
+    "rutinas": "Routines",
+    "cerrarSesion": "Log Out"
+  },
   "dashboard": {
     "title": "Control Panel",
     "subtitle": "Welcome, consult and manage your information quickly and easily",
@@ -225,6 +231,60 @@
     },
     "noObjective": "No objective",
     "view": "View"
+  },
+  "routineManagement": {
+    "title": "Routine Management",
+    "newRoutine": "New Routine",
+    "searchPlaceholder": "Search by client name",
+    "editing": "Editing routine of",
+    "objectiveLabel": "Objective:",
+    "saveButton": "Save",
+    "cancelButton": "Cancel",
+    "header": {
+      "client": "Client",
+      "objective": "Objective",
+      "creationDate": "Creation Date",
+      "actions": "Actions"
+    },
+    "action": {
+      "edit": "Edit",
+      "delete": "Delete"
+    },
+    "noRoutines": "No routines registered",
+    "backButton": "Back to Panel"
+  },
+  "createRoutine": {
+    "title": "Create New Routine",
+    "subtitle": "Complete the steps to create a personalized routine",
+    "step1Label": "Client & Details",
+    "step1Heading": "Select Client and Basic Information",
+    "selected": "Selected",
+    "objectiveLabel": "Objective",
+    "objectivePlaceholder": "e.g.: Hypertrophy, weight loss...",
+    "scheduleLabel": "Schedule",
+    "injuriesLabel": "Injuries",
+    "conditionsLabel": "Conditions",
+    "nextButton": "Next",
+    "step2Label": "Body Measurements",
+    "step2Heading": "Select Customer Measurements",
+    "step3Label": "Exercises",
+    "step3Heading": "Select Exercises",
+    "step4Label": "Summary",
+    "step4Heading": "Routine Summary",
+    "summaryClient": {
+      "client": "Client",
+      "objective": "Objective",
+      "schedule": "Schedule",
+      "injuries": "Injuries",
+      "conditions": "Conditions"
+    },
+    "summaryRoutine": {
+      "measurementsHeading": "Measurements",
+      "measurementItemId": "ID",
+      "exercisesHeading": "Exercises",
+      "exerciseItemId": "ID"
+    },
+    "finishButton": "Finish"
   },
   "common": {
     "actions": "Actions",

@@ -36,12 +36,6 @@ export const routes: Routes = [
     import('./features/rutinas/rutinas-por-cliente/rutinas-por-cliente.component')
       .then(m => m.RutinasPorClienteComponent)
 },
-      {
-        path: 'clientes/:clienteId/rutinas',
-        loadComponent: () =>
-          import('./features/instructores/clientes-tab/clientes-tab.component')
-            .then(m => m.ClientesTabComponent)
-      },
             {
         path: 'rutinas',
         loadComponent: () =>

@@ -1,37 +1,41 @@
 <div class="container mt-4">
   <div class="d-flex justify-content-between align-items-center mb-3">
-    <h2>Gestión de Rutinas</h2>
+    <h2>{{ 'routineManagement.title' | translate }}</h2>
     <button class="btn btn-primary" (click)="irACrearRutina()">
-      <i class="bi bi-plus-lg"></i> Nueva Rutina
+      <i class="bi bi-plus-lg"></i> {{ 'routineManagement.newRoutine' | translate }}
     </button>
   </div>
 
-  <input
-    class="form-control mb-4"
-    placeholder="Buscar por nombre de cliente"
-    [(ngModel)]="filtro"
-    (input)="aplicarFiltro()"
-  />
+  <input class="form-control mb-4"
+         placeholder="{{ 'routineManagement.searchPlaceholder' | translate }}"
+         [(ngModel)]="filtro"
+         (input)="aplicarFiltro()" />
 
   <!-- Formulario de edición solo si hay rutinaEnEdicion -->
   <div *ngIf="rutinaEnEdicion" class="editar-rutina-form mb-4">
-    <h3>Editando rutina de {{ rutinaEnEdicion.cliente.nombre }}</h3>
-    <label>Objetivo:
+    <h3>
+      {{ 'routineManagement.editing' | translate }} {{ rutinaEnEdicion.cliente.nombre }}
+    </h3>
+    <label>
+      {{ 'routineManagement.objectiveLabel' | translate }}
       <input [(ngModel)]="rutinaEnEdicion.objetivo" class="form-control" />
     </label>
-    <!-- Agrega más campos si quieres -->
-    <button class="btn btn-success me-2" (click)="guardarEdicion()">Guardar</button>
-    <button class="btn btn-secondary" (click)="cancelarEdicion()">Cancelar</button>
+    <button class="btn btn-success me-2" (click)="guardarEdicion()">
+      {{ 'routineManagement.saveButton' | translate }}
+    </button>
+    <button class="btn btn-secondary" (click)="cancelarEdicion()">
+      {{ 'routineManagement.cancelButton' | translate }}
+    </button>
   </div>
 
   <!-- Mostrar tabla solo si NO estamos editando -->
   <table *ngIf="!rutinaEnEdicion" class="table table-hover table-bordered align-middle">
     <thead class="table-light">
       <tr class="text-center">
-        <th>Cliente</th>
-        <th>Objetivo</th>
-        <th>Fecha de Creación</th>
-        <th>Acciones</th>
+        <th>{{ 'routineManagement.header.client' | translate }}</th>
+        <th>{{ 'routineManagement.header.objective' | translate }}</th>
+        <th>{{ 'routineManagement.header.creationDate' | translate }}</th>
+        <th>{{ 'routineManagement.header.actions' | translate }}</th>
       </tr>
     </thead>
 
@@ -41,33 +45,29 @@
         <td>{{ rutina.objetivo }}</td>
         <td>{{ rutina.fechaCreacion | date:'shortDate' }}</td>
         <td>
-          <button
-            class="btn btn-sm btn-outline-primary me-2"
-            (click)="editarRutina(rutina)"
-          >
-            ✏️ Editar
+          <button class="btn btn-sm btn-outline-primary me-2"
+                  (click)="editarRutina(rutina)">
+            ✏️ {{ 'routineManagement.action.edit' | translate }}
           </button>
-          <button
-            class="btn btn-sm btn-outline-danger"
-            (click)="eliminarRutina(rutina)"
-          >
-            🗑️ Eliminar
+          <button class="btn btn-sm btn-outline-danger"
+                  (click)="eliminarRutina(rutina)">
+            🗑️ {{ 'routineManagement.action.delete' | translate }}
           </button>
         </td>
       </tr>
 
       <tr *ngIf="rutinasFiltradas.length === 0">
-        <td colspan="4" class="text-center text-muted">Sin rutinas registradas</td>
+        <td colspan="4" class="text-center text-muted">
+          {{ 'routineManagement.noRoutines' | translate }}
+        </td>
       </tr>
     </tbody>
   </table>
 
-<!-- Botón Volver al final del archivo -->
-<div class="volver-container mt-4 text-center">
-  <button class="btn-volver" (click)="volverAlPanel()">
-    Volver al Panel
-  </button>
-</div>
-
-
+  <!-- Botón Volver al final del archivo -->
+  <div class="volver-container mt-4 text-center">
+    <button class="btn-volver" (click)="volverAlPanel()">
+      {{ 'routineManagement.backButton' | translate }}
+    </button>
+  </div>
 </div>
