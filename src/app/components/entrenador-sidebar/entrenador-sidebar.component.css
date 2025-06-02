@@ -1,0 +1,29 @@
+/* entrenador-sidebar.component.css */
+.sidebar {
+  width: 240px;
+  height: 100vh;
+  background-color: #343a40; /* azul oscuro */
+  color: white;
+  padding-top: 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem;
+  text-align: center;
+  color: white;
+}
+
+mat-nav-list a {
+  color: white;
+  text-decoration: none;
+}
+
+mat-icon {
+  margin-right: 10px;
+}
+
+a.active {
+  background-color: #3b82f6; /* azul claro para el seleccionado */
+}

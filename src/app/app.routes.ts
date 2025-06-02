@@ -4,6 +4,9 @@ import { PanelPrincipalComponent } from './components/panel-principal/panel-prin
 import { ClienteListComponent } from './features/clientes/cliente-list/cliente-list.component';
 import { MedidasCorporalesComponent } from './features/medidas-corporales/medidas-corporales.component';
 import { GuardGuard } from './services/sesion/guard/guard.guard';
+import { EntrenadorPanelComponent } from './components/entrenador-panel/entrenador-panel.component';
+import { EntrenadorSidebarComponent } from './components/entrenador-sidebar/entrenador-sidebar.component';
+import { EntrenadorLayoutComponent } from './components/entrenador-layout/entrenador-layout.component';
 
 export const routes: Routes = [
 
@@ -17,7 +20,57 @@ export const routes: Routes = [
       .then(m => m.LoginComponent)
   },
 
-  
+  { path: '',
+    component: EntrenadorLayoutComponent,
+    canActivate: [GuardGuard], //Protección de rutas
+    children: [
+      { path: 'instructor', component: EntrenadorPanelComponent },
+      { path: 'clientes', component: ClienteListComponent } ,
+
+      {
+  path: 'rutinas-cliente/:clienteId',
+  loadComponent: () =>
+    import('./features/rutinas/rutinas-por-cliente/rutinas-por-cliente.component')
+      .then(m => m.RutinasPorClienteComponent)
+},
+
+      {
+  path: 'rutinas/nueva',
+  loadComponent: () => import('./features/rutinas/crear-rutina/crear-rutina.component')
+    .then(m => m.CrearRutinaComponent)
+},
+
+ {
+        path: 'clientes/:clienteId/rutinas',
+        loadComponent: () =>
+          import('./features/rutinas/rutinas-por-cliente/rutinas-por-cliente.component')
+            .then(m => m.RutinasPorClienteComponent)
+      },
+      
+      {
+  path: 'instructor', 
+        loadComponent: () => 
+          import('./components/entrenador-panel/entrenador-panel.component')
+            .then(m => m.EntrenadorPanelComponent)
+},
+
+{ 
+        path: 'gestion-rutinas', 
+        loadComponent: () => 
+          import('./features/rutinas/gestion-rutinas/gestion-rutinas.component')
+            .then(m => m.GestionRutinasComponent)
+      },
+
+        {
+        path: 'instructores/clientes',
+        loadComponent: () =>
+          import('./features/instructores/clientes-tab/clientes-tab.component')
+            .then(m => m.ClientesTabComponent)
+      }
+
+    ]
+  },
+
   {
     path: '',
     component: LayoutComponent,
@@ -26,20 +79,8 @@ export const routes: Routes = [
       { path: 'dashboard', component: PanelPrincipalComponent },
       { path: 'clientes', component: ClienteListComponent },
 
-// gestopn 
-{
-  path: 'instructor', 
-        loadComponent: () => 
-          import('./components/entrenador-panel/entrenador-panel.component')
-            .then(m => m.EntrenadorPanelComponent)
-},
-{ 
-        path: 'gestion-rutinas', 
-        loadComponent: () => 
-          import('./features/rutinas/gestion-rutinas/gestion-rutinas.component')
-            .then(m => m.GestionRutinasComponent)
-      },
 
+// gestopn 
 
       // Instructores
       {
@@ -119,30 +160,8 @@ export const routes: Routes = [
       // app.routes.ts
 
       // … dentro de children de LayoutComponent …
-      {
-        path: 'instructores/clientes',
-        loadComponent: () =>
-          import('./features/instructores/clientes-tab/clientes-tab.component')
-            .then(m => m.ClientesTabComponent)
-      },
-      {
-        path: 'clientes/:clienteId/rutinas',
-        loadComponent: () =>
-          import('./features/rutinas/rutinas-por-cliente/rutinas-por-cliente.component')
-            .then(m => m.RutinasPorClienteComponent)
-      }, 
-{
-  path: 'rutinas-cliente/:clienteId',
-  loadComponent: () =>
-    import('./features/rutinas/rutinas-por-cliente/rutinas-por-cliente.component')
-      .then(m => m.RutinasPorClienteComponent)
-},
-
-      {
-  path: 'rutinas/nueva',
-  loadComponent: () => import('./features/rutinas/crear-rutina/crear-rutina.component')
-    .then(m => m.CrearRutinaComponent)
-}
+  
+    
     ]
   }
 

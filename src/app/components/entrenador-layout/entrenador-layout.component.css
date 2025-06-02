@@ -1,0 +1,15 @@
+.layout-container {
+  display: flex;
+  height: 100vh;
+}
+
+.sidebar-fixed {
+  flex-shrink: 0;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  background-color: #f4f4f4;
+  overflow-y: auto;
+}
