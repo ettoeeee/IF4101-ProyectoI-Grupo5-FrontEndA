@@ -32,7 +32,7 @@ export class GestionRutinasComponent implements OnInit {
         
         // forkJoin espera a que todas las llamadas terminen y junta todos los resultados en un array
         forkJoin(observables).subscribe({
-          next: (listasDeRutinas) => {
+          next: (listasDeRutinas) => { 
             // Asociamos cada rutina con su cliente
             this.rutinas = listasDeRutinas.flatMap((rutinasDeUnCliente, index) => {
               const cliente = clientes[index];
@@ -50,7 +50,6 @@ export class GestionRutinasComponent implements OnInit {
       error: (err) => console.error('Error al cargar clientes', err)
     });
   }
-
 
   irACrearRutina(): void {
     this.router.navigate(['/rutinas/nueva']);
