@@ -34,11 +34,11 @@ export class GestionRutinasComponent implements OnInit {
         forkJoin(observables).subscribe({
           next: (listasDeRutinas) => {
             this.rutinas = listasDeRutinas.flatMap((rutinasDeUnCliente, index) => {
-              const cliente = clientes[index];
+            const cliente = clientes[index];
               return rutinasDeUnCliente.map(rutina => ({
-                ...rutina,
+             ...rutina,
                 cliente: cliente
-              }));
+            }));
             });
 
             this.rutinasFiltradas = this.rutinas;
@@ -113,7 +113,7 @@ export class GestionRutinasComponent implements OnInit {
           alert('Rutina eliminada exitosamente');
         },
         error: (err) => {
-          console.error('❌ Error al eliminar rutina', err);
+          console.error(' Error al eliminar rutina', err);
           alert('Ocurrió un error al eliminar la rutina');
         }
       });

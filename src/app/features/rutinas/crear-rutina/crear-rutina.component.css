@@ -1,45 +1,129 @@
-.cliente-lista {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 20px;
+/* crear-rutina.component.css */
+
+:host {
+  display: block;
+  padding: 24px;
+  background: #f5f7fa;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  color: #2c3e50;
 }
 
-.cliente-item {
-  padding: 12px 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #1e88e5;
 }
 
-.cliente-item:hover {
-  background-color: #e0f7fa;
+p {
+  font-size: 17px;
+  color: #555;
+  margin-bottom: 24px;
 }
 
-.cliente-item.seleccionado {
-  background-color: #c8e6c9;
-  border-color: #2e7d32;
-  font-weight: bold;
-}
-
-.cliente-info {
-  margin-top: 20px;
-}
-
-mat-form-field {
-  width: 100%;
-  margin-bottom: 16px;
-}
-
-button {
-  margin-top: 16px;
+h3, h4 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 24px;
+  color: #37474f;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 4px;
 }
 
 mat-horizontal-stepper {
   background-color: #ffffff;
-  padding: 16px;
+  padding: 32px;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Cliente selector */
+.clientes-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.cliente-item {
+  background: #e3f2fd;
+  border: 2px solid transparent;
+  padding: 12px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 200px;
+  text-align: center;
+  font-weight: 500;
+}
+
+.cliente-item:hover {
+  background: #bbdefb;
+  border-color: #2196f3;
+}
+
+.cliente-info {
+  background: #f0f4f8;
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 16px;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.05);
+}
+
+/* Alertas */
+.alerta-vigencia {
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 6px;
+  background-color: #fff3cd;
+  border-left: 6px solid #ffc107;
+  color: #856404;
+}
+
+.alerta-vigencia mat-icon {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+/* Formularios */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+input[matInput] {
+  font-size: 16px;
+}
+
+/* Botones */
+button[mat-raised-button], button[mat-button] {
+  margin-top: 16px;
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+button[mat-raised-button]:hover {
+  filter: brightness(1.05);
+}
+
+button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Resumen */
+ul {
+  list-style-type: disc;
+  padding-left: 24px;
+  margin-top: 8px;
+}
+
+ul li {
+  margin-bottom: 8px;
+  font-size: 15px;
 }

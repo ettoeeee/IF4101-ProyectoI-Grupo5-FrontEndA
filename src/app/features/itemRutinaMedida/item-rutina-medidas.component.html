@@ -1,27 +1,8 @@
 <div class="contenedor">
-  <h1>Crear rutina</h1>
-  <h2>Agregar medidas corporales a la rutina</h2>
+  <h1> </h1>
+  <h2>Agregar y modificar medidas corporales de la rutina</h2>
 
-   <!-- Barra de búsqueda -->
- <div class="busqueda-container">
-  <div class="form-group">
-    <label for="buscar-medida">Buscar medida:</label>
-    <div class="input-group">
-      <input
-        #buscarInput
-        type="text"
-        id="buscar-medida"
-        class="form-control"
-        placeholder="Escribe para buscar..."
-        [(ngModel)]="terminoBusqueda"
-        (ngModelChange)="filtrarMedidasDisponibles()">
-      <span class="input-group-text">
-        <i class="fas fa-search"></i>
-      </span>
-    </div>
-  </div>
-</div>
-
+  <!-- ➕ Agregar nueva medida a la rutina -->
   <div class="agregar-medida-container">
     <div class="form-group">
       <label for="medidaSelect">Seleccionar medida:</label>
@@ -47,6 +28,7 @@
         placeholder="Ingrese el valor">
     </div>
 
+    <!-- Botón para agregar la medida seleccionada -->
     <button 
       class="btn-agregar-medida" 
       (click)="agregarMedida()"
@@ -59,6 +41,7 @@
 
   <hr />
 
+  <!-- 📋 Lista de medidas actualmente agregadas a la rutina -->
   <h3>Medidas agregadas a la rutina</h3>
   
   <div class="lista-medidas-agregadas">
@@ -77,6 +60,7 @@
           <div class="valor-display">{{ item.valorMedida }}</div>
         </div>
         
+        <!-- Acciones: editar o eliminar medida existente -->
         <div class="acciones-medida">
           <button 
             class="btn-editar" 
@@ -98,10 +82,10 @@
   </div>
 </div>
 
-<!-- Modal Eliminar - Versión mejorada con animaciones y feedback -->
+<!-- ❗ Modal de confirmación para eliminar medida -->
 <ng-template #modalEliminar let-modal>
   <div class="modal-content p-4 rounded-4 shadow-lg" [ngClass]="{'shake-animation': showShake}">
-    <!-- Pantalla principal de confirmación -->
+    <!-- Pantalla inicial de confirmación -->
     <div *ngIf="!eliminacionCompletada">
       <div class="modal-header border-0 pb-0">
         <h5 class="modal-title text-danger">
@@ -138,7 +122,7 @@
       </div>
     </div>
     
-    <!-- Pantalla de resultado -->
+    <!-- Resultado de la eliminación -->
     <div *ngIf="eliminacionCompletada" class="text-center p-4">
       <div class="result-icon mb-4">
         <i class="fas fa-5x" 
@@ -160,12 +144,12 @@
   </div>
 </ng-template>
 
-<!-- Modal Editar - Nuevo diseño -->
+<!-- ✏️ Modal para editar medida -->
 <ng-template #modalEditar let-modal>
   <div class="modal-content p-4 rounded-4 shadow-sm">
     <div class="modal-header border-0">
       <h5 class="modal-title text-primary">
-        <i class="fas fa-edit me-2"></i>Editar medida
+        <i class="fas fa-edit me-2"></i>Editar medida corporal
       </h5>
       <button type="button" class="btn-close" (click)="modal.dismiss()"></button>
     </div>

@@ -50,6 +50,10 @@ export class CrearRutinaComponent implements OnInit {
 medidasInicialesParaEditar: ItemRutinaMedida[] = [];
 ejerciciosInicialesParaEditar: ItemRutinaEjercicio[] = [];
 
+tieneRutinaVigente: boolean = false;
+verificandoRutina: boolean = false;
+enviando: boolean = false;
+
 
   objetivo = '';
   horario = '';
@@ -79,10 +83,11 @@ ejerciciosInicialesParaEditar: ItemRutinaEjercicio[] = [];
   @ViewChild('stepper') stepper!: MatStepper;
 
   // Usar @ViewChild para acceder al componente
-   @ViewChild(ItemRutinaMedidasComponent)
-itemRutinaMedidasComp!: ItemRutinaMedidasComponent;
-@ViewChild(ItemRutinaEjercicioComponent)
-itemRutinaEjerciciosComp!: ItemRutinaEjercicioComponent;
+@ViewChild(ItemRutinaMedidasComponent, { static: false })
+itemRutinaMedidasComp?: ItemRutinaMedidasComponent;
+
+@ViewChild(ItemRutinaEjercicioComponent, { static: false })
+itemRutinaEjerciciosComp?: ItemRutinaEjercicioComponent;
 
 
   constructor(
@@ -134,14 +139,14 @@ get ejerciciosConvertidos(): ItemRutinaEjercicio[] {
         this.lesiones = rutina.lesiones;
         this.padecimientos = rutina.padecimientos;
 
-        console.log('✅ Rutina cargada', rutina);
+        console.log(' Rutina cargada', rutina);
 
         this.clienteSeleccionado = {
           ...rutina.cliente,
           fechaNacimiento: ''
         };
 
-        // 🟢 Cargar medidas con detalles completos
+        //   medidas con detalles completos
         const idsMedidas = rutina.medidas.map(m => m.idMedidaCorporal);
         forkJoin(idsMedidas.map(id =>
           this.medidasService.getPorId(id)
@@ -152,7 +157,7 @@ get ejerciciosConvertidos(): ItemRutinaEjercicio[] {
           }));
         });
 
-        // 🟢 Cargar ejercicios con detalles completos
+        // ejercicios con detalles completos
         const idsEjercicios = rutina.ejercicios.map(e => e.idEjercicio);
         forkJoin(idsEjercicios.map(id =>
           this.http.get<any>(`${environment.apiBaseUrl}/ejercicios/${id}`)
@@ -177,30 +182,82 @@ get ejerciciosConvertidos(): ItemRutinaEjercicio[] {
     this.clientes = data;
   });
 }
-  seleccionarCliente(cliente: Cliente): void {
-    this.clienteSeleccionado = cliente;
-  }
+seleccionarCliente(cliente: Cliente): void {
+  this.clienteSeleccionado = cliente;
+  this.verificandoRutina = true;
+  this.tieneRutinaVigente = false;
 
-  
+  this.http.get<boolean>(`${environment.apiBaseUrl}/clientes/${cliente.idCliente}/rutinas/vigente`)
+    .subscribe({
+      next: (tieneVigente) => {
+        this.tieneRutinaVigente = tieneVigente;
+        this.verificandoRutina = false;
+      },
+      error: err => {
+        console.error('Error al verificar rutina vigente', err);
+        this.verificandoRutina = false;
+      }
+    });
+}
+
   continuar(): void {
-  console.log("Cliente al continuar", this.clienteSeleccionado); // agrega esto
-
-  if (!this.clienteSeleccionado) {
-    alert('Selecciona un cliente primero');
+  // Validación básica
+  if (!this.clienteSeleccionado?.idCliente) {
+    alert('Selecciona un cliente válido primero');
+    console.error(' Cliente no definido o sin ID');
     return;
   }
 
+  const idCliente = this.clienteSeleccionado.idCliente;
+const url = `${environment.apiBaseUrl}/clientes/${idCliente}/rutinas/vigente`;
+
+  this.http.get<boolean>(url).subscribe({
+    next: (tieneRutina) => {
+      if (tieneRutina && !this.modoEdicion) {
+        alert('⚠️ Este cliente ya tiene una rutina vigente. No se puede crear otra hasta que expire.');
+        return;
+      }
+
+      // Si está permitido continuar, avanzar al siguiente paso
+      this.stepper.next();
+
+      // Asignar los datos a la rutina
+      this.rutina.objetivo = this.objetivo;
+      this.rutina.lesiones = this.lesiones;
+      this.rutina.padecimientos = this.padecimientos;
+      this.rutina.horario = this.horario;
+      this.rutina.fechaCreacion = new Date().toISOString();
+
+      // Si no hay fecha de renovación, establecer a 3 meses desde hoy
+      if (!this.rutina.fechaRenovacion) {
+        const fechaRenovacion = new Date();
+        fechaRenovacion.setMonth(fechaRenovacion.getMonth() + 3);
+        this.rutina.fechaRenovacion = fechaRenovacion.toISOString();
+      }
+
+      this.rutina.idInstructor = 1; // ← cambiar esto cuando haya login real
+    },
+    error: err => {
+      console.error('❌ Error al verificar rutina vigente', err);
+      alert('Ocurrió un error al verificar la rutina vigente. Intenta más tarde.');
+    }
+  });
+}
+
+
+
+private continuarRutina(): void {
   this.stepper.next();
 
-    this.rutina.objetivo = this.objetivo;
-    this.rutina.lesiones = this.lesiones;
-    this.rutina.padecimientos = this.padecimientos;
-    this.rutina.horario = this.horario;
-    this.rutina.fechaCreacion = new Date().toISOString();
-    this.rutina.fechaRenovacion = new Date().toISOString();
-    this.rutina.idInstructor = 1; // cambiar si tienes autenticación real
-    
-  }
+  this.rutina.objetivo = this.objetivo;
+  this.rutina.lesiones = this.lesiones;
+  this.rutina.padecimientos = this.padecimientos;
+  this.rutina.horario = this.horario;
+  this.rutina.fechaCreacion = new Date().toISOString();
+  this.rutina.fechaRenovacion = new Date().toISOString(); // se recalcula en backend si es necesario
+  this.rutina.idInstructor = 1;
+}
+
 
   agregarMedida(): void {
     if (this.rutina.medidas) {
@@ -230,18 +287,32 @@ finalizar(): void {
     return;
   }
 
-  // Actualizar valores de la rutina
+  if (this.enviando) {
+    alert('⏳ Ya se está procesando la creación de la rutina. Espera un momento...');
+    return;
+  }
+
+  this.enviando = true; // bloquear siguientes clics
+
+  // Actualizar valores
   this.rutina.objetivo = this.objetivo;
   this.rutina.lesiones = this.lesiones;
   this.rutina.padecimientos = this.padecimientos;
   this.rutina.horario = this.horario;
   this.rutina.fechaCreacion = new Date().toISOString();
-  this.rutina.fechaRenovacion = new Date().toISOString();
-  this.rutina.idInstructor = 1;
+
+  // Fecha renovación por omisión: 3 meses después
+  if (!this.rutina.fechaRenovacion) {
+    const fechaRenovacion = new Date();
+    fechaRenovacion.setMonth(fechaRenovacion.getMonth() + 3);
+    this.rutina.fechaRenovacion = fechaRenovacion.toISOString();
+  }
+
+  this.rutina.idInstructor = 1; // cambiar si usas login
 
   // Preparar medidas
   this.rutina.medidas = (this.itemRutinaMedidasComp?.rutina || [])
-    .filter(item => item.medidaCorporal && item.medidaCorporal.codMedida !== undefined)
+    .filter(item => item.medidaCorporal?.codMedida !== undefined)
     .map(item => ({
       idMedidaCorporal: item.medidaCorporal.codMedida!,
       valorMedida: item.valorMedida,
@@ -258,8 +329,9 @@ finalizar(): void {
       equipo: item.equipoEjercicio
     }));
 
+  // DTO a enviar
   const rutinaDTO: RutinaCompletaDTO = {
-    idRutina: this.rutina.idRutina!, // para saber si es edición
+    idRutina: this.rutina.idRutina!,
     idInstructor: this.rutina.idInstructor!,
     objetivo: this.rutina.objetivo || '',
     lesiones: this.rutina.lesiones || '',
@@ -285,29 +357,65 @@ finalizar(): void {
     }
   };
 
-  // Imprimir DTO antes de enviar
-  console.log('📤 Enviando rutinaDTO al backend:', rutinaDTO);
+  // Verificar si ya tiene una rutina vigente antes de crear (solo en modo creación)
+  if (!this.modoEdicion) {
+const url = `${environment.apiBaseUrl}/clientes/${this.clienteSeleccionado!.idCliente}/rutinas/vigente`;
+    this.http.get<boolean>(url).subscribe({
+      next: (tieneRutina) => {
+        if (tieneRutina) {
+          alert('⚠️ Este cliente ya tiene una rutina vigente. No se puede crear otra.');
+          this.enviando = false;
+          return;
+        }
 
-  if (this.rutina.idRutina) {
+        // Crear rutina
+        this.crearRutina(rutinaDTO);
+      },
+      error: err => {
+        console.error('❌ Error al verificar rutina vigente', err);
+        alert('Ocurrió un error al verificar rutina vigente');
+        this.enviando = false;
+      }
+    });
+  } else {
     // Modo edición
     this.http.put(`${environment.apiBaseUrl}/clientes/${this.clienteSeleccionado.idCliente}/rutinas/${this.rutina.idRutina}`, rutinaDTO)
       .subscribe({
         next: () => {
           alert('✅ Rutina actualizada correctamente');
           localStorage.removeItem('itemsRutina');
+          this.enviando = false;
         },
-        error: err => console.error('❌ Error al actualizar rutina', err)
-      });
-  } else {
-    // Modo creación
-    this.http.post(`${environment.apiBaseUrl}/clientes/${this.clienteSeleccionado.idCliente}/rutinas/completa`, rutinaDTO)
-      .subscribe({
-        next: () => {
-          alert('✅ Rutina creada correctamente');
-          localStorage.removeItem('itemsRutina');
-        },
-        error: err => console.error('❌ Error al guardar rutina', err)
+        error: err => {
+          console.error('❌ Error al actualizar rutina', err);
+          this.enviando = false;
+        }
       });
   }
 }
+
+// Método auxiliar para crear rutina
+private crearRutina(rutinaDTO: RutinaCompletaDTO): void {
+this.http.post(`${environment.apiBaseUrl}/clientes/${this.clienteSeleccionado!.idCliente}/rutinas/completa`, rutinaDTO)
+  .subscribe({
+    next: () => {
+      alert('✅ Rutina creada correctamente');
+      localStorage.removeItem('itemsRutina');
+      this.enviando = false;
+    },
+    error: err => {
+      this.enviando = false;
+
+      if (err.status === 409) {
+        alert('⚠️ El cliente ya tiene una rutina vigente. No se puede crear otra.');
+      } else {
+        console.error('❌ Error al guardar rutina', err);
+        alert('Ocurrió un error al guardar la rutina');
+      }
+    }
+  });
+
+}
+
+
 }
