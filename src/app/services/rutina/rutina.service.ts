@@ -1,18 +1,24 @@
 // src/app/services/rutina/rutina.service.ts
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Rutina } from '@app/domain/rutina.model';
 import { Observable } from 'rxjs';
 import { environment } from '@environments/environment';
+
+import { map } from 'rxjs/operators';
+
 import { RutinaCompletaDTO } from '@app/domain/dto/RutinaCompletaDTO';
+
 
 @Injectable({ providedIn: 'root' })
 export class RutinaService {
 
-  private apiClientes = `${environment.apiBaseUrl}/clientes`;
   private apiUrl = `${environment.apiBaseUrl}/clientes`;
+ 
 
   constructor(private http: HttpClient) { }
+   private apiUrl2 = 'http://localhost:8080/bulk-gym/api/rutinas/recientes';
+  
 
   
   obtenerPorCliente(idCliente: number): Observable<RutinaCompletaDTO[]> {
@@ -40,7 +46,7 @@ export class RutinaService {
    */
   crearParaCliente(idCliente: number, rutina: Rutina): Observable<Rutina> {
     return this.http.post<Rutina>(
-      `${this.apiClientes}/${idCliente}/rutinas`,
+      `${this.apiUrl}/${idCliente}/rutinas`,
       rutina
     );
   }
@@ -50,7 +56,7 @@ export class RutinaService {
    */
   eliminarParaCliente(idCliente: number, idRutina: number): Observable<void> {
     return this.http.delete<void>(
-      `${this.apiClientes}/${idCliente}/rutinas/${idRutina}`
+      `${this.apiUrl}/${idCliente}/rutinas/${idRutina}`
     );
   }
 
@@ -62,7 +68,7 @@ export class RutinaService {
     idRutina: number
   ): Observable<Blob> {
     return this.http.get(
-      `${this.apiClientes}/${idCliente}/rutinas/${idRutina}/pdf`,
+      `${this.apiUrl}/${idCliente}/rutinas/${idRutina}/pdf`,
       {
         responseType: 'blob',
       }
@@ -96,6 +102,18 @@ export class RutinaService {
     });
   }
 
+
+ getRutinasRecientes(fechaLimite: Date): Observable<any[]> {
+    const fechaFormateada = fechaLimite.toISOString().split('T')[0]; // formato yyyy-MM-dd
+    const params = new HttpParams().set('fechaLimite', fechaFormateada);
+
+    // Llama a: http://localhost:8080/bulk-gym/api/rutinas/recientes?fechaLimite=yyyy-MM-dd
+    return this.http.get<any[]>(`${this.apiUrl2}`, { params });
+  }
+
+
+
+
   getPdfParaCliente(
     idCliente: number,
     idRutina: number
@@ -103,12 +121,6 @@ export class RutinaService {
     return this.descargarPdfParaCliente(idCliente, idRutina);
   }
 
-  getRutinasRecientes(fechaLimite: Date): Observable<Rutina[]> {
-  return this.http.get<Rutina[]>(`${this.apiUrl}/recientes`, {
-    params: {
-      fechaLimite: fechaLimite.toISOString()
-    }
-  });
+ 
+
 }
-  }
-  

@@ -3,6 +3,10 @@
   <!-- Botón para abrir modal -->
   <button class="btn btn-primary mb-3" (click)="abrirModal()">Agregar Item</button>
 
+  <div class="mb-3">
+    <input type="text" class="form-control" [(ngModel)]="filtroCategoria" placeholder="Buscar por categoría...">
+  </div>
+
   <!-- Tabla de Items -->
   <table class="table table-striped">
     <thead>
@@ -15,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of items">
+      <tr *ngFor="let item of itemsFiltrados">
         <td>{{ obtenerNombreEjercicio(item.idEjercicio) }}</td>
         <td>{{ item.seriesEjercicio }}</td>
         <td>{{ item.repeticionesEjercicio }}</td>

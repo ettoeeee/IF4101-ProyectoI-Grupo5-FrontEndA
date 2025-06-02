@@ -140,7 +140,12 @@ export const routes: Routes = [
           import('./features/rutinas/rutinas-por-cliente/rutinas-por-cliente.component')
             .then(m => m.RutinasPorClienteComponent)
       }, 
-
+{
+  path: 'rutinas-cliente/:clienteId',
+  loadComponent: () =>
+    import('./features/rutinas/rutinas-por-cliente/rutinas-por-cliente.component')
+      .then(m => m.RutinasPorClienteComponent)
+},
 
       {
   path: 'rutinas/nueva',
@@ -165,6 +170,8 @@ export const routes: Routes = [
 
     ]
   }
+
+  
 
   
 ];

@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef, Input, AfterViewInit, OnChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators, FormsModule } from '@angular/forms';
 import { ItemRutinaEjercicioService } from '@app/services/itemRutinaEjercicio/item-rutina-ejercicio.service';
 import { EjercicioService } from '@app/services/ejercicio/ejercicio.service';
 import { ItemRutinaEjercicio } from '@app/domain/item-rutina-ejercicio.model';
@@ -11,7 +11,7 @@ import { SimpleChanges } from '@angular/core';
 @Component({
   selector: 'app-item-rutina-ejercicio',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, FormsModule],
   templateUrl: './item-rutina-ejercicios.component.html',
   styleUrls: ['./item-rutina-ejercicios.component.css']
 })
@@ -23,6 +23,7 @@ export class ItemRutinaEjercicioComponent implements OnInit , OnChanges {
   formulario: FormGroup;
   items: ItemRutinaEjercicio[] = [];
   ejercicios: Ejercicio[] = [];
+  filtroCategoria: string = '';
 
   mostrarModal = false;
   modoEditar = false;
@@ -156,6 +157,25 @@ ngOnInit(): void {
   obtenerNombreEjercicio(id: number): string {
   const ejercicio = this.ejercicios.find(e => e.idEjercicio === id);
   return ejercicio ? ejercicio.nombreEjercicio : 'Desconocido';
+  }
+
+
+  get itemsFiltrados(): ItemRutinaEjercicio[] {
+    if (!this.filtroCategoria.trim()) {
+      return this.items;
+    }
+
+    const filtroLower = this.filtroCategoria.toLowerCase();
+
+    return this.items.filter(item => {
+      const ejercicio = this.ejercicios.find(e => e.idEjercicio === item.idEjercicio);
+
+      if (!ejercicio || !ejercicio.categoriaEjercicio) return false;
+
+      return ejercicio.categoriaEjercicio.some(cat =>
+        cat.nombreCategoria.toLowerCase().includes(filtroLower)
+      );
+    });
   }
 
 }
