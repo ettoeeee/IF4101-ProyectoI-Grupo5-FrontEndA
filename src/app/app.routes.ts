@@ -27,7 +27,7 @@ export const routes: Routes = [
       {
         path: 'instructor', component: EntrenadorPanelComponent,
       },
-      { path: 'clientes', component: ClienteListComponent },
+      //{ path: 'clientes', component: ClienteListComponent },
 
 
       {
