@@ -2,10 +2,11 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MedidaCorporal } from '@app/domain/medidaCorporal.model';
 import { Observable } from 'rxjs';
+import { environment } from '@environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class ItemRutinaMedidasService {
-  private apiUrl = 'https://9497-163-178-107-104.ngrok-free.app/bulk-gym/api/itemMedidas/medidasItem';
+  private apiUrl = `${environment.apiBaseUrl}/itemMedidas/medidasItem`;
 
   constructor(private http: HttpClient) {}
 

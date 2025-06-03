@@ -17,7 +17,7 @@ export class RutinaService {
  
 
   constructor(private http: HttpClient) { }
-   private apiUrl2 = 'https://9497-163-178-107-104.ngrok-free.app/bulk-gym/api/rutinas/recientes';
+   private apiUrl2 = `${environment.apiBaseUrl}/rutinas/recientes`;
   
 
   

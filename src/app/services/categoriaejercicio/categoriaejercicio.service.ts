@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CategoriaEjercicio } from '../../domain/categoriaejercicio.model';
+import { environment } from '@environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriaEjercicioService {
-  private apiUrl = 'https://1b7e-163-178-107-104.ngrok-free.app/bulk-gym/api/categorias'; // Ajusta si el endpoint es diferente
+  private apiUrl = `${environment.apiBaseUrl}/categorias`;
 
   constructor(private http: HttpClient) {}
 

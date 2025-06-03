@@ -33,7 +33,9 @@ import { TranslationService } from './services/translate/translate.service';
   `],
   imports: [RouterOutlet]
 })
-export class AppComponent {
+export class AppComponent { 
+  public title = 'bulk-gym-frontend';
+
   constructor(private translationService: TranslationService) { }
 
   onLanguageChange(lang: string) {
