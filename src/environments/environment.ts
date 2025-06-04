@@ -1,5 +1,5 @@
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:8080/bulk-gym/api' //Linea de ejemplo
+  apiBaseUrl: 'https://if4101-proyectoi-grupo5-production.up.railway.app/bulk-gym/api' //Linea de ejemplo
   
 };
